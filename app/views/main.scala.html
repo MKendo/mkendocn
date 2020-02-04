@@ -1,0 +1,75 @@
+@(titleType: String,loginUserInfo: String,isNeedLogin: Boolean)(content: Html)
+
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+    <head>
+        <title>
+		@if(titleType=="HOMEPAGE"){
+		    "深圳剑道 明剑馆 首页"   
+		}else if(titleType=="ABOUTUS"){
+		    "深圳剑道 明剑馆 关于我们"
+		}else if(titleType=="NEWS"){
+            "深圳剑道 明剑馆 新闻与活动"
+        }else{
+            @titleType
+         }
+		</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="深圳剑道 明剑馆" />
+        <meta name="keywords" content="深圳剑道,剑道,明剑,明剑馆,academy, course, education, education html theme, elearning, learning" />
+        <meta name="author" content="明剑馆" />
+        <!-- Favicon and Touch Icons -->
+        @head.touchicons()
+        <!-- Stylesheet -->
+        @head.commoncss()
+        <!-- CSS | menuzord megamenu skins -->
+        @head.menuskins()
+        <!-- CSS | Main style file -->
+        @head.maincss()
+        <!-- CSS | Preloader Styles  -->
+        @head.preloadercss()
+        <!-- CSS | Custom Margin Padding Collection -->
+        @head.custombootstrapmarginpaddingcss()
+        <!-- CSS | Responsive media queries -->
+        @head.responsivecss() <!--登录页，老师页列表页-->
+        <!-- CSS | Theme Color -->
+        @head.themskincolorset1css()
+        <!-- external javascripts -->
+        @head.exjs()
+        @head.forie9js()
+    </head>
+    <body>
+    <div id="wrapper" class="clearfix">
+        <!-- preloader @@widgets.preloader() -->
+
+
+        <!-- Header -->
+        <header id="header" class="header">
+            <!--nav.headertop()-->
+	        @nav.headermiddle()
+			@nav.headernav(titleType,loginUserInfo)
+        </header>
+
+        @if(isNeedLogin && loginUserInfo.isEmpty) {
+            <div class="container">
+                <div class="esc-heading heading-line-bottom lr-line left-heading">
+                    <h4>您尚未登录，没有权限访问此页面，如果需要请先登录，或者联系西瓜师姐哦。</h4>
+                </div>
+            </div>
+        }else{
+            <!-- Start main-content -->
+            <div class="main-content">
+            @content
+            <!-- end main-content -->
+            @footer.first()
+            </div>
+        }
+    </div><!-- end wrapper -->
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    <!-- Footer Scripts -->
+    @js.customjs()
+    </body>
+</html>

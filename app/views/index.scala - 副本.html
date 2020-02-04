@@ -1,0 +1,41 @@
+@main("深圳剑道 明剑馆 首页"){
+	<!-- Revolution Slider 5.x CSS settings -->
+	@head.revolutionslider5css()
+	<!-- JS | jquery plugin collection for this theme -->
+	@js.jqueryplugincollectionjs()
+	<!-- Revolution Slider 5.x SCRIPTS -->
+	@js.revolutionslider5js()
+
+		<!-- Section: home @@widgets.home() 巨大的轮播广告 暂时屏蔽-->
+		<!-- Section: About -->
+		@widgets.aboutimportant()
+		<!-- Section: Why Choose Us -->
+		<section id="event" class="">
+			<div class="container pb-50">
+				<div class="section-content">
+					<div class="row">
+						@widgets.upcommingevents()
+						@widgets.whychooseus()
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Divider: Funfact -->
+		@widgets.dividerqrcode()
+		<!-- Section: team -->
+		@widgets.team()
+		<!-- Section: Gallery -->
+		@widgets.gallery()
+		<!-- Section: COURSES -->
+		@widgets.ourcourses()
+		<!-- Divider: testimonials -->
+		@widgets.dividertestimonials()
+		<!-- Section: blog -->
+		@widgets.newslist()
+		<!-- Divider: Clients -->
+		@widgets.dividerclients()
+		<!-- end main-content -->
+
+@js.sliderrevolution5extensions()
+}

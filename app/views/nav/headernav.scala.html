@@ -1,0 +1,64 @@
+@(activePage: String,loginUserInfo: String)
+<div class="header-nav">
+      <div class="header-nav-wrapper navbar-scrolltofixed bg-theme-colored border-bottom-theme-color-2-1px">
+        <div class="container">
+          <nav id="menuzord" class="menuzord bg-theme-colored pull-left flip menuzord-responsive">
+            <ul class="menuzord-menu">
+              <li @if(activePage=="HOMEPAGE"){ class="active" }><a href="/">明剑馆</a></li>
+			  <!--
+                <ul class="dropdown">
+                  <li><a href="/">首页</a></li>
+                  <li><a href="/teachers">师范阵</a></li>
+                  <li><a href="#">剑士名牌</a></li>
+                </ul>
+			  -->
+
+			  <!--
+              <li><a href="#">剑道</a>
+                <ul class="dropdown">
+                  <li><a href="/kendoroom">剑道教室</a></li>
+                  <li><a href="/kendoliving">剑道生活</a></li>
+                  <li><a href="/photos">明剑相册</a></li>
+                </ul>
+              </li>
+			  -->
+              <li @if(activePage=="NEWS"){ class="active" }><a href="/news">新闻与活动</a></li>
+                <!--<li><a href="/news">新闻与活动 <span class="label label-info">New</span></a>
+                   <ul class="dropdown">
+                     <li><a href="/news">新闻</a></li>
+                     <li><a href="/events">活动报名</a></li>
+                   </ul>
+                </li>
+                -->
+              <li @if(activePage=="ABOUTUS"){ class="active" }><a href="/aboutus">关于我们</a></li>
+              <!--
+			  <li><a href="#">明剑实验室</a>
+			  <li><a href="/shop">会员商店</a></li>
+			  -->
+
+              <li><a href="https://www.weibo.com/openkendo" target="_blank">微博</a></li>
+
+              @if(loginUserInfo.nonEmpty) {
+                @loginednav()
+              }
+
+            </ul>
+            <ul class="pull-right flip hidden-sm hidden-xs">
+              <li>
+                <!-- Modal: Book Now Starts -->
+                <a class="btn btn-colored btn-flat bg-theme-color-2 text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15" data-toggle="modal" target="_blank" href=@routes.MkendoController.booking()>我要体验</a><!--data-target="#BSParentModal" -->
+                <!-- Modal: Book Now End -->
+              </li>
+            </ul>
+            <div id="top-search-bar" class="collapse">
+              <div class="container">
+                <form role="search" action="#" class="search_form_top" method="get">
+                  <input type="text" placeholder="Type text and press Enter..." name="s" class="form-control" autocomplete="off">
+                  <span class="search-close"><i class="fa fa-search"></i></span>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,39 @@
+@(loginedUserInfo:String)
+@main("深圳剑道 明剑馆 剑道教室", loginedUserInfo,false){
+    @nav.innerheadernav("首页","/","剑道教室")
+        <!-- Section: Course gird -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 blog-pull-right">
+                        <div class="row">
+                            @widgets.coursedesc("剑道的礼","原则上，剑道练习的礼节，分有三种对象：神、老师、对手。道场一词起源于佛教，带有学习、修道的意思，并且代表了神圣的场域。","0")
+                            @widgets.coursedesc("正确的中段","从古代日本剑术中，现代剑道保留了五种「构 」或称「架势」，当中以中段为最常用和 最基本的架势。中段可攻可守。。。","0")
+                            @widgets.coursedesc("剑道用具","竹刀是日本剑道练习时所使用的攻击器具，以竹片制成。竹刀的普及不但降低了练习时的风险，也让剑道能以运动的层次发展。","0")
+                            @widgets.coursedesc("折衣服","剑道的道服每次练习完都要工整的折叠起来，回家洗干净之后，仍然要工工整整的折叠，以便于下次练习时带回道场，穿着整齐干净的衣服.","0")
+                            @widgets.coursedesc("冥想","许多人认为冥想时，脑海应该努力放空。这显然​​很难办到。当你无法放空时，你就让自己的思想自然流动，随着思绪漫步宇宙。","0")
+                            @widgets.coursedesc("剑道基本技稽古法","又称九刀十三形，把剑道稽古时常的技术一一展示了出来，平常要通过木刀的练习来体会剑理，调整姿势，练习观察。","0")
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <div class="sidebar sidebar-left mt-sm-30">
+                            @widgets.search("课程")
+                            @widgets.articlecatgories("课程",Array("剑道的礼","正确的中段","剑道用具","折衣服","冥想","剑道基本技稽古法"))
+                            <!--
+                            widgets.latestarticle("课程",Map("剑道基本技稽古法"->"又称九刀十三形，把剑道稽古时常的技术一一展示...","冥想"->"法放空时，让自己的思想自然流动，让思绪漫步宇宙...","如何打蝴蝶结"->"衣服的蝴蝶结要打平，胴绳要打平，面绳要打平..."))
+                            -->
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="row">
+                    <div class="col-sm-12">
+                       @@widgets.pagesplitter()
+                    </div>
+                </div>
+                -->
+            </div>
+        </section>
+    <!-- end main-content -->
+
+}

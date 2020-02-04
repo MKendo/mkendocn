@@ -1,0 +1,32 @@
+@(loginedUserInfo:String, articles: List[Article], currentArticle: Article)
+@main("NEWS", loginedUserInfo,false){
+<!--nav.innerheadernav("首页","/","新闻")-->
+<!-- Section: Blog -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <div class="sidebar sidebar-left mt-sm-30">
+                    @widgets.search("NEWS")
+                    @widgets.latestarticle("新闻",articles)
+                    @widgets.photosfromflickr()
+                </div>
+            </div>
+            <div class="col-md-9 blog-pull-right">
+                <div class="blog-posts single-post">
+                    @if(currentArticle==null && articles.nonEmpty){
+                        currentArticle = if(articles.isEmpty){null} else{articles(0)}
+                    }
+                    @widgets.articledetail(currentArticle)
+                    <!--
+                    widgets.articletagsline()
+                    widgets.articleauthordetail()
+                    widgets.commentarea()
+                    widgets.commentform()
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+}

@@ -1,0 +1,34 @@
+@(loginedUserInfo:String)
+@main("深圳剑道 明剑馆 博客", loginedUserInfo,false){
+@nav.innerheadernav("首页","/","博客")
+<!-- Section: Blog -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <div class="sidebar sidebar-left mt-sm-30">
+                    @widgets.search("博客")
+                    <!--
+                    widgets.latestarticle("博客",Map("今天白石洲的练习"->"小佳超级VIP啊！","周六大家一起复习比赛视频"->"赛后看视频学习非常重要啊，师姐们好用心","我们有了专业编辑"->"期待有更好的干货文章，更好的活动总结..."))
+                    -->
+                    @widgets.photosfromflickr()
+                </div>
+            </div>
+            <div class="col-md-9 blog-pull-right">
+                <div class="blog-posts single-post">
+                    <!--
+                    widgets.articledetail()
+                    -->
+                    @widgets.articletagsline()
+                    <!--
+                    widgets.articleauthordetail()
+                    -->
+                    @widgets.commentarea()
+                    @widgets.commentform()
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end main-content -->
+}

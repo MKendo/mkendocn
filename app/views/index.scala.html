@@ -1,0 +1,37 @@
+@(loginedUserInfo: String,newslist: List[Article])
+@main("HOMEPAGE",loginedUserInfo,false){
+	<!-- Revolution Slider 5.x CSS settings -->
+	@head.revolutionslider5css()
+	<!-- JS | jquery plugin collection for this theme -->
+	@js.jqueryplugincollectionjs()
+	<!-- Revolution Slider 5.x SCRIPTS -->
+	@js.revolutionslider5js()
+
+		<!-- Section: home @@widgets.home() 巨大的轮播广告 暂时屏蔽-->
+		<!-- Section: About -->
+		@widgets.aboutimportant()	
+        <!-- widgets.calltoaction()	-->	
+		<!-- widgets.aboutdetail() -->
+		<!-- Divider: Funfact -->
+		@widgets.dividerqrcode()
+		
+		<!-- Section: Why Choose Us -->
+		<section id="event" class="">
+			<div class="container pb-50">
+				<div class="section-content">
+					<div class="row">
+						<div class="col-md-6">@widgets.lastnews(loginedUserInfo,newslist)</div>
+						<div class="col-md-6">@widgets.whychooseus()</div>
+					</div>
+				</div>
+			</div>
+		</section>   
+	
+		<!-- Section: Gallery 
+		widgets.gallery()  -->
+		<!-- Section: COURSES
+		widgets.ourcourses() -->
+		<!-- end main-content -->
+
+    @js.sliderrevolution5extensions()
+}

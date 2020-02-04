@@ -1,0 +1,9 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(D:\products\mkendocn\conf\application.conf,D:\products\mkendocn\target\scala-2.12\classes\application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(D:\products\mkendocn\conf\evolutions,D:\products\mkendocn\target\scala-2.12\classes\evolutions)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(D:\products\mkendocn\conf\evolutions\default,D:\products\mkendocn\target\scala-2.12\classes\evolutions\default)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(D:\products\mkendocn\conf\evolutions\default\1.sql,D:\products\mkendocn\target\scala-2.12\classes\evolutions\default\1.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(D:\products\mkendocn\conf\logback.xml,D:\products\mkendocn\target\scala-2.12\classes\logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(D:\products\mkendocn\conf\messages,D:\products\mkendocn\target\scala-2.12\classes\messages)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(D:\products\mkendocn\conf\routes,D:\products\mkendocn\target\scala-2.12\classes\routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(D:\products\mkendocn\conf\_application.conf,D:\products\mkendocn\target\scala-2.12\classes\_application.conf)[0m

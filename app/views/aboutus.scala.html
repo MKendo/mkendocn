@@ -1,0 +1,22 @@
+@(loginedUserInfo:String)
+@main("ABOUTUS",loginedUserInfo,false){
+<!--nav.innerheadernav("首页","/","关于我们")-->
+@widgets.aboutdetail()
+@widgets.dividerqrcode()
+<section>
+    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                @widgets.welcome()
+                @widgets.tipwithimg("1.体验一下", "从来没有接触过剑道？可以亲自体验一次，给我们一节课的时间，让您全面了解剑道是否适合自己。", "立即申请","#", "https://jinshuju.net/f/6uwTbM")
+                @widgets.tipwithimg("2.加入明剑", "已经体验过了，觉得非常适合自己，想要立刻报名，加入明剑馆。请联系馆长（15889489370）后，填写报名表。", "填写报名表", "#", "https://jinshuju.net/f/tcyySF")
+                @widgets.tipwithimg("3.在线课程", "暂时不能来馆里练习，不过非常喜爱剑道，想学习一些理论知识，那么从这里开始吧。。", "剑道教室（建设中...）", "#", "#")
+            </div>
+        </div>
+    </div>
+</section>
+<!--
+widgets.ourfeatures()
+widgets.dividerclients()
+-->
+}

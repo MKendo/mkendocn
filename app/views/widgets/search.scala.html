@@ -1,0 +1,14 @@
+@(searchType: String)
+<div class="widget">
+    <h5 class="widget-title line-bottom">搜索 <span class="text-theme-color-2">@if(searchType=="NEWS"){新闻}</span></h5>
+    <div class="search-form">
+        <form id="form_search" name="form_search" method="post" action=@routes.SearchController.search(searchType)>
+            <div class="input-group">
+                <input type="text" placeholder="请输入要搜索的内容" class="form-control search-input" id="searchtext" name="searchtext">
+                <span class="input-group-btn">
+                      <button type="submit" class="btn search-button"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>

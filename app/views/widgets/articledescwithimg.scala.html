@@ -1,0 +1,12 @@
+@(article: Article)
+<article class="post media-post clearfix pb-0 mb-10">
+    <a class="post-thumb" href="/news/:@article.code"><img src="@routes.Assets.versioned("images/users/" + article.imgurl)" alt=""></a>
+    <div class="post-right">
+        <h4 class="post-title mt-0"><a href="/news/:@article.code">@article.title</a></h4>
+        <ul class="list-inline font-12 mb-5">
+            <li class="pr-0"><i class="fa fa-calendar mr-5"></i> @article.eventStartDatetime |</li>
+            <li class="pl-5"><i class="fa fa-map-marker mr-5"></i>@article.eventAddress</li>
+        </ul>
+        <p class="mb-0 font-13">@article.shortcontent</p>
+    </div>
+</article>

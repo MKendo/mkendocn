@@ -1,0 +1,32 @@
+@(loginedUserInfo:String)
+@main("深圳剑道 明剑馆 会员商店", loginedUserInfo,false){
+@nav.innerheadernav("首页","/","明剑馆会员商店")
+<section class="">
+    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-sm-12 col-md-9">
+                    <div class="row multi-row-clearfix">
+                       @widgets.productlist()
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3">
+                    <div class="sidebar sidebar-right mt-sm-30">
+                        @widgets.search("商品")
+                        @widgets.articlecatgories("商品",Array("竹剑","木刀","护具","箱包","小物件","文化周边"))
+                        @widgets.topsellers()
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @widgets.pagesplitter()
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+<!-- end main-content -->
+}

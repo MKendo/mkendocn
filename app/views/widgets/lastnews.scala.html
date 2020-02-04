@@ -1,0 +1,16 @@
+@(loginedUserInfo:String, newslist: List[Article])
+    <h3 class="text-uppercase line-bottom mt-0 line-height-1"><i class="fa fa-calendar mr-10"></i>最近的<span class="text-theme-color-2">新闻与活动</span></h3>
+    @for(news <- newslist) {
+    <article class="post media-post clearfix pb-0 mb-10">
+        <a href="/news/:@news.code" class="post-thumb mr-20"><img alt="" width="120" height="120" src="@routes.Assets.versioned("images/users/" + news.imgurl)"></a>
+        <div class="post-right">
+            <h4 class="mt-0 mb-5"><a target="_blank" href="/news/:@news.code">@news.title</a></h4>
+            <ul class="list-inline font-12 mb-5">
+                <li class="pr-0"><i class="fa fa-calendar mr-5"></i> @news.eventStartDatetime |</li>
+                <li class="pl-5"><i class="fa fa-map-marker mr-5"></i>@news.eventAddress</li>
+            </ul>
+            <p class="mb-0 font-13">@news.shortcontent</p>
+            <a class="text-theme-colored font-13" target="_blank" href="/news/:@news.code">阅读全文 →</a>
+        </div>
+    </article>
+    }

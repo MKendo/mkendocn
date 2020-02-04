@@ -1,0 +1,11 @@
+@(articleType: String, articleTitles: Array[String])
+<div class="widget">
+    <h5 class="widget-title line-bottom">@articleType <span class="text-theme-color-2">分类</span></h5>
+    <div class="categories">
+        <ul class="list list-border angle-double-right">
+            @for(title <- articleTitles){
+                <li><a href="#">@title<span>(19)</span></a></li>
+            }
+        </ul>
+    </div>
+</div>
