@@ -80,7 +80,7 @@ Seq[Any](format.raw/*1.2*/("""<!-- Footer -->
         </div>
         <div class="col-sm-6 col-md-3">
           <div class="widget dark">
-            <h4 class="widget-title line-bottom-theme-colored-2">福保道场</h4>
+            <h4 class="widget-title line-bottom-theme-colored-2">福田道场</h4>
             <h5 class="widget-title line-bottom-theme-colored-2">道场地址：</h5>
             <div class="opening-hours">
               <ul class="list-border">
@@ -116,12 +116,12 @@ Seq[Any](format.raw/*1.2*/("""<!-- Footer -->
         </div>
         <div class="col-sm-6 col-md-3">
           <div class="widget dark">
-            <h4 class="widget-title line-bottom-theme-colored-2">白石洲道场</h4>
+            <h4 class="widget-title line-bottom-theme-colored-2">南山道场</h4>
             <h5 class="widget-title line-bottom-theme-colored-2">道场地址：</h5>
             <div class="opening-hours">
               <ul class="list-border">
                 <li class="clearfix"> <span></span>
-                  <div class="value pull-right">南山白石洲世纪村小区会所4楼 U乐街舞培训中心 大教室</div>
+                  <div class="value pull-right">南山区南山大道1105号 联华篮球馆（VIP篮球场）</div>
                 </li>
               </ul>
             </div>
@@ -213,9 +213,9 @@ Seq[Any](format.raw/*1.2*/("""<!-- Footer -->
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 04 16:32:13 CST 2020
+                  DATE: Wed Feb 05 19:16:31 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/footer/first.scala.html
-                  HASH: 4b567d77d423e624d946e27585ce8661a6713531
+                  HASH: 2d2f44673f72f2cdea3f3a6c698091251d0b7327
                   MATRIX: 818->1|1323->480|1337->486|1407->536
                   LINES: 26->1|34->9|34->9|34->9
                   -- GENERATED --

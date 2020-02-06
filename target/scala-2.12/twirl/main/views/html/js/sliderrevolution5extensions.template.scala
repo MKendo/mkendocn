@@ -51,7 +51,7 @@ Seq[Any](format.raw/*1.1*/("""<!-- SLIDER REVOLUTION 5.0 EXTENSIONS
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 04 16:32:13 CST 2020
+                  DATE: Wed Feb 05 19:16:31 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/js/sliderrevolution5extensions.scala.html
                   HASH: cfd0521fbb64648d730bbbb4d7bdd11fe8ebc78b
                   MATRIX: 836->0|1070->208|1084->214|1196->305|1272->355|1286->361|1399->453|1475->503|1489->509|1601->600|1677->650|1691->656|1810->754|1886->804|1900->810|2014->903|2090->953|2104->959|2219->1053|2296->1103|2311->1109|2425->1201|2502->1251|2517->1257|2633->1351|2710->1401|2725->1407|2836->1496

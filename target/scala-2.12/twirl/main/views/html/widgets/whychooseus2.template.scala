@@ -68,7 +68,7 @@ Seq[Any](format.raw/*1.1*/("""<div class="col-md-5">
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 04 16:32:14 CST 2020
+                  DATE: Wed Feb 05 19:16:34 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/whychooseus2.scala.html
                   HASH: e8c4685be03d0546e7c31efaf5c7f22bb456b8cc
                   MATRIX: 826->0

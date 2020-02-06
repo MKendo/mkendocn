@@ -44,7 +44,7 @@ Seq[Any](format.raw/*1.26*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 04 16:32:13 CST 2020
+                  DATE: Wed Feb 05 19:16:31 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/booking.scala.html
                   HASH: 430c87514006bce7acfff26f357e1e0fa95d9349
                   MATRIX: 731->1|850->25|878->28|923->65|961->66|989->68|1059->113|1073->120|1109->136|1141->139

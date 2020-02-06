@@ -11,7 +11,7 @@ import play.api.db.DBApi
 import play.api.i18n._
 import play.api.libs.json.Json
 import play.api.mvc._
-import service.NewsService
+import service.{BookingService, NewsService}
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -132,6 +132,20 @@ class MkendoController @Inject()(cc: MessagesControllerComponents)(dbapi: DBApi)
   def booking = Action { implicit request =>
     val loginedUserInfo = Common.loginConfirm(request.session)
     Ok(views.html.booking(loginedUserInfo))
+  }
+
+  def bookinglist(timePeriodKeyword:String) = Action { implicit request =>
+    val loginedUserInfo = Common.loginConfirm(request.session)
+
+    val bookingService = new BookingService(dbapi)
+    var bookings: List[Booking] = timePeriodKeyword match{
+      case "ALL" => bookingService.findByTimePeriod("","")
+      case "CURRENT_WEEK" => bookingService.findByTimePeriod(Common.getCurrentWeekStart(),Common.getCurrentWeekEnd())
+      case "NEXT_WEEK" => bookingService.findByTimePeriod(Common.getNextWeekStart(),Common.getNextWeekEnd())
+      case _ => bookingService.findByTimePeriod("","")
+    }
+
+    Ok(views.html.bookinglist(loginedUserInfo,timePeriodKeyword,bookings))
   }
 
   /**

@@ -1,0 +1,47 @@
+@(loginedUserInfo:String,timePeriodKeyword:String,bookings:List[Booking])
+@main("BOOKING",loginedUserInfo,true){
+
+<section>
+<div class="container">
+    <div class="row">
+        <h3 class="mt-0 mb-20">查看近期的<span class="text-theme-color-2">预约信息</span></h3>
+        <i class="fa fa-search"></i>
+        @if(timePeriodKeyword=="ALL"){
+            <span class="text-theme-color-2">全部</span>
+        }else{
+        <a href=@routes.MkendoController.bookinglist("ALL")>全部</a>
+        }
+        @if(timePeriodKeyword=="CURRENT_WEEK"){
+            <span class="text-theme-color-2">本周</span>
+        }else{
+            <a href=@routes.MkendoController.bookinglist("CURRENT_WEEK")>本周</a>
+        }
+        @if(timePeriodKeyword=="NEXT_WEEK"){
+            <span class="text-theme-color-2">下周</span>
+        }else{
+            <a href=@routes.MkendoController.bookinglist("NEXT_WEEK")>下周</a>
+        }
+        <table class="table table-striped">
+            <tr>
+                <td>预约时间</td>
+                <td>预约人</td>
+                <td>手机号</td>
+                <td>练习场次</td>
+                <td>课程</td>
+            </tr>
+            @for(booking <- bookings) {
+            <tr>
+                <td>@booking.classdate</td>
+                <td>@booking.name</td>
+                <td>@booking.mobile</td>
+                <td>@booking.placetimeName</td>
+                <td>@booking.coursename</td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>
+</section>
+}
+
+<!---->

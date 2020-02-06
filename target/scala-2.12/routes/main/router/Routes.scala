@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/products/mkendocn/conf/routes
-// @DATE:Tue Feb 04 16:32:13 CST 2020
+// @DATE:Thu Feb 06 18:50:17 CST 2020
 
 package router
 
@@ -23,7 +23,7 @@ class Routes(
   SearchController_1: controllers.SearchController,
   // @LINE:41
   BookingController_3: controllers.BookingController,
-  // @LINE:44
+  // @LINE:45
   Assets_5: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -40,7 +40,7 @@ class Routes(
     SearchController_1: controllers.SearchController,
     // @LINE:41
     BookingController_3: controllers.BookingController,
-    // @LINE:44
+    // @LINE:45
     Assets_5: controllers.Assets
   ) = this(errorHandler, MkendoController_4, LoginController_2, NewsController_0, SearchController_1, BookingController_3, Assets_5, "/")
 
@@ -68,6 +68,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """aboutus""", """controllers.MkendoController.aboutus"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """user/booking""", """controllers.MkendoController.booking"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """user/createbooking""", """controllers.BookingController.createBooking"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """bookinglist/""" + "$" + """timePeriodKeyword<[^/]+>""", """controllers.MkendoController.bookinglist(timePeriodKeyword:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -316,11 +317,29 @@ class Routes(
     )
   )
 
-  // @LINE:44
-  private[this] lazy val controllers_Assets_versioned13_route = Route("GET",
+  // @LINE:42
+  private[this] lazy val controllers_MkendoController_bookinglist13_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("bookinglist/"), DynamicPart("timePeriodKeyword", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_MkendoController_bookinglist13_invoker = createInvoker(
+    MkendoController_4.bookinglist(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.MkendoController",
+      "bookinglist",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """bookinglist/""" + "$" + """timePeriodKeyword<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:45
+  private[this] lazy val controllers_Assets_versioned14_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned13_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned14_invoker = createInvoker(
     Assets_5.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -415,10 +434,16 @@ class Routes(
         controllers_BookingController_createBooking12_invoker.call(BookingController_3.createBooking)
       }
   
-    // @LINE:44
-    case controllers_Assets_versioned13_route(params@_) =>
+    // @LINE:42
+    case controllers_MkendoController_bookinglist13_route(params@_) =>
+      call(params.fromPath[String]("timePeriodKeyword", None)) { (timePeriodKeyword) =>
+        controllers_MkendoController_bookinglist13_invoker.call(MkendoController_4.bookinglist(timePeriodKeyword))
+      }
+  
+    // @LINE:45
+    case controllers_Assets_versioned14_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned13_invoker.call(Assets_5.versioned(path, file))
+        controllers_Assets_versioned14_invoker.call(Assets_5.versioned(path, file))
       }
   }
 }

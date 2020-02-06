@@ -28,6 +28,7 @@ Seq[Any](format.raw/*1.4*/("""
     <ul class="dropdown">
         <li><a href="/postnews">发布新闻</a></li>
         <li><a href="#">会员管理</a></li>
+        <li><a href="/bookinglist/ALL">预约管理</a></li>
         <li><a href="/logout">退出</a></li>
     </ul>
 </li>"""))
@@ -46,9 +47,9 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 04 16:32:14 CST 2020
+                  DATE: Thu Feb 06 19:04:42 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/nav/loginednav.scala.html
-                  HASH: d26afe003b6c2ad56b5f97bc6689c3a9bb9ca989
+                  HASH: 48695090afb39a5e9fad6e262df4c0e294ca2195
                   MATRIX: 731->1|827->3|855->5
                   LINES: 21->1|26->1|27->2
                   -- GENERATED --

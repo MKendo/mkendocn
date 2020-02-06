@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/products/mkendocn/conf/routes
-// @DATE:Tue Feb 04 16:32:13 CST 2020
+// @DATE:Thu Feb 06 18:50:17 CST 2020
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -10,7 +10,7 @@ import _root_.controllers.Assets.Asset
 // @LINE:10
 package controllers.javascript {
 
-  // @LINE:44
+  // @LINE:45
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -18,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:44
+    // @LINE:45
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -144,6 +144,16 @@ package controllers.javascript {
       """
         function(articleCode0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "news/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("articleCode", articleCode0))})
+        }
+      """
+    )
+  
+    // @LINE:42
+    def bookinglist: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.MkendoController.bookinglist",
+      """
+        function(timePeriodKeyword0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "bookinglist/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("timePeriodKeyword", timePeriodKeyword0))})
         }
       """
     )

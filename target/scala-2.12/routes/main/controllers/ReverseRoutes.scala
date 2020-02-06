@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/products/mkendocn/conf/routes
-// @DATE:Tue Feb 04 16:32:13 CST 2020
+// @DATE:Thu Feb 06 18:50:17 CST 2020
 
 import play.api.mvc.Call
 
@@ -10,14 +10,14 @@ import _root_.controllers.Assets.Asset
 // @LINE:10
 package controllers {
 
-  // @LINE:44
+  // @LINE:45
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:44
+    // @LINE:45
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
@@ -108,6 +108,12 @@ package controllers {
     def shownews(articleCode:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "news/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("articleCode", articleCode)))
+    }
+  
+    // @LINE:42
+    def bookinglist(timePeriodKeyword:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "bookinglist/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("timePeriodKeyword", timePeriodKeyword)))
     }
   
     // @LINE:25

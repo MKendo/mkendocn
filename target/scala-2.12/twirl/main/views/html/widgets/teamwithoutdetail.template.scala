@@ -181,7 +181,7 @@ Seq[Any](format.raw/*1.1*/("""<!-- Section: Team -->
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 04 16:32:14 CST 2020
+                  DATE: Wed Feb 05 19:16:34 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/teamwithoutdetail.scala.html
                   HASH: cc9938da3b00fc7126aa421a3b95bd3f890f659c
                   MATRIX: 831->0

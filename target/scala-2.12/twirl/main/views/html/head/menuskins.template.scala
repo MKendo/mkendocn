@@ -40,7 +40,7 @@ Seq[Any](format.raw/*1.1*/("""<!-- CSS | menuzord megamenu skins -->
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 04 16:32:13 CST 2020
+                  DATE: Wed Feb 05 19:16:31 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/head/menuskins.scala.html
                   HASH: c373ac91724359de850912e95bd921f9f106e284
                   MATRIX: 820->0|924->78|938->84|1025->150

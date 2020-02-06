@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0mD:\products\mkendocn\app\views\bookinglist.scala.html:34:24: '<-' expected but '=' found.[0m
+[0m[[0m[31merror[0m] [0m[0m            @for(i:Int = 0,booking <- bookings) {[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\products\mkendocn\app\views\bookinglist.scala.html:51:6: illegal start of simple expression[0m
+[0m[[0m[31merror[0m] [0m[0m<!---->[0m
+[0m[[0m[31merror[0m] [0m[0m     ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

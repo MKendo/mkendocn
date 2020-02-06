@@ -47,7 +47,7 @@ Seq[Any](format.raw/*1.1*/("""<!-- preloader -->
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 04 16:32:14 CST 2020
+                  DATE: Wed Feb 05 19:16:34 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/preloader.scala.html
                   HASH: c48dd2a785387118c52fa00ca5e8ede143251b84
                   MATRIX: 823->0

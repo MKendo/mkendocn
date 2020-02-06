@@ -51,7 +51,7 @@ Seq[Any](format.raw/*1.53*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 04 16:32:14 CST 2020
+                  DATE: Wed Feb 05 19:16:33 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/coursedesc.scala.html
                   HASH: 6e40351a9c8e21adbc6b57d291a4316a59d08038
                   MATRIX: 756->1|902->52|930->54|1212->310|1237->315|1392->444|1417->449|1466->472|1497->483

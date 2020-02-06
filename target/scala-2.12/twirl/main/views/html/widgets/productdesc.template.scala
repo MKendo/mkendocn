@@ -60,7 +60,7 @@ Seq[Any](format.raw/*1.68*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 04 16:32:14 CST 2020
+                  DATE: Wed Feb 05 19:16:34 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/productdesc.scala.html
                   HASH: 56c2465315fd2803cc33805ca5562a9c4fe5ccc2
                   MATRIX: 765->1|926->67|954->69|1007->97|1025->107|1063->108|1097->116|1168->158|1200->164|1951->888|1976->892|2069->958|2100->968|2247->1087|2274->1092

@@ -118,7 +118,7 @@ Seq[Any](format.raw/*1.1*/("""<!-- Section: COURSES -->
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 04 16:32:14 CST 2020
+                  DATE: Wed Feb 05 19:16:33 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/ourcourses.scala.html
                   HASH: 939975d54291a5dd34dfbb0d5093b797dab79c0b
                   MATRIX: 824->0

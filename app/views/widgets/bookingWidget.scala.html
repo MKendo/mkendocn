@@ -3,13 +3,49 @@
 @import play.api.data.validation.Constraints._
 
 <!-- Appointment Form Starts -->
-<section class="">
     <div class="container">
-        <div class="section-content">
-            <div class="col-md-12">
                 <form id="home_appointment_form" name="home_appointment_form" class="booking-form form-home bg-white p-30" method="post" action=@routes.BookingController.createBooking()>
-                    <h3 class="mt-0 mb-20">请填写 <span class="text-theme-color-2">预约信息</span></h3>
-                    <div class="row">
+                        <div class="row">
+                        <h3 class="mt-0 mb-20">请填写 <span class="text-theme-color-2">预约信息</span></h3>
+                        <p>请先了解课程内容，选择适合自己的，购买之后填写预约信息即可。</p>
+                        <div class="col-sm-12">
+                            <h4 class="widget-title">一、明剑馆剑道入门初心课程</h4>
+                            <ul>
+                                <li class="clearfix"><b>价格：</b>￥58.00 </li>
+                                <li class="clearfix"><b>课程目的：</b>完成初心课程的训练您对剑道会有一个整体的了解，并且可以判断剑道是否值得自己花费时间长期练习。</li>
+                                <li class="clearfix"><b>课程内容：</b>剑道概况说明、剑道礼仪基础、剑道基本步法、剑道中段构型、基础打击方法、完整的打击流程。。</li>
+                                <li class="clearfix"><b>注意事项：</b>剑道是有一项认真的运动，请带上最真实的自己。入门级初心课程没有剑道服和护具穿哦。</li>
+                                <li class="clearfix"><b>购买连接：</b><a target="_blank" href="http://t.dianping.com/deal/610907216"><span class="text-theme-color-2">立即购买明剑馆剑道入门初心课程（￥58）</span></a></li>
+                            </ul>
+                            <br/>
+                            <h4 class="widget-title">二、明剑馆剑道标准初心课程（有剑道服穿哦）</h4>
+                            <ul class="list-border">
+                                <li class="clearfix"><b>价格：</b>￥99.00 </li>
+                                <li class="clearfix"><b>课程目的：</b>完成初心课程的训练您对剑道会有一个整体的了解，并且可以判断剑道是否值得自己花费时间长期练习。看看穿上剑道服的自己好看吗？</li>
+                                <li class="clearfix"><b>课程内容：</b>剑道概况说明、穿剑道服、剑道礼仪基础、剑道基本步法、剑道中段构型、基础打击方法、完整的打击流程、拍照片、折叠剑道服。。</li>
+                                <li class="clearfix"><b>注意事项：</b>剑道是有一项认真的运动，请带上最真实的自己。入门级初心课程没有剑道服和护具穿哦。</li>
+                                <li class="clearfix"><b>购买连接：</b><a target="_blank" href="http://t.dianping.com/deal/610522899"><span class="text-theme-color-2">立即购买明剑馆剑道标准初心课程（￥99）</span></a></li>
+                            </ul>
+                            <br/>
+                            <h4><i class="fa fa-phone"> 需要帮助？</i></h4>
+                            <p>有任何问题，欢迎联系馆长了解更多。电话&微信：15889489370</p>
+                            <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
+                                <div class="funfact text-center">
+                                    <img alt="" src="@routes.Assets.versioned("images/qrcode/wechat120.jpg")">
+                                    <h4>加馆长微信</h4>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
+                                <div class="funfact text-center">
+                                    <img alt="" src="@routes.Assets.versioned("images/qrcode/mkendo120.jpg")">
+                                    <h4>关注公众号</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="col-sm-12">
+                            <h4><i class="fa fa-book"> 购买成功之后请填写下列预约表格，剑道欢迎你！</i></h4>
+                        </div>
                         <div class="col-sm-12">
                             <div class="form-group mb-10">
                                 <input name="name" class="form-control required" type="text" placeholder="真实姓名" required="true" aria-required="true">
@@ -51,7 +87,7 @@
                             <div class="form-group mb-20">
                                 <div class="styled-select">
                                     <select id="coursename" name="coursename" class="form-control" required="true">
-                                        <option value="">选择体验课程</option>
+                                        <option value="">已购买的体验课程是？</option>
                                         <option value="剑道入门初心课程58元">剑道入门初心课程58元</option>
                                         <option value="剑道标准初心课程99元（有剑道服）">剑道标准初心课程99元（有剑道服）</option>
                                     </select>
@@ -71,13 +107,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group mb-0 mt-20">
-                        <input name="form_botcheck" class="form-control" type="hidden" value="">
-                        <button type="submit" class="btn btn-colored btn-theme-color-2 text-white btn-lg btn-block" data-loading-text="请稍候...">立即预约</button>
+                        <div class="form-group mb-0 mt-20">
+                            <input name="form_botcheck" class="form-control" type="hidden" value="">
+                            <button type="submit" class="btn btn-colored btn-theme-color-2 text-white btn-lg btn-block" data-loading-text="请稍候...">立即预约</button>
+                        </div>
                     </div>
                 </form>
-            </div>
-        </div>
     </div>
-</section>

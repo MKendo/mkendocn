@@ -95,7 +95,7 @@ Seq[Any](format.raw/*1.1*/("""<!-- Section: Experts Details -->
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 04 16:32:14 CST 2020
+                  DATE: Wed Feb 05 19:16:32 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/aboutdetail.scala.html
                   HASH: a05202b7853c04ac30cd0be16e206d4545cbae27
                   MATRIX: 825->0|1112->261|1126->267|1189->310|2540->1635|2574->1648|2607->1654|2703->1723|3128->2128|3174->2146|3270->2215|3536->2461|3582->2479|3642->2512|3677->2526

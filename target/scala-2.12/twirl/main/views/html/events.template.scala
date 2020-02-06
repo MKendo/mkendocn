@@ -219,7 +219,7 @@ Seq[Any](format.raw/*1.26*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Feb 04 16:32:13 CST 2020
+                  DATE: Wed Feb 05 19:16:31 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/events.scala.html
                   HASH: f763a3cd3382f333dce236e5b629e6d127a9934a
                   MATRIX: 730->1|849->25|877->28|929->72|967->73|995->76|1005->79|1057->111|1085->113|11932->10929
