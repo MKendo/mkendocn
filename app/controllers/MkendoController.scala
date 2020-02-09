@@ -180,23 +180,5 @@ class MkendoController @Inject()(cc: MessagesControllerComponents)(dbapi: DBApi)
     Ok(views.html.product(loginedUserInfo))
   }
 
-  /**
-    * 上传文件
-    *
-    * @return 返回文件的相对路径和文件名，例如：user/IU001.jpg
-    */
-  def uploadImage() = Action(parse.multipartFormData) { implicit request => {
-    request.body.file("form_imagefile").map(imgfile => {
-      val fileName = imgfile.filename
-      val toFile = new File(s"public/images/users/$fileName")
-      toFile.createNewFile()
-      //上传文件保存到指定位置
-      imgfile.ref.moveFileTo(toFile, true)
-      Ok("图片上传成功")
-    }
-    ).getOrElse(
-      Ok("图片上传失败")
-    )
-  }
-  }
+
 }
