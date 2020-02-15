@@ -227,7 +227,7 @@ values(2,'2010/11/01','9999/12/31','2020-02-11 15:00:00','馆长VIP',19,0);
 
 --更多多行validate测试数据
 insert into members(name,mobile,idtypename,idnumber,userid,wxopenid,description,commitdatetime,enable)
-values('胡正昊','15889489370','身份证','330824197709244911','','','','2020-02-11 15:00:00',1);
+values('胡正昊','15889489370','身份证','44030520120905911X','','','','2020-02-11 15:00:00',1);
 
 insert into member_validates(memberid,startValidate,endValidate,commitdatetime,description,feetypeid,amount)
 values((select id from members where name='胡正昊'),'2012/09/05','2013/09/05','2012-09-05 09:00:00','第一次缴费报名',22,6500);
@@ -241,14 +241,6 @@ values((select id from members where name='胡正昊'),'2014/09/05','2015/09/05','2
 --查询sql
  select m.name,m.mobile,m.idtypename,m.idnumber,mv.startvalidate,mv.endvalidate,ft.code feeTypeCode,ft.name feeTypeName
  from members m 
- join member_validates mv on mv.memberid=m.id
- join simpletypes ft on ft.id=mv.feetypeid
- group by m.id
- having mv.startvalidate=max(mv.startvalidate) 
- ;
-
- select m.name,m.mobile,m.idtypename,m.idnumber,mv.startvalidate,mv.endvalidate,ft.code feeTypeCode,ft.name feeTypeName
- from members m 
  left join member_validates mv on mv.memberid=m.id
  left join simpletypes ft on ft.id=mv.feetypeid
  group by m.id
@@ -258,8 +250,8 @@ values((select id from members where name='胡正昊'),'2014/09/05','2015/09/05','2
 select * from 
  (select m.idnumber idnumber,m.name,m.mobile,m.idtypename,m.idnumber,mv.startvalidate,mv.endvalidate,ft.code feeTypeCode,ft.name feeTypeName
  from members m 
- join member_validates mv on mv.memberid=m.id
- join simpletypes ft on ft.id=mv.feetypeid
+ left join member_validates mv on mv.memberid=m.id
+ left join simpletypes ft on ft.id=mv.feetypeid
  group by m.id
  having mv.startvalidate=max(mv.startvalidate)  
 )
