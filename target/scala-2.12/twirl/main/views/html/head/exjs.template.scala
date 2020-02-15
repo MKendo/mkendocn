@@ -47,7 +47,7 @@ Seq[Any](format.raw/*2.1*/("""<!-- external javascripts-->
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:31 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/head/exjs.scala.html
                   HASH: cf846c70ea7597152cbf84b530e2c0a1bdeb2bdd
                   MATRIX: 815->2|885->46|899->52|962->95|1019->126|1033->132|1107->186|1163->216|1177->222|1237->262|1290->289|1304->295|1364->335|1472->417|1486->423|1557->474

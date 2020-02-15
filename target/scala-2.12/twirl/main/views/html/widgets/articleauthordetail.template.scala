@@ -51,7 +51,7 @@ Seq[Any](format.raw/*1.1*/("""<div class="author-details media-post">
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:32 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/articleauthordetail.scala.html
                   HASH: 1c70d8454d06cab6d8c8f1a81a976099b0595051
                   MATRIX: 833->0

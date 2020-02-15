@@ -11,7 +11,7 @@ import service.NewsService
 
 import scala.util.Random
 
-class NewsController  @Inject()(cc: ControllerComponents, system: ActorSystem)(dbapi: DBApi) extends AbstractController(cc) {
+class NewsController @Inject()(cc: ControllerComponents, system: ActorSystem)(dbapi: DBApi) extends AbstractController(cc) {
 
   def createNews() = Action(parse.multipartFormData) {
     implicit request => {

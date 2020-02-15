@@ -24,7 +24,10 @@ class NewsService @Inject()(dbapi: DBApi) {
       implicit c: java.sql.Connection =>
         val newsParser: RowParser[Article] = Macro.namedParser[Article]
 
-        val result: List[Article] = SQL("SELECT * FROM articles where typeid=(select id from simpletypes where code='NEWS') ORDER BY eventstartdatetime desc limit {acount}").on(
+        val result: List[Article] = SQL(
+          "SELECT * FROM articles " +
+          "where typeid=(select id from simpletypes where code='NEWS') " +
+            "ORDER BY eventstartdatetime desc limit {acount}").on(
                                 "acount" -> count).as(newsParser.*)
         return result
     }
@@ -35,10 +38,16 @@ class NewsService @Inject()(dbapi: DBApi) {
     db.withConnection {
       implicit c: java.sql.Connection =>
         val newsParser: RowParser[Article] = Macro.namedParser[Article]
-        val article: Article = SQL("SELECT * FROM articles WHERE code={db_code}").on(
-          "db_code" -> code).as(newsParser.single)
+        try {
+          val article: Article = SQL("SELECT * FROM articles WHERE code={db_code}").on(
+            "db_code" -> code).as(newsParser.single)
 
-        return article
+          return article
+        }catch{
+          case ex: Exception => {
+             return null
+        }
+        }
     }
   }
 

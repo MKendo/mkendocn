@@ -42,7 +42,7 @@ Seq[Any](format.raw/*1.1*/("""<!-- Revolution Slider 5.x CSS settings -->
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:31 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/head/revolutionslider5css.scala.html
                   HASH: 3b626acc5a47b5a5f9fef697771ca4a033f70570
                   MATRIX: 831->0|915->58|929->64|986->101|1062->151|1076->157|1131->192|1207->242|1221->248|1280->287

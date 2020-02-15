@@ -43,7 +43,7 @@ Seq[Any](format.raw/*1.1*/("""<!-- CSS | Responsive media queries -->
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:31 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/head/responsivecss.scala.html
                   HASH: 8d4e6e50778787e73b4aa90bfe48634579a118a9
                   MATRIX: 824->0|904->54|918->60|977->99|1178->274|1192->280|1246->314

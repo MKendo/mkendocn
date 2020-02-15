@@ -61,7 +61,7 @@ Seq[Any](format.raw/*1.1*/("""<!-- Section: About -->
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:32 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/aboutimportant.scala.html
                   HASH: d20cdb80130c382774994199eb1b937ee1b2eef9
                   MATRIX: 828->0|1818->963|1833->969|1893->1008|2022->1110|2037->1116|2104->1162

@@ -14,10 +14,11 @@
             </div>
             <div class="col-md-9 blog-pull-right">
                 <div class="blog-posts single-post">
-                    @if(currentArticle==null && articles.nonEmpty){
-                        currentArticle = if(articles.isEmpty){null} else{articles(0)}
+                    @if(currentArticle==null && articles.isEmpty){
+                       <p></p>
+                    }else{
+                      @widgets.articledetail(currentArticle)
                     }
-                    @widgets.articledetail(currentArticle)
                     <!--
                     widgets.articletagsline()
                     widgets.articleauthordetail()

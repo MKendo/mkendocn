@@ -39,7 +39,13 @@ GET       /aboutus                      controllers.MkendoController.aboutus
 GET       /user/booking                 controllers.MkendoController.booking
 + nocsrf
 POST     /user/createbooking            controllers.BookingController.createBooking
-GET      /bookinglist/:timePeriodKeyword            controllers.MkendoController.bookinglist(timePeriodKeyword:String)
+GET      /bookinglist/:timePeriodKeyword       controllers.MkendoController.bookinglist(timePeriodKeyword:String)
+
+# Members
+GET       /memberlist/:timePeriodKeyword       controllers.MkendoController.memberlist(timePeriodKeyword:String)
+GET       /memberdetail/:idnumber       controllers.MkendoController.memberdetail(idnumber:String)
++ nocsrf
+POST      /memberpayment/:idnumber      controllers.MemberController.memberPayment(idnumber:String)
 
 + nocsrf
 POST     /summer/upload                 controllers.CommonController.summerUpload

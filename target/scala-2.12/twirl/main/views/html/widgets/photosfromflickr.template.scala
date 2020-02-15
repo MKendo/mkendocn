@@ -46,7 +46,7 @@ Seq[Any](format.raw/*1.1*/("""<!--<div class="widget">
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:34 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/photosfromflickr.scala.html
                   HASH: e7177351b912fa229fcae199ec09e5e8d839192c
                   MATRIX: 830->0

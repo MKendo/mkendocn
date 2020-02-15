@@ -40,27 +40,10 @@ Seq[Any](format.raw/*1.27*/("""
             <ul class="list-inline">
                 <li>日期: <span class="text-theme-color-2"> """),_display_(/*16.60*/currentArticle/*16.74*/.eventStartDatetime),format.raw/*16.93*/("""</span></li>
                 <li>By: <span class="text-theme-color-2">"""),_display_(/*17.59*/currentArticle/*17.73*/.createrName),format.raw/*17.85*/("""</span></li>
-                <!--<li><i class="fa fa-comments-o ml-5 mr-5"></i> 5 comments</li>-->
             </ul>
         </div>
         <div class="entry-content mt-10">
-            <p class="mb-15">"""),_display_(/*22.31*/Html(currentArticle.content)),format.raw/*22.59*/("""</p>
-            <!--
-            <p class="mb-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <blockquote class="theme-colored pt-20 pb-20">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-            </blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna et sed aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <div class="mt-30 mb-0">
-                <h5 class="pull-left mt-10 mr-20 text-theme-color-2">Share:</h5>
-                <ul class="styled-icons icon-circled m-0">
-                    <li><a href="#" data-bg-color="#3A5795"><i class="fa fa-facebook text-white"></i></a></li>
-                    <li><a href="#" data-bg-color="#55ACEE"><i class="fa fa-twitter text-white"></i></a></li>
-                    <li><a href="#" data-bg-color="#A11312"><i class="fa fa-google-plus text-white"></i></a></li>
-                </ul>
-            </div>
-            -->
+            <p class="mb-15">"""),_display_(/*21.31*/Html(currentArticle.content)),format.raw/*21.59*/("""</p>
         </div>
     </article>
 """)))}))
@@ -79,11 +62,11 @@ Seq[Any](format.raw/*1.27*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:33 CST 2020
+                  DATE: Sat Feb 15 11:43:31 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/articledetail.scala.html
-                  HASH: 51201a8fa0de434aeb3698a840246282a6bbe058
-                  MATRIX: 746->1|866->26|894->29|928->55|966->56|997->61|1024->71|1035->75|1072->76|1104->82|1275->227|1289->233|1367->291|1581->478|1604->492|1630->497|1660->500|1683->514|1710->520|1901->684|1924->698|1964->717|2063->789|2086->803|2119->815|2355->1024|2404->1052
-                  LINES: 21->1|26->1|27->2|27->2|27->2|28->3|29->4|29->4|29->4|30->5|33->8|33->8|33->8|37->12|37->12|37->12|37->12|37->12|37->12|41->16|41->16|41->16|42->17|42->17|42->17|47->22|47->22
+                  HASH: 956fef2982c4d3c2c0a065f2cf55651350f7ea26
+                  MATRIX: 746->1|866->26|894->29|928->55|966->56|997->61|1024->71|1035->75|1072->76|1104->82|1275->227|1289->233|1367->291|1581->478|1604->492|1630->497|1660->500|1683->514|1710->520|1901->684|1924->698|1964->717|2063->789|2086->803|2119->815|2268->937|2317->965
+                  LINES: 21->1|26->1|27->2|27->2|27->2|28->3|29->4|29->4|29->4|30->5|33->8|33->8|33->8|37->12|37->12|37->12|37->12|37->12|37->12|41->16|41->16|41->16|42->17|42->17|42->17|46->21|46->21
                   -- GENERATED --
               */
           

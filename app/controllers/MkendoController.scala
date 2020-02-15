@@ -11,7 +11,7 @@ import play.api.db.DBApi
 import play.api.i18n._
 import play.api.libs.json.Json
 import play.api.mvc._
-import service.{BookingService, NewsService}
+import service.{BookingService, MemberService, NewsService}
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -24,7 +24,7 @@ class MkendoController @Inject()(cc: MessagesControllerComponents)(dbapi: DBApi)
     */
   def index = Action { implicit request =>
     val service = new NewsService(dbapi)
-    val newslist = service.findLastNews(10)
+    val newslist = service.findLastNews(3)
     val loginedUserInfo = Common.loginConfirm(request.session)
     println("loginedUserInfo = " + loginedUserInfo)
     Ok(views.html.index(loginedUserInfo, newslist))
@@ -134,6 +134,11 @@ class MkendoController @Inject()(cc: MessagesControllerComponents)(dbapi: DBApi)
     Ok(views.html.booking(loginedUserInfo))
   }
 
+  /**
+    * 预约管理页面
+    * @param timePeriodKeyword
+    * @return
+    */
   def bookinglist(timePeriodKeyword:String) = Action { implicit request =>
     val loginedUserInfo = Common.loginConfirm(request.session)
 
@@ -146,6 +151,39 @@ class MkendoController @Inject()(cc: MessagesControllerComponents)(dbapi: DBApi)
     }
 
     Ok(views.html.bookinglist(loginedUserInfo,timePeriodKeyword,bookings))
+  }
+
+  /**
+    * 会员管理页面
+    * @param timePeriodKeyword
+    * @return
+    */
+  def memberlist(timePeriodKeyword:String) = Action { implicit request =>
+    val loginedUserInfo = Common.loginConfirm(request.session)
+    println("timePeriodKeyword = " + timePeriodKeyword)
+
+    val memberService = new MemberService(dbapi)
+    var members: List[Member] = timePeriodKeyword match{
+      case "ALL" => memberService.findByTimePeriod("","")
+      case "CURRENT_MONTH" => memberService.findByTimePeriod(Common.getCurrentMonthStart(),Common.getCurrentMonthEnd())
+      case "NEXT_MONTY" => memberService.findByTimePeriod(Common.getNextMonthStart(),Common.getNextMonthEnd())
+      case _ => memberService.findByTimePeriod("","")
+    }
+
+    Ok(views.html.memberlist(loginedUserInfo,timePeriodKeyword,members))
+  }
+
+  /**
+    * 会员明细页面
+    * @param idNumber
+    * @return
+    */
+  def memberdetail(idNumber: String)= Action { implicit request =>
+    val loginedUserInfo = Common.loginConfirm(request.session)
+    val memberService = new MemberService(dbapi)
+    val member:Member = memberService.findByIdnumber(idNumber.substring(1))
+    val validates = memberService.findValidatesByIdnumber(idNumber.substring(1))
+    Ok(views.html.memberdetail(loginedUserInfo,member,validates))
   }
 
   /**

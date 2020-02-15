@@ -36,7 +36,7 @@ Seq[Any](format.raw/*1.1*/("""<!-- Divider: QR Code -->
             <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
                 <div class="funfact text-center">
                     <img alt="" src=""""),_display_(/*13.39*/routes/*13.45*/.Assets.versioned("images/qrcode/freeexperience120.png")),format.raw/*13.101*/("""">
-                    <h4 class="text-white text-uppercase mb-0">2 预约免费体验</h4>
+                    <h4 class="text-white text-uppercase mb-0">2 预约体验</h4>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
@@ -69,10 +69,10 @@ Seq[Any](format.raw/*1.1*/("""<!-- Divider: QR Code -->
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:33 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/dividerqrcode.scala.html
-                  HASH: 8437de89d8cc68238ca7f1af7899c841a2a81388
-                  MATRIX: 827->0|1187->334|1201->340|1269->388|1572->664|1587->670|1665->726|1971->1005|1986->1011|2055->1059|2359->1336|2374->1342|2447->1394
+                  HASH: 15b8937940c91a91fd911ea750b924374e6c5210
+                  MATRIX: 827->0|1187->334|1201->340|1269->388|1572->664|1587->670|1665->726|1969->1003|1984->1009|2053->1057|2357->1334|2372->1340|2445->1392
                   LINES: 26->1|32->7|32->7|32->7|38->13|38->13|38->13|44->19|44->19|44->19|50->25|50->25|50->25
                   -- GENERATED --
               */

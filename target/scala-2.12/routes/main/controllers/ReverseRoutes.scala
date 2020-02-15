@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/products/mkendocn/conf/routes
-// @DATE:Thu Feb 06 18:50:17 CST 2020
+// @DATE:Fri Feb 14 15:28:41 CST 2020
 
 import play.api.mvc.Call
 
@@ -10,14 +10,14 @@ import _root_.controllers.Assets.Asset
 // @LINE:10
 package controllers {
 
-  // @LINE:45
+  // @LINE:54
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:45
+    // @LINE:54
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
@@ -36,6 +36,21 @@ package controllers {
     def createBooking(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "user/createbooking")
+    }
+  
+  }
+
+  // @LINE:48
+  class ReverseMemberController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:48
+    def memberPayment(idnumber:String): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "memberpayment/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("idnumber", idnumber)))
     }
   
   }
@@ -76,6 +91,27 @@ package controllers {
   
   }
 
+  // @LINE:27
+  class ReverseCommonController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:51
+    def summerUpload(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "summer/upload")
+    }
+  
+    // @LINE:27
+    def uploadImage(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "uploadimage")
+    }
+  
+  }
+
   // @LINE:31
   class ReverseSearchController(_prefix: => String) {
     def _defaultPrefix: String = {
@@ -110,6 +146,12 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "news/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("articleCode", articleCode)))
     }
   
+    // @LINE:45
+    def memberlist(timePeriodKeyword:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "memberlist/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("timePeriodKeyword", timePeriodKeyword)))
+    }
+  
     // @LINE:42
     def bookinglist(timePeriodKeyword:String): Call = {
       
@@ -122,10 +164,10 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "postnews")
     }
   
-    // @LINE:27
-    def uploadImage(): Call = {
+    // @LINE:46
+    def memberdetail(idnumber:String): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "uploadimage")
+      Call("GET", _prefix + { _defaultPrefix } + "memberdetail/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("idnumber", idnumber)))
     }
   
     // @LINE:39

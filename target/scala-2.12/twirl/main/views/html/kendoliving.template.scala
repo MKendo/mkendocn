@@ -74,7 +74,7 @@ Seq[Any](format.raw/*1.26*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:32 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/kendoliving.scala.html
                   HASH: 1111d9d9f4d71597f755bf34444680e5398c77c5
                   MATRIX: 735->1|854->25|882->28|934->72|972->73|1004->80|1014->83|1066->115|1102->125|2250->1246|2266->1253|2306->1272|2360->1298|2551->1462|2567->1469|2603->1484|2653->1506

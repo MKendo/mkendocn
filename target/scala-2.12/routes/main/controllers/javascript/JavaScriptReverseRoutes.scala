@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/products/mkendocn/conf/routes
-// @DATE:Thu Feb 06 18:50:17 CST 2020
+// @DATE:Fri Feb 14 15:28:41 CST 2020
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -10,7 +10,7 @@ import _root_.controllers.Assets.Asset
 // @LINE:10
 package controllers.javascript {
 
-  // @LINE:45
+  // @LINE:54
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -18,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:45
+    // @LINE:54
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -44,6 +44,26 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "user/createbooking"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:48
+  class ReverseMemberController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:48
+    def memberPayment: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.MemberController.memberPayment",
+      """
+        function(idnumber0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "memberpayment/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("idnumber", idnumber0))})
         }
       """
     )
@@ -100,6 +120,36 @@ package controllers.javascript {
   
   }
 
+  // @LINE:27
+  class ReverseCommonController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:51
+    def summerUpload: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CommonController.summerUpload",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "summer/upload"})
+        }
+      """
+    )
+  
+    // @LINE:27
+    def uploadImage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CommonController.uploadImage",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "uploadimage"})
+        }
+      """
+    )
+  
+  }
+
   // @LINE:31
   class ReverseSearchController(_prefix: => String) {
 
@@ -148,6 +198,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:45
+    def memberlist: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.MkendoController.memberlist",
+      """
+        function(timePeriodKeyword0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "memberlist/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("timePeriodKeyword", timePeriodKeyword0))})
+        }
+      """
+    )
+  
     // @LINE:42
     def bookinglist: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.MkendoController.bookinglist",
@@ -168,12 +228,12 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:27
-    def uploadImage: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.MkendoController.uploadImage",
+    // @LINE:46
+    def memberdetail: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.MkendoController.memberdetail",
       """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "uploadimage"})
+        function(idnumber0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "memberdetail/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("idnumber", idnumber0))})
         }
       """
     )

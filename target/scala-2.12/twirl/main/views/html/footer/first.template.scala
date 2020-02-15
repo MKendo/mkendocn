@@ -213,7 +213,7 @@ Seq[Any](format.raw/*1.2*/("""<!-- Footer -->
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:31 CST 2020
+                  DATE: Fri Feb 14 11:46:48 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/footer/first.scala.html
                   HASH: 2d2f44673f72f2cdea3f3a6c698091251d0b7327
                   MATRIX: 818->1|1323->480|1337->486|1407->536

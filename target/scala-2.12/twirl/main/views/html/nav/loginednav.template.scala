@@ -27,9 +27,9 @@ Seq[Any](format.raw/*1.4*/("""
 """),format.raw/*2.1*/("""<li><a href="#">网站管理</a>
     <ul class="dropdown">
         <li><a href="/postnews">发布新闻</a></li>
-        <li><a href="#">会员管理</a></li>
+        <li><a href="/memberlist/ALL">会员管理</a></li>
         <li><a href="/bookinglist/ALL">预约管理</a></li>
-        <li><a href="/logout">退出</a></li>
+        <li><a href="/memberlist/ALL">退出</a></li>
     </ul>
 </li>"""))
       }
@@ -47,9 +47,9 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Feb 06 19:04:42 CST 2020
+                  DATE: Fri Feb 14 11:54:02 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/nav/loginednav.scala.html
-                  HASH: 48695090afb39a5e9fad6e262df4c0e294ca2195
+                  HASH: a40327c899cb9b79a1ef9174b82172599fbbb6ad
                   MATRIX: 731->1|827->3|855->5
                   LINES: 21->1|26->1|27->2
                   -- GENERATED --

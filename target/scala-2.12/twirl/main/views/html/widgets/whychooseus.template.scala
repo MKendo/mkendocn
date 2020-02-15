@@ -83,7 +83,7 @@ Seq[Any](format.raw/*2.21*/("""<h3 class="line-bottom mt-0 line-height-1">为什
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:34 CST 2020
+                  DATE: Fri Feb 14 11:46:50 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/whychooseus.scala.html
                   HASH: 506f793da2ddacdd6aebadc43d84d3bc82e5460b
                   MATRIX: 826->38

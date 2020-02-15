@@ -1,10 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+@(loginedUserInfo:String,timePeriodKeyword:String,members:List[Member])
+@main("MEMBERS",loginedUserInfo,true){
+
+<section>
+    <div class="container">
+        <div class="row">
+            <h3 class="mt-0 mb-20">明剑馆<span class="text-theme-color-2">会员信息</span></h3>
+            <i class="fa fa-search"></i>
+            @if(timePeriodKeyword=="ALL"){
+            <span class="text-theme-color-2">全部</span>
+            }else{
+            <a href=@routes.MkendoController.memberlist("ALL")>全部</a>
+            }
+            @if(timePeriodKeyword=="CURRENT_MONTH"){
+            <span class="text-theme-color-2">本月到期</span>
+            }else{
+            <a href=@routes.MkendoController.memberlist("CURRENT_MONTH")>本月到期</a>
+            }
+            @if(timePeriodKeyword=="NEXT_MONTY"){
+            <span class="text-theme-color-2">下月到期</span>
+            }else{
+            <a href=@routes.MkendoController.memberlist("NEXT_MONTY")>下月到期</a>
+            }
+            <table class="table table-striped">
+                <tr>
+                    <td>姓名</td>
+                    <td>手机号</td>
+                    <td>费用标准</td>
+                    <td>开始日期</td>
+                    <td>结束日期</td>
+                    <td>明细</td>
+                </tr>
+                @for(member <- members) {
+                <tr>
+                    <td>@member.name</td>
+                    <td>@member.mobile</td>
+                    <td>@member.feeTypeName</td>
+                    <td>@member.startValidate</td>
+                    <td>@member.endValidate</td>
+                    <td><a href="/memberdetail/:@member.idNumber">查看明细</a></td>
+                </tr>
+                }
+            </table>
+        </div>
+    </div>
+</section>
+}
+

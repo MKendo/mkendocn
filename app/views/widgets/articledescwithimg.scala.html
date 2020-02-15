@@ -1,6 +1,6 @@
 @(article: Article)
 <article class="post media-post clearfix pb-0 mb-10">
-    <a class="post-thumb" href="/news/:@article.code"><img src="@routes.Assets.versioned("images/users/" + article.imgurl)" alt=""></a>
+    <a class="post-thumb" href="/news/:@article.code"><img width="120" height="120" src="@routes.Assets.versioned("images/users/" + article.imgurl)" alt=""></a>
     <div class="post-right">
         <h4 class="post-title mt-0"><a href="/news/:@article.code">@article.title</a></h4>
         <ul class="list-inline font-12 mb-5">

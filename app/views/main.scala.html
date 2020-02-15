@@ -5,15 +5,17 @@
 <html dir="ltr" lang="en">
     <head>
         <title>
-		@if(titleType=="HOMEPAGE"){
-		    "深圳剑道 明剑馆 首页"   
-		}else if(titleType=="ABOUTUS"){
-		    "深圳剑道 明剑馆 关于我们"
-		}else if(titleType=="NEWS"){
-            "深圳剑道 明剑馆 新闻与活动"
-        }else{
-            @titleType
-         }
+        @{val title = titleType match {
+            case "HOMEPAGE" => "深圳剑道 明剑馆 首页"
+            case "NEWS" => "深圳剑道 明剑馆 新闻与活动"
+            case "ABOUTUS" => "深圳剑道 明剑馆 关于我们"
+            case "POSTNEWS" => "深圳剑道 明剑馆 发布新闻"
+            case "BOOKING" => "深圳剑道 明剑馆 预约管理"
+            case "MEMBERS" => "深圳剑道 明剑馆 会员管理"
+            case _ => titleType
+          }
+          title
+        }
 		</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1.0"/>

@@ -25,16 +25,6 @@ PRAGMA  table_info("members");
 2 字段名不同单词之间不带下划线，全小写
 
 
-
-*******************************************************
-会员相关的表
-*******************************************************
---会员表
-members
-
---会员有效期表
-memeber_validates
-
 *******************************************************
 预约体验相关的表
 *******************************************************
@@ -178,3 +168,102 @@ datetime('now'),
 '说明description',
 1
 );
+
+*******************************************************
+会员相关的表
+*******************************************************
+--增加费用标准
+insert into simpletypes values(null,'FCPY6000','续费一年6000','MemberFeeType','会费标准',1);
+insert into simpletypes values(null,'FCPY4500','续费一年4500','MemberFeeType','会费标准',1);
+insert into simpletypes values(null,'FCPY3500','续费一年3500','MemberFeeType','会费标准',1);
+insert into simpletypes values(null,'FCPY3000','续费一年3000','MemberFeeType','会费标准',1);
+insert into simpletypes values(null,'FCPYVIP0','VIP免费','MemberFeeType','会费标准',1);
+insert into simpletypes values(null,'FCHY4000','续费半年4000','MemberFeeType','会费标准',1);
+insert into simpletypes values(null,'FNPY10000','首次缴费一年10000','MemberFeeType','会费标准',1);
+insert into simpletypes values(null,'FNPY6000','首次缴费一年6500','MemberFeeType','会费标准',1);
+insert into simpletypes values(null,'FNHY4000','首次缴费半年4500','MemberFeeType','会费标准',1);
+insert into simpletypes values(null,'FTOTHER','其它优惠类型','MemberFeeType','会费标准',1);
+
+--会员表
+create table members(
+id integer primary key not null,
+name text not null,
+mobile text not null,
+idtypename text,
+idnumber text not null,
+userid integer,
+wxopenid text,
+description ntext,
+commitdatetime datetime not null,
+enable int
+);
+
+insert into members(name,mobile,idtypename,idnumber,userid,wxopenid,description,commitdatetime,enable)
+values('黄云松','13128855200','身份证','320305197902150927',1,'','','2020-02-11 15:00:00',1);
+ 
+insert into members(name,mobile,idtypename,idnumber,userid,wxopenid,description,commitdatetime,enable)
+values('胡厚存','15889489370','身份证','330824197709244911',2,'','','2020-02-11 15:00:00',1);
+
+
+--会员有效期表:
+create table member_validates(
+id integer primary key not null,
+memberid integer not null,
+startvalidate text not null,
+endvalidate text not null,
+feetypeid integer not null,
+amount inteter,
+description ntext,
+commitdatetime datetime not null,
+enable int
+);
+
+
+insert into member_validates(memberid,startValidate,endValidate,commitdatetime,description,feetypeid,amount)
+values(1,'2010/11/01','9999/12/31','2020-02-11 15:00:00','VIP',19,0);
+  
+insert into member_validates(memberid,startValidate,endValidate,commitdatetime,description,feetypeid,amount)
+values(2,'2010/11/01','9999/12/31','2020-02-11 15:00:00','馆长VIP',19,0);
+
+--更多多行validate测试数据
+insert into members(name,mobile,idtypename,idnumber,userid,wxopenid,description,commitdatetime,enable)
+values('胡正昊','15889489370','身份证','330824197709244911','','','','2020-02-11 15:00:00',1);
+
+insert into member_validates(memberid,startValidate,endValidate,commitdatetime,description,feetypeid,amount)
+values((select id from members where name='胡正昊'),'2012/09/05','2013/09/05','2012-09-05 09:00:00','第一次缴费报名',22,6500);
+
+insert into member_validates(memberid,startValidate,endValidate,commitdatetime,description,feetypeid,amount)
+values((select id from members where name='胡正昊'),'2013/09/05','2014/09/05','2013-09-05 09:00:00','续费3000',18,3000);
+
+insert into member_validates(memberid,startValidate,endValidate,commitdatetime,description,feetypeid,amount)
+values((select id from members where name='胡正昊'),'2014/09/05','2015/09/05','2014-09-05 09:00:00','续费3000',18,3000);
+
+--查询sql
+ select m.name,m.mobile,m.idtypename,m.idnumber,mv.startvalidate,mv.endvalidate,ft.code feeTypeCode,ft.name feeTypeName
+ from members m 
+ join member_validates mv on mv.memberid=m.id
+ join simpletypes ft on ft.id=mv.feetypeid
+ group by m.id
+ having mv.startvalidate=max(mv.startvalidate) 
+ ;
+
+ select m.name,m.mobile,m.idtypename,m.idnumber,mv.startvalidate,mv.endvalidate,ft.code feeTypeCode,ft.name feeTypeName
+ from members m 
+ left join member_validates mv on mv.memberid=m.id
+ left join simpletypes ft on ft.id=mv.feetypeid
+ group by m.id
+ having mv.startvalidate=max(mv.startvalidate) 
+ ;
+
+select * from 
+ (select m.idnumber idnumber,m.name,m.mobile,m.idtypename,m.idnumber,mv.startvalidate,mv.endvalidate,ft.code feeTypeCode,ft.name feeTypeName
+ from members m 
+ join member_validates mv on mv.memberid=m.id
+ join simpletypes ft on ft.id=mv.feetypeid
+ group by m.id
+ having mv.startvalidate=max(mv.startvalidate)  
+)
+ where idnumber='44030520120905911X'
+ ;
+
+

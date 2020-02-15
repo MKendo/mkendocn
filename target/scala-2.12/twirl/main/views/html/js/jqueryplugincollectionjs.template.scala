@@ -40,7 +40,7 @@ Seq[Any](format.raw/*1.1*/("""<!-- JS | jquery plugin collection for this theme 
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:31 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/js/jqueryplugincollectionjs.scala.html
                   HASH: 2df935e353529800b904a9247175df48c4a793ee
                   MATRIX: 833->0|928->69|942->75|1013->126

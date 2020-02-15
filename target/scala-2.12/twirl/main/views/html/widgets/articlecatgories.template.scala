@@ -49,7 +49,7 @@ Seq[Any](format.raw/*1.53*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:32 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/articlecatgories.scala.html
                   HASH: 191ba5b6502be1d2e81af43e1a2474f22d6e1333
                   MATRIX: 762->1|908->52|936->54|1026->118|1057->129|1085->130|1261->280|1303->307|1341->308|1386->326|1429->343|1454->348|1525->389|1561->399

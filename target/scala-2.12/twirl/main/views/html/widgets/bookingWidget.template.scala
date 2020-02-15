@@ -51,8 +51,8 @@ Seq[Any](format.raw/*5.1*/("""<!-- Appointment Form Starts -->
                                 <li class="clearfix"><b>购买连接：</b><a target="_blank" href="http://t.dianping.com/deal/610522899"><span class="text-theme-color-2">立即购买明剑馆剑道标准初心课程（￥99）</span></a></li>
                             </ul>
                             <br/>
-                            <h4><i class="fa fa-phone"> 需要帮助？</i></h4>
-                            <p>有任何问题，欢迎联系馆长了解更多。电话&微信：15889489370</p>
+                            <h4><i class="fa fa-phone"> 填表后欢迎加馆长微信确认报名（请至少提前一天哦）</i></h4>
+                            <p>电话&微信：15889489370</p>
                             <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
                                 <div class="funfact text-center">
                                     <img alt="" src=""""),_display_(/*34.55*/routes/*34.61*/.Assets.versioned("images/qrcode/wechat120.jpg")),format.raw/*34.109*/("""">
@@ -153,10 +153,10 @@ Seq[Any](format.raw/*5.1*/("""<!-- Appointment Form Starts -->
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:25:06 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/bookingWidget.scala.html
-                  HASH: a0dfb76b57b225bdbea584abd91a643e1be2aaa4
-                  MATRIX: 440->1|470->26|506->57|946->106|1181->314|1196->320|1251->354|3537->2613|3552->2619|3622->2667|3982->3000|3997->3006|4067->3054
+                  HASH: 6da33d23c3e7511992b53c9e993359f9732583f3
+                  MATRIX: 440->1|470->26|506->57|946->106|1181->314|1196->320|1251->354|3539->2615|3554->2621|3624->2669|3984->3002|3999->3008|4069->3056
                   LINES: 17->1|18->2|19->3|29->5|31->7|31->7|31->7|58->34|58->34|58->34|64->40|64->40|64->40
                   -- GENERATED --
               */

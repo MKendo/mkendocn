@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/products/mkendocn/conf/routes
-// @DATE:Thu Feb 06 18:50:17 CST 2020
+// @DATE:Fri Feb 14 15:28:41 CST 2020
 
 package router
 
@@ -14,40 +14,48 @@ import _root_.controllers.Assets.Asset
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:10
-  MkendoController_4: controllers.MkendoController,
+  MkendoController_6: controllers.MkendoController,
   // @LINE:13
   LoginController_2: controllers.LoginController,
+  // @LINE:27
+  CommonController_3: controllers.CommonController,
   // @LINE:29
   NewsController_0: controllers.NewsController,
   // @LINE:31
   SearchController_1: controllers.SearchController,
   // @LINE:41
-  BookingController_3: controllers.BookingController,
-  // @LINE:45
-  Assets_5: controllers.Assets,
+  BookingController_5: controllers.BookingController,
+  // @LINE:48
+  MemberController_4: controllers.MemberController,
+  // @LINE:54
+  Assets_7: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
 
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:10
-    MkendoController_4: controllers.MkendoController,
+    MkendoController_6: controllers.MkendoController,
     // @LINE:13
     LoginController_2: controllers.LoginController,
+    // @LINE:27
+    CommonController_3: controllers.CommonController,
     // @LINE:29
     NewsController_0: controllers.NewsController,
     // @LINE:31
     SearchController_1: controllers.SearchController,
     // @LINE:41
-    BookingController_3: controllers.BookingController,
-    // @LINE:45
-    Assets_5: controllers.Assets
-  ) = this(errorHandler, MkendoController_4, LoginController_2, NewsController_0, SearchController_1, BookingController_3, Assets_5, "/")
+    BookingController_5: controllers.BookingController,
+    // @LINE:48
+    MemberController_4: controllers.MemberController,
+    // @LINE:54
+    Assets_7: controllers.Assets
+  ) = this(errorHandler, MkendoController_6, LoginController_2, CommonController_3, NewsController_0, SearchController_1, BookingController_5, MemberController_4, Assets_7, "/")
 
   def withPrefix(addPrefix: String): Routes = {
     val prefix = play.api.routing.Router.concatPrefix(addPrefix, this.prefix)
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, MkendoController_4, LoginController_2, NewsController_0, SearchController_1, BookingController_3, Assets_5, prefix)
+    new Routes(errorHandler, MkendoController_6, LoginController_2, CommonController_3, NewsController_0, SearchController_1, BookingController_5, MemberController_4, Assets_7, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -62,13 +70,17 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """news""", """controllers.MkendoController.news"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """news/""" + "$" + """articleCode<[^/]+>""", """controllers.MkendoController.shownews(articleCode:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """postnews""", """controllers.MkendoController.postnews"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """uploadimage""", """controllers.MkendoController.uploadImage"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """uploadimage""", """controllers.CommonController.uploadImage"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """postnews""", """controllers.NewsController.createNews"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """search/""" + "$" + """searchType<[^/]+>""", """controllers.SearchController.search(searchType:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """aboutus""", """controllers.MkendoController.aboutus"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """user/booking""", """controllers.MkendoController.booking"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """user/createbooking""", """controllers.BookingController.createBooking"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """bookinglist/""" + "$" + """timePeriodKeyword<[^/]+>""", """controllers.MkendoController.bookinglist(timePeriodKeyword:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """memberlist/""" + "$" + """timePeriodKeyword<[^/]+>""", """controllers.MkendoController.memberlist(timePeriodKeyword:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """memberdetail/""" + "$" + """idnumber<[^/]+>""", """controllers.MkendoController.memberdetail(idnumber:String)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """memberpayment/""" + "$" + """idnumber<[^/]+>""", """controllers.MemberController.memberPayment(idnumber:String)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """summer/upload""", """controllers.CommonController.summerUpload"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -82,7 +94,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix)))
   )
   private[this] lazy val controllers_MkendoController_index0_invoker = createInvoker(
-    MkendoController_4.index,
+    MkendoController_6.index,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.MkendoController",
@@ -100,7 +112,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login")))
   )
   private[this] lazy val controllers_MkendoController_login1_invoker = createInvoker(
-    MkendoController_4.login,
+    MkendoController_6.login,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.MkendoController",
@@ -154,7 +166,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("news")))
   )
   private[this] lazy val controllers_MkendoController_news4_invoker = createInvoker(
-    MkendoController_4.news,
+    MkendoController_6.news,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.MkendoController",
@@ -178,7 +190,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("news/"), DynamicPart("articleCode", """[^/]+""",true)))
   )
   private[this] lazy val controllers_MkendoController_shownews5_invoker = createInvoker(
-    MkendoController_4.shownews(fakeValue[String]),
+    MkendoController_6.shownews(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.MkendoController",
@@ -196,7 +208,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("postnews")))
   )
   private[this] lazy val controllers_MkendoController_postnews6_invoker = createInvoker(
-    MkendoController_4.postnews,
+    MkendoController_6.postnews,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.MkendoController",
@@ -210,14 +222,14 @@ class Routes(
   )
 
   // @LINE:27
-  private[this] lazy val controllers_MkendoController_uploadImage7_route = Route("POST",
+  private[this] lazy val controllers_CommonController_uploadImage7_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("uploadimage")))
   )
-  private[this] lazy val controllers_MkendoController_uploadImage7_invoker = createInvoker(
-    MkendoController_4.uploadImage,
+  private[this] lazy val controllers_CommonController_uploadImage7_invoker = createInvoker(
+    CommonController_3.uploadImage,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.MkendoController",
+      "controllers.CommonController",
       "uploadImage",
       Nil,
       "POST",
@@ -268,7 +280,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("aboutus")))
   )
   private[this] lazy val controllers_MkendoController_aboutus10_invoker = createInvoker(
-    MkendoController_4.aboutus,
+    MkendoController_6.aboutus,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.MkendoController",
@@ -286,7 +298,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("user/booking")))
   )
   private[this] lazy val controllers_MkendoController_booking11_invoker = createInvoker(
-    MkendoController_4.booking,
+    MkendoController_6.booking,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.MkendoController",
@@ -304,7 +316,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("user/createbooking")))
   )
   private[this] lazy val controllers_BookingController_createBooking12_invoker = createInvoker(
-    BookingController_3.createBooking,
+    BookingController_5.createBooking,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.BookingController",
@@ -322,7 +334,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("bookinglist/"), DynamicPart("timePeriodKeyword", """[^/]+""",true)))
   )
   private[this] lazy val controllers_MkendoController_bookinglist13_invoker = createInvoker(
-    MkendoController_4.bookinglist(fakeValue[String]),
+    MkendoController_6.bookinglist(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.MkendoController",
@@ -336,11 +348,83 @@ class Routes(
   )
 
   // @LINE:45
-  private[this] lazy val controllers_Assets_versioned14_route = Route("GET",
+  private[this] lazy val controllers_MkendoController_memberlist14_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("memberlist/"), DynamicPart("timePeriodKeyword", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_MkendoController_memberlist14_invoker = createInvoker(
+    MkendoController_6.memberlist(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.MkendoController",
+      "memberlist",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """memberlist/""" + "$" + """timePeriodKeyword<[^/]+>""",
+      """ Members""",
+      Seq()
+    )
+  )
+
+  // @LINE:46
+  private[this] lazy val controllers_MkendoController_memberdetail15_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("memberdetail/"), DynamicPart("idnumber", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_MkendoController_memberdetail15_invoker = createInvoker(
+    MkendoController_6.memberdetail(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.MkendoController",
+      "memberdetail",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """memberdetail/""" + "$" + """idnumber<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:48
+  private[this] lazy val controllers_MemberController_memberPayment16_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("memberpayment/"), DynamicPart("idnumber", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_MemberController_memberPayment16_invoker = createInvoker(
+    MemberController_4.memberPayment(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.MemberController",
+      "memberPayment",
+      Seq(classOf[String]),
+      "POST",
+      this.prefix + """memberpayment/""" + "$" + """idnumber<[^/]+>""",
+      """""",
+      Seq("""nocsrf""")
+    )
+  )
+
+  // @LINE:51
+  private[this] lazy val controllers_CommonController_summerUpload17_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("summer/upload")))
+  )
+  private[this] lazy val controllers_CommonController_summerUpload17_invoker = createInvoker(
+    CommonController_3.summerUpload,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CommonController",
+      "summerUpload",
+      Nil,
+      "POST",
+      this.prefix + """summer/upload""",
+      """""",
+      Seq("""nocsrf""")
+    )
+  )
+
+  // @LINE:54
+  private[this] lazy val controllers_Assets_versioned18_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned14_invoker = createInvoker(
-    Assets_5.versioned(fakeValue[String], fakeValue[Asset]),
+  private[this] lazy val controllers_Assets_versioned18_invoker = createInvoker(
+    Assets_7.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -359,13 +443,13 @@ class Routes(
     // @LINE:10
     case controllers_MkendoController_index0_route(params@_) =>
       call { 
-        controllers_MkendoController_index0_invoker.call(MkendoController_4.index)
+        controllers_MkendoController_index0_invoker.call(MkendoController_6.index)
       }
   
     // @LINE:11
     case controllers_MkendoController_login1_route(params@_) =>
       call { 
-        controllers_MkendoController_login1_invoker.call(MkendoController_4.login)
+        controllers_MkendoController_login1_invoker.call(MkendoController_6.login)
       }
   
     // @LINE:13
@@ -383,25 +467,25 @@ class Routes(
     // @LINE:23
     case controllers_MkendoController_news4_route(params@_) =>
       call { 
-        controllers_MkendoController_news4_invoker.call(MkendoController_4.news)
+        controllers_MkendoController_news4_invoker.call(MkendoController_6.news)
       }
   
     // @LINE:24
     case controllers_MkendoController_shownews5_route(params@_) =>
       call(params.fromPath[String]("articleCode", None)) { (articleCode) =>
-        controllers_MkendoController_shownews5_invoker.call(MkendoController_4.shownews(articleCode))
+        controllers_MkendoController_shownews5_invoker.call(MkendoController_6.shownews(articleCode))
       }
   
     // @LINE:25
     case controllers_MkendoController_postnews6_route(params@_) =>
       call { 
-        controllers_MkendoController_postnews6_invoker.call(MkendoController_4.postnews)
+        controllers_MkendoController_postnews6_invoker.call(MkendoController_6.postnews)
       }
   
     // @LINE:27
-    case controllers_MkendoController_uploadImage7_route(params@_) =>
+    case controllers_CommonController_uploadImage7_route(params@_) =>
       call { 
-        controllers_MkendoController_uploadImage7_invoker.call(MkendoController_4.uploadImage)
+        controllers_CommonController_uploadImage7_invoker.call(CommonController_3.uploadImage)
       }
   
     // @LINE:29
@@ -419,31 +503,55 @@ class Routes(
     // @LINE:32
     case controllers_MkendoController_aboutus10_route(params@_) =>
       call { 
-        controllers_MkendoController_aboutus10_invoker.call(MkendoController_4.aboutus)
+        controllers_MkendoController_aboutus10_invoker.call(MkendoController_6.aboutus)
       }
   
     // @LINE:39
     case controllers_MkendoController_booking11_route(params@_) =>
       call { 
-        controllers_MkendoController_booking11_invoker.call(MkendoController_4.booking)
+        controllers_MkendoController_booking11_invoker.call(MkendoController_6.booking)
       }
   
     // @LINE:41
     case controllers_BookingController_createBooking12_route(params@_) =>
       call { 
-        controllers_BookingController_createBooking12_invoker.call(BookingController_3.createBooking)
+        controllers_BookingController_createBooking12_invoker.call(BookingController_5.createBooking)
       }
   
     // @LINE:42
     case controllers_MkendoController_bookinglist13_route(params@_) =>
       call(params.fromPath[String]("timePeriodKeyword", None)) { (timePeriodKeyword) =>
-        controllers_MkendoController_bookinglist13_invoker.call(MkendoController_4.bookinglist(timePeriodKeyword))
+        controllers_MkendoController_bookinglist13_invoker.call(MkendoController_6.bookinglist(timePeriodKeyword))
       }
   
     // @LINE:45
-    case controllers_Assets_versioned14_route(params@_) =>
+    case controllers_MkendoController_memberlist14_route(params@_) =>
+      call(params.fromPath[String]("timePeriodKeyword", None)) { (timePeriodKeyword) =>
+        controllers_MkendoController_memberlist14_invoker.call(MkendoController_6.memberlist(timePeriodKeyword))
+      }
+  
+    // @LINE:46
+    case controllers_MkendoController_memberdetail15_route(params@_) =>
+      call(params.fromPath[String]("idnumber", None)) { (idnumber) =>
+        controllers_MkendoController_memberdetail15_invoker.call(MkendoController_6.memberdetail(idnumber))
+      }
+  
+    // @LINE:48
+    case controllers_MemberController_memberPayment16_route(params@_) =>
+      call(params.fromPath[String]("idnumber", None)) { (idnumber) =>
+        controllers_MemberController_memberPayment16_invoker.call(MemberController_4.memberPayment(idnumber))
+      }
+  
+    // @LINE:51
+    case controllers_CommonController_summerUpload17_route(params@_) =>
+      call { 
+        controllers_CommonController_summerUpload17_invoker.call(CommonController_3.summerUpload)
+      }
+  
+    // @LINE:54
+    case controllers_Assets_versioned18_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned14_invoker.call(Assets_5.versioned(path, file))
+        controllers_Assets_versioned18_invoker.call(Assets_7.versioned(path, file))
       }
   }
 }

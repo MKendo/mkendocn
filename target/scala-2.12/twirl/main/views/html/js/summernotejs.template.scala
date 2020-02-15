@@ -46,7 +46,7 @@ Seq[Any](format.raw/*1.1*/("""<script>
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:32 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/js/summernotejs.scala.html
                   HASH: 760101f9ceda74e3d56602b8e7c02570cdfb9f7c
                   MATRIX: 821->0|889->41|917->42|949->48|1004->76|1032->77|1066->85|1130->123|1157->124|1189->130|1216->131

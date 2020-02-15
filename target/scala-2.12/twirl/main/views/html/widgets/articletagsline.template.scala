@@ -52,7 +52,7 @@ Seq[Any](format.raw/*1.1*/("""<div class="tagline p-0 pt-20 mt-5">
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:33 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/articletagsline.scala.html
                   HASH: a2438c131e68a307faf10ed218d83ba267cb5b31
                   MATRIX: 829->0

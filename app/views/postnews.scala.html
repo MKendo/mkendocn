@@ -3,7 +3,7 @@
 @import play.api.data.validation.Constraints._
 @(loginedUserInfo:String)
 
-@main("深圳剑道 明剑馆 发布新闻", loginedUserInfo,true){
+@main("POSTNEWS", loginedUserInfo,true){
 <section class="">
     <div class="container">
         <div class="section-content">
@@ -25,7 +25,7 @@
                         <div class="col-sm-6">
                             <div class="form-group mb-10">
                                 <label for="form_datetime">日期</label>
-                                <input id="form_datetime" name="form_datetime" class="form-control required date-picker" type="text" placeholder="上课日期" required="true">
+                                <input id="form_datetime" name="form_datetime" class="form-control required date-picker" type="text" placeholder="事件发生日期" required="true">
                                 <i class="fa fa-calendar form-control-feedback mt-15 mr-10 font-15 text-gray-lightgray"></i>
                             </div>
                         </div>

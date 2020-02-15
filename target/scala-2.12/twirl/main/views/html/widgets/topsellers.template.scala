@@ -73,7 +73,7 @@ Seq[Any](format.raw/*1.1*/("""<div class="widget">
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:34 CST 2020
+                  DATE: Fri Feb 14 11:46:50 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/topsellers.scala.html
                   HASH: a0465c17918972557bca401c3d7def311c4bc94b
                   MATRIX: 824->0

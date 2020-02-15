@@ -43,7 +43,7 @@ Seq[Any](format.raw/*1.1*/("""<!-- Revolution Slider 5.x SCRIPTS -->
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:31 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/js/revolutionslider5js.scala.html
                   HASH: 149ebc69482829f0b68c7d9005ffe783d5de192e
                   MATRIX: 828->0|908->54|922->60|1017->135|1070->162|1084->168|1185->248

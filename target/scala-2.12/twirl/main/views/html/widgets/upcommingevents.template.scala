@@ -77,7 +77,7 @@ Seq[Any](format.raw/*1.1*/("""<div class="col-md-6">
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:34 CST 2020
+                  DATE: Fri Feb 14 11:46:50 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/upcommingevents.scala.html
                   HASH: 5359911eab9b20d97c7d4c3d6091e30d99f29337
                   MATRIX: 829->0

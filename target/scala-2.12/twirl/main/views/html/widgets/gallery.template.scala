@@ -286,7 +286,7 @@ Seq[Any](format.raw/*1.1*/("""<!-- Section: Gallery -->
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:33 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/gallery.scala.html
                   HASH: a0eb3ea00bf27bfe126dd4ccea1a03a898382e95
                   MATRIX: 821->0

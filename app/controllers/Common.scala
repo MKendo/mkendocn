@@ -43,7 +43,7 @@ object Common {
   }
 
   /**
-    * 获取本周未第一天
+    * 获取本周第一天
     * @return
     */
   def getCurrentWeekStart():String={
@@ -97,6 +97,62 @@ object Common {
     cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);//这种输出的是上个星期周日的日期，因为老外把周日当成第一天
     cal.add(Calendar.WEEK_OF_YEAR, 1)// 增加一个星期，才是我们中国人的本周日的日期
     period=df.format(cal.getTime())
+    period
+  }
+
+  /**
+    * 获取本月第一天
+    * @return
+    */
+  def getCurrentMonthStart():String={
+    var period:String=""
+    var cal:Calendar =Calendar.getInstance();
+    var df:SimpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    cal.set(Calendar.DATE, 1)
+    period=df.format(cal.getTime())//本月第一天
+    period
+  }
+
+  /**
+    * 获取本月最后一天
+    * @return
+    */
+  def getCurrentMonthEnd():String={
+    var period:String=""
+    var cal:Calendar =Calendar.getInstance();
+    var df:SimpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    cal.set(Calendar.DATE, 1)
+    cal.roll(Calendar.DATE,-1)
+    period=df.format(cal.getTime())//本月最后一天
+    period
+  }
+
+  /**
+    * 获取下个月第一天
+    * @return
+    */
+  def getNextMonthStart():String={
+    var period:String=""
+    var cal:Calendar =Calendar.getInstance();
+    var df:SimpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    cal.add(Calendar.MONTH, 1)
+    cal.set(Calendar.DATE, 1)
+    period=df.format(cal.getTime())//本月第一天
+    period
+  }
+
+  /**
+    * 获取下个月最后一天
+    * @return
+    */
+  def getNextMonthEnd():String={
+    var period:String=""
+    var cal:Calendar =Calendar.getInstance();
+    var df:SimpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    cal.add(Calendar.MONTH, 2)
+    cal.set(Calendar.DATE, 1)
+    cal.roll(Calendar.DAY_OF_YEAR,-1)
+    period=df.format(cal.getTime())//本月最后一天
     period
   }
 

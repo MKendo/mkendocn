@@ -25,7 +25,7 @@ object articledescwithimg extends _root_.play.twirl.api.BaseScalaTemplate[play.t
 
 Seq[Any](format.raw/*1.20*/("""
 """),format.raw/*2.1*/("""<article class="post media-post clearfix pb-0 mb-10">
-    <a class="post-thumb" href="/news/:"""),_display_(/*3.41*/article/*3.48*/.code),format.raw/*3.53*/(""""><img src=""""),_display_(/*3.66*/routes/*3.72*/.Assets.versioned("images/users/" + article.imgurl)),format.raw/*3.123*/("""" alt=""></a>
+    <a class="post-thumb" href="/news/:"""),_display_(/*3.41*/article/*3.48*/.code),format.raw/*3.53*/(""""><img width="120" height="120" src=""""),_display_(/*3.91*/routes/*3.97*/.Assets.versioned("images/users/" + article.imgurl)),format.raw/*3.148*/("""" alt=""></a>
     <div class="post-right">
         <h4 class="post-title mt-0"><a href="/news/:"""),_display_(/*5.54*/article/*5.61*/.code),format.raw/*5.66*/("""">"""),_display_(/*5.69*/article/*5.76*/.title),format.raw/*5.82*/("""</a></h4>
         <ul class="list-inline font-12 mb-5">
@@ -50,10 +50,10 @@ Seq[Any](format.raw/*1.20*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:33 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/widgets/articledescwithimg.scala.html
-                  HASH: cc683b726bad27e6e36cba79280b07aff3f125a2
-                  MATRIX: 751->1|864->19|892->21|1013->116|1028->123|1053->128|1092->141|1106->147|1178->198|1302->296|1317->303|1342->308|1371->311|1386->318|1412->324|1562->448|1577->455|1616->474|1644->475|1745->550|1760->557|1793->570|1875->625|1891->632|1925->645
+                  HASH: bd4eebf27e8da18f91d811fe62a8ed2cc9a4adca
+                  MATRIX: 751->1|864->19|892->21|1013->116|1028->123|1053->128|1117->166|1131->172|1203->223|1327->321|1342->328|1367->333|1396->336|1411->343|1437->349|1587->473|1602->480|1641->499|1669->500|1770->575|1785->582|1818->595|1900->650|1916->657|1950->670
                   LINES: 21->1|26->1|27->2|28->3|28->3|28->3|28->3|28->3|28->3|30->5|30->5|30->5|30->5|30->5|30->5|32->7|32->7|32->7|32->7|33->8|33->8|33->8|35->10|35->10|35->10
                   -- GENERATED --
               */

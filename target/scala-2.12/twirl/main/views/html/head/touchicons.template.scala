@@ -46,7 +46,7 @@ Seq[Any](format.raw/*1.1*/("""<link rel="shortcut icon" type="image/png" href=""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 05 19:16:31 CST 2020
+                  DATE: Fri Feb 14 11:46:49 CST 2020
                   SOURCE: D:/products/mkendocn/app/views/head/touchicons.scala.html
                   HASH: a352552b8cafe86e27a719ff0eda5b6489d41c23
                   MATRIX: 821->0|897->50|911->56|970->95|1048->147|1062->153|1121->192|1201->246|1215->252|1283->300|1349->340|1363->346|1437->400|1517->454|1531->460|1607->516|1689->572|1703->578|1779->634
