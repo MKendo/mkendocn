@@ -178,6 +178,7 @@ insert into simpletypes values(null,'FCPY4500','Ğø·ÑÒ»Äê4500','MemberFeeType','»
 insert into simpletypes values(null,'FCPY3500','Ğø·ÑÒ»Äê3500','MemberFeeType','»á·Ñ±ê×¼',1);
 insert into simpletypes values(null,'FCPY3000','Ğø·ÑÒ»Äê3000','MemberFeeType','»á·Ñ±ê×¼',1);
 insert into simpletypes values(null,'FCPYVIP0','VIPÃâ·Ñ','MemberFeeType','»á·Ñ±ê×¼',1);
+insert into simpletypes values(null,'FCHY3500','Ğø·Ñ°ëÄê3500','MemberFeeType','»á·Ñ±ê×¼',1);
 insert into simpletypes values(null,'FCHY4000','Ğø·Ñ°ëÄê4000','MemberFeeType','»á·Ñ±ê×¼',1);
 insert into simpletypes values(null,'FNPY10000','Ê×´Î½É·ÑÒ»Äê10000','MemberFeeType','»á·Ñ±ê×¼',1);
 insert into simpletypes values(null,'FNPY6000','Ê×´Î½É·ÑÒ»Äê6500','MemberFeeType','»á·Ñ±ê×¼',1);
@@ -258,4 +259,25 @@ select * from
  where idnumber='44030520120905911X'
  ;
 
-
+--¸üĞÂÊı¾İ
+delete from members where id=157;
+insert into members(name,mobile,idtypename,idnumber,description,commitdatetime,enable) values('ÍõĞñ2','18351925259','Éí·İÖ¤','321183199506270036','','2020-02-15 17:34:53',1);
+update members set idnumber='440304199009130018' where name='ÍõĞñ';
+update members set mobile='18988781500' where name='ÍõĞñ';
+update members set idnumber='440303199004206611' where name='ÕÅÑÇ³Û';
+update members set idnumber='440301199306187716' where name='Á¬×ÚÊ¢';
+update members set idnumber='362232199203080626' where name='ºúÊ¥×Ó';
+update members set idnumber='440301198902093818' where name='Áõ³º';
+update members set idnumber='362201199206270420' where name='³Âäì';
+update members set idnumber='440304200105253515' where name='ËïĞø·å';
+update members set idnumber='440307198610250218' where name='Âí¹óîÈ';
+update members set idnumber='440183199401110323' where name='»Æè´';
+update members set idnumber='440221199708121613' where name='Ğ¤Ü²';
+update members set idnumber='440301199011147813' where name='»ÆÓîÇÕ';
+update members set idnumber='440301198309231538' where name='Å·ÑôÉ½';
+update members set idnumber='440306198802030088' where name='ÂŞÀÙ';
+update members set idnumber='440301198804038014' where name='½¯å°';
+update members set idnumber='440221198807010033' where name='³ÂÖÇÓÂ';
+update members set idnumber='440306199503131828' where name='ÅËÏşĞÀ';
+update members set idnumber='440301199305085427' where name='ÕÅÃÀÏæ';
+update members set idnumber='440301198707115110' where name='ÁÖÎÄ½Ü';

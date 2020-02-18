@@ -1,557 +1,15 @@
-2020-02-15 17:39:08,139 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 17:39:08,158 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
-2020-02-15 17:39:09,335 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2020-02-17 17:41:37,637 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
+2020-02-17 17:41:37,648 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
+2020-02-17 17:41:38,339 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2020-02-15 17:39:09,351 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev) (no global state)
-2020-02-15 17:49:26,476 [INFO] from application in application-akka.actor.default-dispatcher-19 - Shutting down connection pool.
-2020-02-15 17:49:27,006 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-19 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 17:49:27,006 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-19 - Creating Pool for datasource 'default'
-2020-02-15 17:49:27,261 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-19 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2020-02-17 17:41:38,349 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev) (no global state)
+2020-02-17 17:44:00,237 [ERROR] from application in application-akka.actor.default-dispatcher-21 - 
 
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 17:49:27,265 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-19 - Application started (Dev) (no global state)
-2020-02-15 17:49:30,180 [ERROR] from application in application-akka.actor.default-dispatcher-3 - 
-
-! @7eo99k0e6 - Internal server error, for (GET) [/memberlist/ALL] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[AnormException: UnexpectedNullableFound(ColumnName(simpletypes.feeTypeCode,Some(feeTypeCode)))]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:351)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:267)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:448)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:446)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:92)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:92)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:49)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: anorm.AnormException: UnexpectedNullableFound(ColumnName(simpletypes.feeTypeCode,Some(feeTypeCode)))
-2020-02-15 17:49:32,157 [ERROR] from application in application-akka.actor.default-dispatcher-3 - 
-
-! @7eo99k3ca - Internal server error, for (GET) [/memberlist/ALL] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[AnormException: UnexpectedNullableFound(ColumnName(simpletypes.feeTypeCode,Some(feeTypeCode)))]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:351)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:267)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:448)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:446)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:92)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:92)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:49)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: anorm.AnormException: UnexpectedNullableFound(ColumnName(simpletypes.feeTypeCode,Some(feeTypeCode)))
-2020-02-15 17:55:29,390 [INFO] from application in application-akka.actor.default-dispatcher-18 - Shutting down connection pool.
-2020-02-15 17:55:29,801 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-49 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 17:55:29,802 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-49 - Creating Pool for datasource 'default'
-2020-02-15 17:55:29,977 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-49 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 17:55:29,979 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-49 - Application started (Dev) (no global state)
-2020-02-15 17:56:20,701 [INFO] from application in application-akka.actor.default-dispatcher-7 - Shutting down connection pool.
-2020-02-15 17:56:20,933 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-49 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 17:56:20,933 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-49 - Creating Pool for datasource 'default'
-2020-02-15 17:56:21,076 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-49 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 17:56:21,078 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-49 - Application started (Dev) (no global state)
-2020-02-15 17:56:23,180 [ERROR] from application in application-akka.actor.default-dispatcher-2 - 
-
-! @7eo9ahdco - Internal server error, for (GET) [/memberlist/CURRENT_MONTH] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "mv": syntax error)]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:351)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:267)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:448)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:446)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:92)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:92)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:49)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "mv": syntax error)
-	at org.sqlite.core.DB.newSQLException(DB.java:941)
-	at org.sqlite.core.DB.newSQLException(DB.java:953)
-	at org.sqlite.core.DB.throwex(DB.java:918)
-	at org.sqlite.core.NativeDB.prepare_utf8(Native Method)
-	at org.sqlite.core.NativeDB.prepare(NativeDB.java:134)
-	at org.sqlite.core.DB.prepare(DB.java:257)
-	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:47)
-	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:30)
-	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:19)
-	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:35)
-	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:241)
-	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:205)
-	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:315)
-	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
-	at anorm.SimpleSql.$anonfun$prepareNoGeneratedKeys$1(SimpleSql.scala:40)
-	at anorm.SimpleSql.unsafeStatement(SimpleSql.scala:61)
-	at anorm.SimpleSql.unsafeStatement(SimpleSql.scala:53)
-	at anorm.Sql.$anonfun$preparedStatement$1(Anorm.scala:90)
-	at resource.DefaultManagedResource.open(AbstractManagedResource.scala:110)
-	at resource.AbstractManagedResource.acquireFor(AbstractManagedResource.scala:87)
-	at resource.ManagedResourceOperations$$anon$2.acquireFor(ManagedResourceOperations.scala:49)
-	at resource.DeferredExtractableManagedResource.acquireFor(AbstractManagedResource.scala:27)
-	at resource.ManagedResourceOperations.apply(ManagedResourceOperations.scala:26)
-	at resource.ManagedResourceOperations.apply$(ManagedResourceOperations.scala:26)
-	at resource.DeferredExtractableManagedResource.apply(AbstractManagedResource.scala:24)
-	at resource.ManagedResourceOperations.acquireAndGet(ManagedResourceOperations.scala:25)
-	at resource.ManagedResourceOperations.acquireAndGet$(ManagedResourceOperations.scala:25)
-	at resource.DeferredExtractableManagedResource.acquireAndGet(AbstractManagedResource.scala:24)
-	at anorm.Sql$.$anonfun$asTry$1(Anorm.scala:228)
-	at scala.util.Try$.apply(Try.scala:213)
-	at anorm.Sql$.asTry(Anorm.scala:228)
-	at anorm.WithResult.asTry(SqlResult.scala:181)
-	at anorm.WithResult.asTry$(SqlResult.scala:181)
-	at anorm.SimpleSql.asTry(SimpleSql.scala:6)
-	at anorm.WithResult.as(SqlResult.scala:173)
-	at anorm.WithResult.as$(SqlResult.scala:172)
-	at anorm.SimpleSql.as(SimpleSql.scala:6)
-	at service.MemberService.$anonfun$findByTimePeriod$1(MemberService.scala:37)
-	at play.api.db.DefaultDatabase.withConnection(Databases.scala:181)
-	at play.api.db.DefaultDatabase.withConnection(Databases.scala:175)
-	at service.MemberService.findByTimePeriod(MemberService.scala:23)
-	at controllers.MkendoController.$anonfun$memberlist$1(MkendoController.scala:167)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:57)
-	at play.api.mvc.MessagesActionBuilderImpl.invokeBlock(MessagesRequest.scala:79)
-	at play.api.mvc.MessagesActionBuilderImpl.invokeBlock(MessagesRequest.scala:74)
-	at play.api.mvc.ActionBuilder$$anon$11.$anonfun$invokeBlock$2(Action.scala:455)
-	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:489)
-	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:487)
-	at play.api.mvc.ActionBuilder$$anon$11.invokeBlock(Action.scala:455)
-	at play.api.mvc.ActionBuilder$$anon$11.invokeBlock(Action.scala:451)
-	at play.api.mvc.ActionBuilder$$anon$10.apply(Action.scala:426)
-	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:98)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:184)
-	at scala.util.Try$.apply(Try.scala:213)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:184)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:57)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:57)
-	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:219)
-	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:441)
-	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
-	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
-	... 12 common frames omitted
-2020-02-15 17:59:24,176 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
-2020-02-15 17:59:24,414 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-78 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 17:59:24,414 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-78 - Creating Pool for datasource 'default'
-2020-02-15 17:59:24,571 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-78 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 17:59:24,573 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-78 - Application started (Dev) (no global state)
-2020-02-15 17:59:24,603 [ERROR] from application in application-akka.actor.default-dispatcher-3 - 
-
-! @7eo9b1lmj - Internal server error, for (GET) [/memberlist/CURRENT_MONTH] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "mv": syntax error)]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:351)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:267)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:448)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:446)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:92)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:92)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:49)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "mv": syntax error)
-	at org.sqlite.core.DB.newSQLException(DB.java:941)
-	at org.sqlite.core.DB.newSQLException(DB.java:953)
-	at org.sqlite.core.DB.throwex(DB.java:918)
-	at org.sqlite.core.NativeDB.prepare_utf8(Native Method)
-	at org.sqlite.core.NativeDB.prepare(NativeDB.java:134)
-	at org.sqlite.core.DB.prepare(DB.java:257)
-	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:47)
-	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:30)
-	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:19)
-	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:35)
-	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:241)
-	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:205)
-	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:315)
-	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
-	at anorm.SimpleSql.$anonfun$prepareNoGeneratedKeys$1(SimpleSql.scala:40)
-	at anorm.SimpleSql.unsafeStatement(SimpleSql.scala:61)
-	at anorm.SimpleSql.unsafeStatement(SimpleSql.scala:53)
-	at anorm.Sql.$anonfun$preparedStatement$1(Anorm.scala:90)
-	at resource.DefaultManagedResource.open(AbstractManagedResource.scala:110)
-	at resource.AbstractManagedResource.acquireFor(AbstractManagedResource.scala:87)
-	at resource.ManagedResourceOperations$$anon$2.acquireFor(ManagedResourceOperations.scala:49)
-	at resource.DeferredExtractableManagedResource.acquireFor(AbstractManagedResource.scala:27)
-	at resource.ManagedResourceOperations.apply(ManagedResourceOperations.scala:26)
-	at resource.ManagedResourceOperations.apply$(ManagedResourceOperations.scala:26)
-	at resource.DeferredExtractableManagedResource.apply(AbstractManagedResource.scala:24)
-	at resource.ManagedResourceOperations.acquireAndGet(ManagedResourceOperations.scala:25)
-	at resource.ManagedResourceOperations.acquireAndGet$(ManagedResourceOperations.scala:25)
-	at resource.DeferredExtractableManagedResource.acquireAndGet(AbstractManagedResource.scala:24)
-	at anorm.Sql$.$anonfun$asTry$1(Anorm.scala:228)
-	at scala.util.Try$.apply(Try.scala:213)
-	at anorm.Sql$.asTry(Anorm.scala:228)
-	at anorm.WithResult.asTry(SqlResult.scala:181)
-	at anorm.WithResult.asTry$(SqlResult.scala:181)
-	at anorm.SimpleSql.asTry(SimpleSql.scala:6)
-	at anorm.WithResult.as(SqlResult.scala:173)
-	at anorm.WithResult.as$(SqlResult.scala:172)
-	at anorm.SimpleSql.as(SimpleSql.scala:6)
-	at service.MemberService.$anonfun$findByTimePeriod$1(MemberService.scala:37)
-	at play.api.db.DefaultDatabase.withConnection(Databases.scala:181)
-	at play.api.db.DefaultDatabase.withConnection(Databases.scala:175)
-	at service.MemberService.findByTimePeriod(MemberService.scala:23)
-	at controllers.MkendoController.$anonfun$memberlist$1(MkendoController.scala:167)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:57)
-	at play.api.mvc.MessagesActionBuilderImpl.invokeBlock(MessagesRequest.scala:79)
-	at play.api.mvc.MessagesActionBuilderImpl.invokeBlock(MessagesRequest.scala:74)
-	at play.api.mvc.ActionBuilder$$anon$11.$anonfun$invokeBlock$2(Action.scala:455)
-	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:489)
-	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:487)
-	at play.api.mvc.ActionBuilder$$anon$11.invokeBlock(Action.scala:455)
-	at play.api.mvc.ActionBuilder$$anon$11.invokeBlock(Action.scala:451)
-	at play.api.mvc.ActionBuilder$$anon$10.apply(Action.scala:426)
-	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:98)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:184)
-	at scala.util.Try$.apply(Try.scala:213)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:184)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:57)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:57)
-	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:219)
-	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:441)
-	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
-	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
-	... 12 common frames omitted
-2020-02-15 18:00:19,920 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
-2020-02-15 18:00:20,179 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-85 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 18:00:20,179 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-85 - Creating Pool for datasource 'default'
-2020-02-15 18:00:20,311 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-85 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 18:00:20,312 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-85 - Application started (Dev) (no global state)
-2020-02-15 18:00:20,334 [ERROR] from application in application-akka.actor.default-dispatcher-2 - 
-
-! @7eo9b5087 - Internal server error, for (GET) [/memberlist/CURRENT_MONTH] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: mv.endvalidate)]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:351)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:267)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:448)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:446)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:92)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:92)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:49)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: mv.endvalidate)
-	at org.sqlite.core.DB.newSQLException(DB.java:941)
-	at org.sqlite.core.DB.newSQLException(DB.java:953)
-	at org.sqlite.core.DB.throwex(DB.java:918)
-	at org.sqlite.core.NativeDB.prepare_utf8(Native Method)
-	at org.sqlite.core.NativeDB.prepare(NativeDB.java:134)
-	at org.sqlite.core.DB.prepare(DB.java:257)
-	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:47)
-	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:30)
-	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:19)
-	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:35)
-	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:241)
-	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:205)
-	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:315)
-	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
-	at anorm.SimpleSql.$anonfun$prepareNoGeneratedKeys$1(SimpleSql.scala:40)
-	at anorm.SimpleSql.unsafeStatement(SimpleSql.scala:61)
-	at anorm.SimpleSql.unsafeStatement(SimpleSql.scala:53)
-	at anorm.Sql.$anonfun$preparedStatement$1(Anorm.scala:90)
-	at resource.DefaultManagedResource.open(AbstractManagedResource.scala:110)
-	at resource.AbstractManagedResource.acquireFor(AbstractManagedResource.scala:87)
-	at resource.ManagedResourceOperations$$anon$2.acquireFor(ManagedResourceOperations.scala:49)
-	at resource.DeferredExtractableManagedResource.acquireFor(AbstractManagedResource.scala:27)
-	at resource.ManagedResourceOperations.apply(ManagedResourceOperations.scala:26)
-	at resource.ManagedResourceOperations.apply$(ManagedResourceOperations.scala:26)
-	at resource.DeferredExtractableManagedResource.apply(AbstractManagedResource.scala:24)
-	at resource.ManagedResourceOperations.acquireAndGet(ManagedResourceOperations.scala:25)
-	at resource.ManagedResourceOperations.acquireAndGet$(ManagedResourceOperations.scala:25)
-	at resource.DeferredExtractableManagedResource.acquireAndGet(AbstractManagedResource.scala:24)
-	at anorm.Sql$.$anonfun$asTry$1(Anorm.scala:228)
-	at scala.util.Try$.apply(Try.scala:213)
-	at anorm.Sql$.asTry(Anorm.scala:228)
-	at anorm.WithResult.asTry(SqlResult.scala:181)
-	at anorm.WithResult.asTry$(SqlResult.scala:181)
-	at anorm.SimpleSql.asTry(SimpleSql.scala:6)
-	at anorm.WithResult.as(SqlResult.scala:173)
-	at anorm.WithResult.as$(SqlResult.scala:172)
-	at anorm.SimpleSql.as(SimpleSql.scala:6)
-	at service.MemberService.$anonfun$findByTimePeriod$1(MemberService.scala:37)
-	at play.api.db.DefaultDatabase.withConnection(Databases.scala:181)
-	at play.api.db.DefaultDatabase.withConnection(Databases.scala:175)
-	at service.MemberService.findByTimePeriod(MemberService.scala:23)
-	at controllers.MkendoController.$anonfun$memberlist$1(MkendoController.scala:167)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:57)
-	at play.api.mvc.MessagesActionBuilderImpl.invokeBlock(MessagesRequest.scala:79)
-	at play.api.mvc.MessagesActionBuilderImpl.invokeBlock(MessagesRequest.scala:74)
-	at play.api.mvc.ActionBuilder$$anon$11.$anonfun$invokeBlock$2(Action.scala:455)
-	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:489)
-	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:487)
-	at play.api.mvc.ActionBuilder$$anon$11.invokeBlock(Action.scala:455)
-	at play.api.mvc.ActionBuilder$$anon$11.invokeBlock(Action.scala:451)
-	at play.api.mvc.ActionBuilder$$anon$10.apply(Action.scala:426)
-	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:98)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:184)
-	at scala.util.Try$.apply(Try.scala:213)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:184)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:57)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:57)
-	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:219)
-	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:441)
-	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
-	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
-	... 12 common frames omitted
-2020-02-15 18:01:28,576 [ERROR] from application in application-akka.actor.default-dispatcher-3 - 
-
-! @7eo9b8n6p - Internal server error, for (GET) [/memberlist/CURRENT_MONTH] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: mv.endvalidate)]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:351)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:267)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:448)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:446)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:92)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:92)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:49)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: mv.endvalidate)
-	at org.sqlite.core.DB.newSQLException(DB.java:941)
-	at org.sqlite.core.DB.newSQLException(DB.java:953)
-	at org.sqlite.core.DB.throwex(DB.java:918)
-	at org.sqlite.core.NativeDB.prepare_utf8(Native Method)
-	at org.sqlite.core.NativeDB.prepare(NativeDB.java:134)
-	at org.sqlite.core.DB.prepare(DB.java:257)
-	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:47)
-	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:30)
-	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:19)
-	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:35)
-	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:241)
-	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:205)
-	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:315)
-	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
-	at anorm.SimpleSql.$anonfun$prepareNoGeneratedKeys$1(SimpleSql.scala:40)
-	at anorm.SimpleSql.unsafeStatement(SimpleSql.scala:61)
-	at anorm.SimpleSql.unsafeStatement(SimpleSql.scala:53)
-	at anorm.Sql.$anonfun$preparedStatement$1(Anorm.scala:90)
-	at resource.DefaultManagedResource.open(AbstractManagedResource.scala:110)
-	at resource.AbstractManagedResource.acquireFor(AbstractManagedResource.scala:87)
-	at resource.ManagedResourceOperations$$anon$2.acquireFor(ManagedResourceOperations.scala:49)
-	at resource.DeferredExtractableManagedResource.acquireFor(AbstractManagedResource.scala:27)
-	at resource.ManagedResourceOperations.apply(ManagedResourceOperations.scala:26)
-	at resource.ManagedResourceOperations.apply$(ManagedResourceOperations.scala:26)
-	at resource.DeferredExtractableManagedResource.apply(AbstractManagedResource.scala:24)
-	at resource.ManagedResourceOperations.acquireAndGet(ManagedResourceOperations.scala:25)
-	at resource.ManagedResourceOperations.acquireAndGet$(ManagedResourceOperations.scala:25)
-	at resource.DeferredExtractableManagedResource.acquireAndGet(AbstractManagedResource.scala:24)
-	at anorm.Sql$.$anonfun$asTry$1(Anorm.scala:228)
-	at scala.util.Try$.apply(Try.scala:213)
-	at anorm.Sql$.asTry(Anorm.scala:228)
-	at anorm.WithResult.asTry(SqlResult.scala:181)
-	at anorm.WithResult.asTry$(SqlResult.scala:181)
-	at anorm.SimpleSql.asTry(SimpleSql.scala:6)
-	at anorm.WithResult.as(SqlResult.scala:173)
-	at anorm.WithResult.as$(SqlResult.scala:172)
-	at anorm.SimpleSql.as(SimpleSql.scala:6)
-	at service.MemberService.$anonfun$findByTimePeriod$1(MemberService.scala:37)
-	at play.api.db.DefaultDatabase.withConnection(Databases.scala:181)
-	at play.api.db.DefaultDatabase.withConnection(Databases.scala:175)
-	at service.MemberService.findByTimePeriod(MemberService.scala:23)
-	at controllers.MkendoController.$anonfun$memberlist$1(MkendoController.scala:167)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:57)
-	at play.api.mvc.MessagesActionBuilderImpl.invokeBlock(MessagesRequest.scala:79)
-	at play.api.mvc.MessagesActionBuilderImpl.invokeBlock(MessagesRequest.scala:74)
-	at play.api.mvc.ActionBuilder$$anon$11.$anonfun$invokeBlock$2(Action.scala:455)
-	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:489)
-	at play.api.mvc.ActionBuilderImpl.invokeBlock(Action.scala:487)
-	at play.api.mvc.ActionBuilder$$anon$11.invokeBlock(Action.scala:455)
-	at play.api.mvc.ActionBuilder$$anon$11.invokeBlock(Action.scala:451)
-	at play.api.mvc.ActionBuilder$$anon$10.apply(Action.scala:426)
-	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:98)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:184)
-	at scala.util.Try$.apply(Try.scala:213)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:184)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:57)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:57)
-	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:219)
-	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:441)
-	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
-	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
-	... 12 common frames omitted
-2020-02-15 18:02:57,683 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
-2020-02-15 18:02:57,924 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-84 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 18:02:57,924 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-84 - Creating Pool for datasource 'default'
-2020-02-15 18:02:58,076 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-84 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 18:02:58,078 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-84 - Application started (Dev) (no global state)
-2020-02-15 18:04:53,133 [INFO] from application in application-akka.actor.default-dispatcher-8 - Shutting down connection pool.
-2020-02-15 18:04:53,508 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-116 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 18:04:53,508 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-116 - Creating Pool for datasource 'default'
-2020-02-15 18:04:53,717 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-116 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 18:04:53,718 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-116 - Application started (Dev) (no global state)
-2020-02-15 18:06:18,076 [INFO] from application in application-akka.actor.default-dispatcher-11 - Shutting down connection pool.
-2020-02-15 18:06:18,382 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-116 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 18:06:18,383 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-116 - Creating Pool for datasource 'default'
-2020-02-15 18:06:18,548 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-116 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 18:06:18,551 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-116 - Application started (Dev) (no global state)
-2020-02-15 18:09:40,848 [INFO] from application in application-akka.actor.default-dispatcher-17 - Shutting down connection pool.
-2020-02-15 18:09:41,070 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-119 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 18:09:41,070 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-119 - Creating Pool for datasource 'default'
-2020-02-15 18:09:41,201 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-119 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 18:09:41,202 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-119 - Application started (Dev) (no global state)
-2020-02-15 18:10:40,133 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
-2020-02-15 18:10:40,313 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-132 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 18:10:40,314 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-132 - Creating Pool for datasource 'default'
-2020-02-15 18:10:40,484 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-132 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 18:10:40,485 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-132 - Application started (Dev) (no global state)
-2020-02-15 18:12:34,852 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
-2020-02-15 18:12:35,027 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-127 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 18:12:35,028 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-127 - Creating Pool for datasource 'default'
-2020-02-15 18:12:35,186 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-127 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 18:12:35,188 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-127 - Application started (Dev) (no global state)
-2020-02-15 18:12:53,346 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
-2020-02-15 18:12:53,580 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-154 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 18:12:53,580 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-154 - Creating Pool for datasource 'default'
-2020-02-15 18:12:53,803 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-154 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 18:12:53,804 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-154 - Application started (Dev) (no global state)
-2020-02-15 18:14:22,916 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
-2020-02-15 18:14:23,096 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-127 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 18:14:23,097 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-127 - Creating Pool for datasource 'default'
-2020-02-15 18:14:23,239 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-127 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 18:14:23,241 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-127 - Application started (Dev) (no global state)
-2020-02-15 18:14:53,132 [INFO] from application in application-akka.actor.default-dispatcher-8 - Shutting down connection pool.
-2020-02-15 18:14:53,386 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-128 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 18:14:53,387 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-128 - Creating Pool for datasource 'default'
-2020-02-15 18:14:53,502 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-128 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 18:14:53,503 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-128 - Application started (Dev) (no global state)
-2020-02-15 18:16:15,480 [INFO] from application in application-akka.actor.default-dispatcher-14 - Shutting down connection pool.
-2020-02-15 18:16:15,673 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-153 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
-2020-02-15 18:16:15,673 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-153 - Creating Pool for datasource 'default'
-2020-02-15 18:16:15,823 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-153 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2020-02-15 18:16:15,824 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-153 - Application started (Dev) (no global state)
-2020-02-15 18:27:31,989 [ERROR] from application in application-akka.actor.default-dispatcher-16 - 
-
-! @7eo9ejm05 - Internal server error, for (GET) [/memberdetail/:330824197709244911] ->
+! @7eonn4ljm - Internal server error, for (GET) [/memberdetail/:%E6%97%A0] ->
  
 play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[AnormException: SqlMappingError(too many rows when expecting a single one)]]
 	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:351)
@@ -573,3 +31,221 @@ play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[AnormExce
 	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
 Caused by: anorm.AnormException: SqlMappingError(too many rows when expecting a single one)
+2020-02-17 17:44:53,530 [ERROR] from application in application-akka.actor.default-dispatcher-20 - 
+
+! @7eonn7mfl - Internal server error, for (GET) [/memberdetail/:%E6%97%A0] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[AnormException: SqlMappingError(too many rows when expecting a single one)]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:351)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:267)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:448)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:446)
+	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:92)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:92)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:49)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: anorm.AnormException: SqlMappingError(too many rows when expecting a single one)
+2020-02-17 17:45:30,255 [ERROR] from application in application-akka.actor.default-dispatcher-28 - 
+
+! @7eonn9oo7 - Internal server error, for (GET) [/memberdetail/:%E6%97%A0] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[AnormException: SqlMappingError(too many rows when expecting a single one)]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:351)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:267)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:448)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:446)
+	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:92)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:92)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:49)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: anorm.AnormException: SqlMappingError(too many rows when expecting a single one)
+2020-02-17 17:45:35,983 [ERROR] from application in application-akka.actor.default-dispatcher-28 - 
+
+! @7eonna7ag - Internal server error, for (GET) [/memberdetail/:%E6%97%A0] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[AnormException: SqlMappingError(too many rows when expecting a single one)]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:351)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:267)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:448)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:446)
+	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:92)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:92)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:49)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: anorm.AnormException: SqlMappingError(too many rows when expecting a single one)
+2020-02-17 18:31:06,244 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m58s385ms995?s900ns).
+2020-02-17 18:41:20,054 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-52 - 
+
+! @7eoo4idpj - Internal server error, for (GET) [/favicon.ico] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[unclosed character literal (or use " not ' for string literal)]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:37)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:37)
+	at scala.Option.map(Option.scala:146)
+	at play.sbt.run.PlayReload$.$anonfun$taskFailureHandler$1(PlayReload.scala:41)
+	at scala.Option.map(Option.scala:146)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:36)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:29)
+	at play.sbt.run.PlayReload$.$anonfun$compile$3(PlayReload.scala:64)
+	at scala.util.Either$LeftProjection.map(Either.scala:569)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:64)
+	at play.sbt.run.PlayRun$.$anonfun$playRunTask$4(PlayRun.scala:80)
+	at play.runsupport.Reloader.$anonfun$reload$1(Reloader.scala:501)
+	at play.runsupport.Reloader$$anon$1.run(Reloader.scala:58)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:64)
+	at play.runsupport.Reloader.reload(Reloader.scala:501)
+	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:143)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:304)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:189)
+	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1262)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:523)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:409)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:599)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:480)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:574)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:742)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:757)
+	at akka.actor.Actor.aroundReceive(Actor.scala:539)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:537)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:664)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:610)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:579)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:268)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:229)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:241)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2020-02-17 18:41:20,812 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-54 - 
+
+! @7eoo4if9m - Internal server error, for (GET) [/] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[unclosed character literal (or use " not ' for string literal)]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:37)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:37)
+	at scala.Option.map(Option.scala:146)
+	at play.sbt.run.PlayReload$.$anonfun$taskFailureHandler$1(PlayReload.scala:41)
+	at scala.Option.map(Option.scala:146)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:36)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:29)
+	at play.sbt.run.PlayReload$.$anonfun$compile$3(PlayReload.scala:64)
+	at scala.util.Either$LeftProjection.map(Either.scala:569)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:64)
+	at play.sbt.run.PlayRun$.$anonfun$playRunTask$4(PlayRun.scala:80)
+	at play.runsupport.Reloader.$anonfun$reload$1(Reloader.scala:501)
+	at play.runsupport.Reloader$$anon$1.run(Reloader.scala:58)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:64)
+	at play.runsupport.Reloader.reload(Reloader.scala:501)
+	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:143)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:304)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:189)
+	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1262)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:523)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:409)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:599)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:480)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:574)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:742)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:757)
+	at akka.actor.Actor.aroundReceive(Actor.scala:539)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:537)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:664)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:610)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:579)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:268)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:229)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:241)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2020-02-17 18:41:45,728 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-52 - 
+
+! @7eoo4k064 - Internal server error, for (GET) [/] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[not found: value loginUserInfo]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:37)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:37)
+	at scala.Option.map(Option.scala:146)
+	at play.sbt.run.PlayReload$.$anonfun$taskFailureHandler$1(PlayReload.scala:41)
+	at scala.Option.map(Option.scala:146)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:36)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:29)
+	at play.sbt.run.PlayReload$.$anonfun$compile$3(PlayReload.scala:64)
+	at scala.util.Either$LeftProjection.map(Either.scala:569)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:64)
+	at play.sbt.run.PlayRun$.$anonfun$playRunTask$4(PlayRun.scala:80)
+	at play.runsupport.Reloader.$anonfun$reload$1(Reloader.scala:501)
+	at play.runsupport.Reloader$$anon$1.run(Reloader.scala:58)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:64)
+	at play.runsupport.Reloader.reload(Reloader.scala:501)
+	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:143)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:304)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:189)
+	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1262)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:523)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:409)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:599)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:480)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:574)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:742)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:757)
+	at akka.actor.Actor.aroundReceive(Actor.scala:539)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:537)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:664)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:610)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:579)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:268)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:229)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:241)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2020-02-17 18:42:04,329 [INFO] from application in application-akka.actor.default-dispatcher-54 - Shutting down connection pool.
+2020-02-17 18:42:04,709 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-53 - Database [default] initialized at jdbc:sqlite:D://mkendocn.db
+2020-02-17 18:42:04,709 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-53 - Creating Pool for datasource 'default'
+2020-02-17 18:42:04,876 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-53 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2020-02-17 18:42:04,878 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-53 - Application started (Dev) (no global state)
+2020-02-17 21:52:09,372 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-2 housekeeper - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=3h34s537ms298?s).
+2020-02-18 09:05:49,370 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-2 housekeeper - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=11h13m41s871ms100?s400ns).
+2020-02-18 09:44:32,714 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-2 housekeeper - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=29m13s330ms351?s).
