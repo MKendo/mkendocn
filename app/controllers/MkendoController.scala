@@ -178,12 +178,20 @@ class MkendoController @Inject()(cc: MessagesControllerComponents)(dbapi: DBApi)
     * @param idNumber
     * @return
     */
-  def memberdetail(idNumber: String)= Action { implicit request =>
+  def memberdetail(id: String)= Action { implicit request =>
     val loginedUserInfo = Common.loginConfirm(request.session)
-    val memberService = new MemberService(dbapi)
-    val member:Member = memberService.findByIdnumber(idNumber.substring(1))
-    val validates = memberService.findValidatesByIdnumber(idNumber.substring(1))
-    Ok(views.html.memberdetail(loginedUserInfo,member,validates))
+
+    try {
+      val iid = id.substring(1).toInt
+      val memberService = new MemberService(dbapi)
+      val member: Member = memberService.findById(iid)
+      val validates = memberService.findValidatesById(iid)
+      Ok(views.html.memberdetail(loginedUserInfo, member, validates,""))
+    }catch{
+      case ex:Exception =>{
+        Ok(views.html.message("访问会员信息页面出错",s"传入的ID=$id", loginedUserInfo))
+      }
+    }
   }
 
   /**

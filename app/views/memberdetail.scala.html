@@ -1,7 +1,7 @@
 @import play.api.data._
 @import play.api.data.Forms._
 @import play.api.data.validation.Constraints._
-@(loginedUserInfo:String,member:Member,validataes:List[MemberValidate])
+@(loginedUserInfo:String,member:Member,validataes:List[MemberValidate],message:String)
 
 @main("会员详细信息", loginedUserInfo,true){
 <section class="">
@@ -10,41 +10,48 @@
             <div class="col-md-12">
                 <h3 class="mt-0 mb-20">明剑馆<span class="text-theme-color-2">会员详细信息</span></h3>
                 <hr>
-                <p>在这里可以修改会员信息，可以为会员续费、暂停等.</p>
-                <form id="form_postnews" name="form_postnews" class="booking-form form-home bg-white p-30" method="post" action=@routes.NewsController.createNews()>
-
+                @if(!message.isEmpty()){
+                  <div class="alert alert-success" role="alert">@message</div>
+                }
+                <form id="form_postmember" name="form_postmember" class="booking-form form-home bg-white p-30" method="post" action=@routes.MemberController.createOrUpdateMember(""+member.id)>
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="form_name">姓名</label>
-                            <input id="form_name" name="form_name" class="form-control" type="text" required="true" value="@member.name">
+                            <input id="form_name" name="form_name" class="form-control" type="text" required="true" value="@if(member!=null){@member.name}" @if(member.enable==0){disabled="disabled"}>
                         </div>
                         <div class="col-sm-6">
                             <label for="form_mobile">手机</label>
-                            <input id="form_mobile" name="form_mobile" class="form-control" type="text" required="true" value="@member.mobile">
+                            <input id="form_mobile" name="form_mobile" class="form-control" type="text" required="true" value="@if(member!=null){@member.mobile}" @if(member.enable==0){disabled="disabled"}>
                         </div>
                         <div class="col-sm-6">
                             <label for="form_idtype">证件类型</label>
-                            <input id="form_idtype" name="form_idtype" class="form-control" type="text" required="true" value="@member.idTypeName">
+                            <input id="form_idtype" name="form_idtype" class="form-control" type="text" required="true" value="@if(member!=null){@member.idTypeName}" @if(member.enable==0){disabled="disabled"}>
                         </div>
                         <div class="col-sm-6">
                             <label for="form_idnumber">证件号</label>
-                            <input id="form_idnumber" name="form_idnumber" class="form-control" type="text" required="true" value="@member.idNumber">
+                            <input id="form_idnumber" name="form_idnumber" class="form-control" type="text" required="true" value="@if(member!=null){@member.idNumber}" @if(member.enable==0){disabled="disabled"}>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="form_desc">摘要</label>
+                            <textarea id="form_desc" name="form_desc" class="form-control" rows="3" @if(member.enable==0){disabled="disabled"}>@if(member!=null){@member.description}</textarea>
                         </div>
                         <div class="col-sm-12">
                             <label for="form_feetype">费用类型</label>
                             <div class="form-group mb-20">
                                 <div class="styled-select">
-                                    <select id="form_feetype" name="form_feetype" class="form-control" required="true">
+                                    <select id="form_feetype" name="form_feetype" class="form-control" required="true" disabled="disabled">
                                         <option value="">费用类型</option>
-                                        <option value="FCPY6000" @if(member.feeTypeCode=="FCPY6000"){selected}>续费一年6000</option>
-                                        <option value="FCPY4500" @if(member.feeTypeCode=="FCPY4500"){selected}>续费一年4500</option>
-                                        <option value="FCPY3500" @if(member.feeTypeCode=="FCPY3500"){selected}>续费一年3500</option>
-                                        <option value="FCPY3000" @if(member.feeTypeCode=="FCPY3000"){selected}>续费一年3000</option>
-                                        <option value="FNPY10000" @if(member.feeTypeCode=="FNPY10000"){selected}>首次缴费一年10000</option>
-                                        <option value="FNPY6500" @if(member.feeTypeCode=="FNPY6500"){selected}>首次缴费一年6500</option>
-                                        <option value="FNHY4000" @if(member.feeTypeCode=="FNHY4000"){selected}>首次缴费半年4500</option>
-                                        <option value="FCPYVIP0" @if(member.feeTypeCode=="FCPYVIP0"){selected}>VIP免费</option>
-                                        <option value="FTOTHER" @if(member.feeTypeCode=="FTOTHER"){selected}>其它优惠类型</option>
+                                        <option value="FCPY6000" @if(member!=null && member.feeTypeCode=="FCPY6000"){selected}>续费一年6000</option>
+                                        <option value="FCPY4500" @if(member!=null && member.feeTypeCode=="FCPY4500"){selected}>续费一年4500</option>
+                                        <option value="FCPY3500" @if(member!=null && member.feeTypeCode=="FCPY3500"){selected}>续费一年3500</option>
+                                        <option value="FCPY3000" @if(member!=null && member.feeTypeCode=="FCPY3000"){selected}>续费一年3000</option>
+                                        <option value="FCPY3000" @if(member!=null && member.feeTypeCode=="FCHY3500"){selected}>续费半年4000</option>
+                                        <option value="FCPY3000" @if(member!=null && member.feeTypeCode=="FCHY4000"){selected}>续费半年3500</option>
+                                        <option value="FNPY10000" @if(member!=null && member.feeTypeCode=="FNPY10000"){selected}>首次缴费一年10000</option>
+                                        <option value="FNPY6500" @if(member!=null && member.feeTypeCode=="FNPY6500"){selected}>首次缴费一年6500</option>
+                                        <option value="FNHY4000" @if(member!=null && member.feeTypeCode=="FNHY4000"){selected}>首次缴费半年4500</option>
+                                        <option value="FCPYVIP0" @if(member!=null && member.feeTypeCode=="FCPYVIP0"){selected}>VIP免费</option>
+                                        <option value="FTOTHER" @if(member!=null && member.feeTypeCode=="FTOTHER"){selected}>其它优惠类型</option>
                                     </select>
                                 </div>
                             </div>
@@ -52,25 +59,34 @@
                         <div class="col-sm-6">
                             <div class="form-group mb-10">
                                 <label for="form_startvalidate">最新有效期 从</label>
-                                <input id="form_startvalidate" name="form_startvalidate" class="form-control required date-picker" type="text" placeholder="开始日期" required="true" value="@member.startValidate">
+                                <input id="form_startvalidate" name="form_startvalidate" class="form-control required date-picker" type="text" disabled="disabled" placeholder="开始日期" required="true" value="@if(member!=null){@member.startValidate}">
                                 <i class="fa fa-calendar form-control-feedback mt-15 mr-10 font-15 text-gray-lightgray"></i>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group mb-10">
                                 <label for="form_endvalidate">到</label>
-                                <input id="form_endvalidate" name="form_endvalidate" class="form-control required date-picker" type="text" placeholder="结束日期" required="true" value="@member.endValidate">
+                                <input id="form_endvalidate" name="form_endvalidate" class="form-control required date-picker" type="text" disabled="disabled" placeholder="结束日期" required="true" value="@if(member!=null){@member.endValidate}">
                                 <i class="fa fa-calendar form-control-feedback mt-15 mr-10 font-15 text-gray-lightgray"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group mb-0 mt-20">
+                                <input type="hidden" id="form_enable" name="form_enable" value="1">
+                                <button type="submit" id="form_updatesubmit" name="form_updatesubmit" class="btn btn-colored btn-theme-color-2 text-white" data-loading-text="请稍候...">更新会员信息</button>
+                                <button type="submit" id="form_disablesubmit" name="form_disablesubmit" class="btn btn-colored btn-theme-color-1" onclick="document.getElementById('form_enable').value=0">屏蔽该会员</button>
                             </div>
                         </div>
                     </div>
                 </form>
+                @if(member!=null){
+                <hr/>
                 <h4>缴费明细</h4>
                 <button type="button" class="btn btn-primary text-white" data-toggle="modal" data-target=".bs-example-modal-lg">续费</button>
                 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <form id="form_postvalidate" name="form_postvalidate" class="booking-form form-home bg-white p-30" method="post" action=@routes.MemberController.memberPayment(member.idNumber)>
+                            <form id="form_postvalidate" name="form_postvalidate" class="booking-form form-home bg-white p-30" method="post" action=@routes.MemberController.memberPayment(""+member.id)>
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <h4 class="modal-title" id="myModalLabel2"><span class="text-theme-color-2">续费</span></h4>
@@ -135,6 +151,7 @@
                         </div>
                     </div>
                 </div>
+                }
 
                 <hr/>
                 <table class="table table-striped">

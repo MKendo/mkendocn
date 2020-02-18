@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0mD:\products\mkendocn\app\views\nav\loginednav.scala.html:5:13: not found: value loginUserInfo[0m
-[0m[[0m[31merror[0m] [0m[0m        @if(loginUserInfo.startsWith("13128855200")) {[0m
-[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\products\mkendocn\app\views\memberdetail.scala.html:13:37: Boolean does not take parameters[0m
+[0m[[0m[31merror[0m] [0m[0m                @if(message.nonEmpty()){[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/products/mkendocn/conf/routes
-// @DATE:Fri Feb 14 15:28:41 CST 2020
+// @DATE:Tue Feb 18 15:56:25 CST 2020
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -10,7 +10,7 @@ import _root_.controllers.Assets.Asset
 // @LINE:10
 package controllers.javascript {
 
-  // @LINE:54
+  // @LINE:56
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -18,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:54
+    // @LINE:56
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -58,12 +58,22 @@ package controllers.javascript {
     }
 
   
-    // @LINE:48
+    // @LINE:50
     def memberPayment: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.MemberController.memberPayment",
       """
-        function(idnumber0) {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "memberpayment/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("idnumber", idnumber0))})
+        function(id0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "memberpayment/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:48
+    def createOrUpdateMember: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.MemberController.createOrUpdateMember",
+      """
+        function(id0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "memberpost/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
@@ -128,7 +138,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:51
+    // @LINE:53
     def summerUpload: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CommonController.summerUpload",
       """
@@ -232,8 +242,8 @@ package controllers.javascript {
     def memberdetail: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.MkendoController.memberdetail",
       """
-        function(idnumber0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "memberdetail/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("idnumber", idnumber0))})
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "memberdetail/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
         }
       """
     )

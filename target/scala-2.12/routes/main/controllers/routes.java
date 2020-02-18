@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/products/mkendocn/conf/routes
-// @DATE:Fri Feb 14 15:28:41 CST 2020
+// @DATE:Tue Feb 18 15:56:25 CST 2020
 
 package controllers;
 

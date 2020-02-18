@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/products/mkendocn/conf/routes
-// @DATE:Fri Feb 14 15:28:41 CST 2020
+// @DATE:Tue Feb 18 15:56:25 CST 2020
 
 import play.api.mvc.Call
 
@@ -10,14 +10,14 @@ import _root_.controllers.Assets.Asset
 // @LINE:10
 package controllers {
 
-  // @LINE:54
+  // @LINE:56
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:54
+    // @LINE:56
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
@@ -47,10 +47,16 @@ package controllers {
     }
 
   
-    // @LINE:48
-    def memberPayment(idnumber:String): Call = {
+    // @LINE:50
+    def memberPayment(id:String): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "memberpayment/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("idnumber", idnumber)))
+      Call("POST", _prefix + { _defaultPrefix } + "memberpayment/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+    }
+  
+    // @LINE:48
+    def createOrUpdateMember(id:String): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "memberpost/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
   }
@@ -98,7 +104,7 @@ package controllers {
     }
 
   
-    // @LINE:51
+    // @LINE:53
     def summerUpload(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "summer/upload")
@@ -165,9 +171,9 @@ package controllers {
     }
   
     // @LINE:46
-    def memberdetail(idnumber:String): Call = {
+    def memberdetail(id:String): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "memberdetail/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("idnumber", idnumber)))
+      Call("GET", _prefix + { _defaultPrefix } + "memberdetail/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
     // @LINE:39

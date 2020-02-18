@@ -43,9 +43,11 @@ GET      /bookinglist/:timePeriodKeyword       controllers.MkendoController.book
 
 # Members
 GET       /memberlist/:timePeriodKeyword       controllers.MkendoController.memberlist(timePeriodKeyword:String)
-GET       /memberdetail/:idnumber       controllers.MkendoController.memberdetail(idnumber:String)
+GET       /memberdetail/:id           controllers.MkendoController.memberdetail(id:String)
 + nocsrf
-POST      /memberpayment/:idnumber      controllers.MemberController.memberPayment(idnumber:String)
+POST      /memberpost/:id        controllers.MemberController.createOrUpdateMember(id:String)
++ nocsrf
+POST      /memberpayment/:id      controllers.MemberController.memberPayment(id:String)
 
 + nocsrf
 POST     /summer/upload                 controllers.CommonController.summerUpload
