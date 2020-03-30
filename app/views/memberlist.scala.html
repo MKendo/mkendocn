@@ -1,10 +1,11 @@
 @(loginedUserInfo:String,timePeriodKeyword:String,members:List[Member])
-@main("MEMBERS",loginedUserInfo,true){
+@main("MEMBERS",loginedUserInfo,"超级管理员"){
 
 <section>
     <div class="container">
         <div class="row">
             <h3 class="mt-0 mb-20">明剑馆<span class="text-theme-color-2">会员信息</span></h3>
+            @widgets.search("MEMBERS")
             <i class="fa fa-search"></i>
             @if(timePeriodKeyword=="ALL"){
             <span class="text-theme-color-2">全部</span>
@@ -21,6 +22,8 @@
             }else{
             <a href=@routes.MkendoController.memberlist("NEXT_MONTY")>下月到期</a>
             }
+            <i class="fa fa-plus-square"></i>
+            <a href=@routes.MkendoController.addmember()>增加会员</a>
             <table class="table table-striped">
                 <tr>
                     <td>姓名</td>
@@ -36,7 +39,9 @@
                     <td>@member.mobile</td>
                     <td>@member.feeTypeName</td>
                     <td>@member.startValidate</td>
-                    <td>@member.endValidate</td>
+                    <td>@member.endValidate
+                        @if(member.userid>0){| <a target="_blank" href=@routes.SendWxMessageController.sendValidteMessage(member.userid.toString())>发送续费提醒</a>}
+                    </td>
                     <td><a href="/memberdetail/:@member.id">查看明细</a></td>
                 </tr>
                 }

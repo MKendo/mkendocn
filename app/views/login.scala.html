@@ -1,5 +1,5 @@
 @(loginedUserInfo:String)
-@main("深圳剑道 明剑馆 登录", loginedUserInfo,false){
+@main("深圳剑道 明剑馆 登录", loginedUserInfo,""){
 <!-- nav.innerheadernav("明剑会员账号","/","登录") -->
 
 
@@ -16,48 +16,74 @@
           </div>
         </div>
         }else{
-
-        <div class="row">
-          <div class="col-md-6 col-md-push-3">
-            <h4 class="text-gray mt-0 pt-5">会员登录</h4>
-            <hr>
-            <p>登录后您可以进行更多的操作，拥有更多会员权益.</p>
-            <form name="login-form" class="clearfix" method="post" action=@routes.LoginController.login()>
+<!-- 带微信登录的界面
+        <div id="accordion1" class="panel-group accordion">
+        <div class="panel">
+          <div class="panel-title"> <a class="active" data-parent="#accordion1" data-toggle="collapse" href="#accordion12" class="" aria-expanded="true"> <span class="open-sub"></span>微信扫码注册并关联会员信息</a> </div>
+          <div id="accordion12" class="panel-collapse collapse in" role="tablist" aria-expanded="true">
+            <div class="panel-content">
               <div class="row">
-                <div class="form-group col-md-12">
-                  <label for="form_username_mobile">手机号</label>
-                  <input id="form_username_mobile" name="form_username_mobile" class="form-control" type="text">
+                <div class="col-md-6 col-md-push-3" style="float:center" >
+                  <h4 class="text-gray mt-0 pt-5">注册并关联会员信息</h4>
+                  <hr>
+                  <p>请用微信扫码注册关联会员信息：注意只有明剑馆会员才可以哦.</p>
+                  <img src="@routes.Assets.versioned("images/wxloginqrcode.png")" />
                 </div>
               </div>
-              <div class="row">
-                <div class="form-group col-md-12">
-                  <label for="form_password">密码</label>
-                  <input id="form_password" name="form_password" class="form-control" type="password">
-                </div>
-              </div>
-              <!--
-              <div class="checkbox pull-left mt-15">
-                <label for="form_checkbox">
-                  <input id="form_checkbox" name="form_checkbox" type="checkbox">
-                  记住我的账号</label>
-              </div>
-              -->
-              <div class="form-group pull-right mt-10">
-                <button type="submit" class="btn btn-dark btn-sm">登录</button>
-              </div>
-              <!--
-              <div class="clear text-center pt-10">
-                <a class="text-theme-colored font-weight-600 font-12" href="#">忘记密码?</a>
-              </div>
-              <div class="clear text-center pt-10">
-                <a class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15" href="#" data-bg-color="#3b5998">通过微信登录</a>
-                <a class="btn btn-dark btn-lg btn-block no-border" href="#" data-bg-color="#00acee">通过支付宝登录</a>
-              </div>
-              -->
-            </form>
+            </div>
           </div>
         </div>
+        <div class="panel">
+          <div class="panel-title"> <a data-parent="#accordion1" data-toggle="collapse" href="#accordion13" class="" aria-expanded="true"> <span class="open-sub"></span>用户名密码登录</a> </div>
+          <div id="accordion13" class="panel-collapse collapse" role="tablist" aria-expanded="true">
+            <div class="panel-content"> -->
 
+              <div class="row">
+                <div class="col-md-6 col-md-push-3">
+                  <h4 class="text-gray mt-0 pt-5">会员登录</h4>
+                  <hr>
+                  <p>登录后您可以进行更多的操作，拥有更多会员权益.</p>
+                  <form name="login-form" class="clearfix" method="post" action=@routes.LoginController.login()>
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                        <label for="form_username_mobile">手机号</label>
+                        <input id="form_username_mobile" name="form_username_mobile" class="form-control" type="text" required="true">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                        <label for="form_password">密码</label>
+                        <input id="form_password" name="form_password" class="form-control" type="password" required="true">
+                      </div>
+                    </div>
+                    <!--
+                    <div class="checkbox pull-left mt-15">
+                      <label for="form_checkbox">
+                        <input id="form_checkbox" name="form_checkbox" type="checkbox">
+                        记住我的账号</label>
+                    </div>
+                    -->
+                    <div class="form-group pull-right mt-10">
+                      <button type="submit" class="btn btn-dark btn-sm">登录</button>
+                    </div>
+                    <!--
+                    <div class="clear text-center pt-10">
+                      <a class="text-theme-colored font-weight-600 font-12" href="#">忘记密码?</a>
+                    </div>
+                    <div class="clear text-center pt-10">
+                      <a class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15" href="#" data-bg-color="#3b5998">通过微信登录</a>
+                      <a class="btn btn-dark btn-lg btn-block no-border" href="#" data-bg-color="#00acee">通过支付宝登录</a>
+                    </div>
+                    -->
+                  </form>
+                </div>
+              </div>
+<!--
+            </div>
+          </div>
+        </div>
+        </div>
+      -->
         }
       </div>
     </section>

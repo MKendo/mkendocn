@@ -7,6 +7,7 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 scalaVersion := "2.12.8"
 
 libraryDependencies += guice
+libraryDependencies += ws
 //libraryDependencies += "com.typesafe.play" %% "play-slick" % "4.0.1"
 //libraryDependencies += "com.typesafe.play" %% "play-slick-evolutions" % "4.0.1"
 

@@ -1,0 +1,35 @@
+@(userId:String)
+@main("深圳剑道 明剑馆 关联会员信息", "",""){
+<!-- nav.innerheadernav("明剑会员账号","/","登录") -->
+    <section>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6 col-md-push-3">
+            <h4 class="text-gray mt-0 pt-5">关联会员信息</h4>
+            <hr>
+            <p>关联会员信息 让我知道你是谁 :)</p>
+            <form name="login-form" class="clearfix" method="post" action=@routes.LoginController.bindMember()>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="form_name">真实姓名</label>
+                  <input id="form_name" name="form_name" class="form-control" type="text" required="true" placeholder ="为了查找到您的会员信息请务必填写真实姓名">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="form_username_mobile">手机号</label>
+                  <input id="form_username_mobile" name="form_username_mobile" class="form-control" type="text" required="true" placeholder ="请填写报名申请表上的手机号">
+                </div>
+              </div>
+              <div class="form-group pull-right mt-10">
+                <input id="form_userid" name="form_userid" type="hidden" value=@userId />
+                <button type="submit" class="btn btn-dark btn-sm">立刻关联</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+}

@@ -7,13 +7,20 @@
 # POST    /person                     controllers.MkendoController.addPerson
 # GET     /persons                    controllers.MkendoController.getPersons
 
+# wx
+GET     /wxmkkservice                 controllers.wx.CheckSignatureController.checksg
+# wx feedback url test mentch: http://localhost/wxmkkservice/login?code=1111&state=2222
+GET     /wxmkkservice/login           controllers.LoginController.wxLogin
+
 GET     /                             controllers.MkendoController.index
 GET     /login                        controllers.MkendoController.login
 + nocsrf
 POST    /loginpost                    controllers.LoginController.login
 GET     /logout                       controllers.LoginController.logout
++ nocsrf
+POST    /bindmember                   controllers.LoginController.bindMember
 
-# GET     /loginb                       controllers.MkendoController.loginb
+GET     /loginb                       controllers.MkendoController.loginb
 # GET     /loginc                       controllers.MkendoController.loginc
 # GET     /teachers                     controllers.MkendoController.teachers
 # GET     /kendoroom                    controllers.MkendoController.kendoroom
@@ -45,12 +52,23 @@ GET      /bookinglist/:timePeriodKeyword       controllers.MkendoController.book
 GET       /memberlist/:timePeriodKeyword       controllers.MkendoController.memberlist(timePeriodKeyword:String)
 GET       /memberdetail/:id           controllers.MkendoController.memberdetail(id:String)
 + nocsrf
-POST      /memberpost/:id        controllers.MemberController.createOrUpdateMember(id:String)
+POST      /memberpost/:id             controllers.MemberController.createOrUpdateMember(id:String)
+GET       /addmember                  controllers.MkendoController.addmember
++ nocsrf
+POST      /postaddmember              controllers.MemberController.createMember
 + nocsrf
 POST      /memberpayment/:id      controllers.MemberController.memberPayment(id:String)
 
 + nocsrf
 POST     /summer/upload                 controllers.CommonController.summerUpload
 
+GET      /sendwxmessage                 controllers.MkendoController.sendWxMessage
+GET      /sendvalidatemessage/:userid           controllers.SendWxMessageController.sendValidteMessage(userid:String)
++ nocsrf
+POST     /posewxmessage                 controllers.SendWxMessageController.sendWxMessage
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+# for weixin mkk service
+GET     /*file                      controllers.Assets.versioned(path="/public", file: Asset)

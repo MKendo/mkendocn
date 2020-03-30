@@ -73,27 +73,74 @@ insert into simpletypes values(null,'FRIEND','ºÃÅóÓÑ¸æËßÎÒßÕ','WhereKnowUs','´ÓÄ
 insert into simpletypes values(null,'MOMENTS','ÅóÓÑÈ¦¿´µ½ßÕ','WhereKnowUs','´ÓÄÄÀïÖªµÀÎÒÃÇµÄ',1);
 
 
+update simpletypes set description='»á·Ñ±ê×¼:2015ÄêÖ®Ç°¼ÓÈëµÄ½£ÓÑºÍËùÓĞÇ°±²' where code='FCPY3000';
+update simpletypes set description='»á·Ñ±ê×¼:2015ÄêÖ®ºó¼ÓÈëµÄ½£ÓÑ' where code='FCPY3500';
+update simpletypes set description='»á·Ñ±ê×¼:2016ÄêÖ®ºó¼ÓÈëµÄ½£ÓÑ' where code='FCPY4500';
+update simpletypes set description='»á·Ñ±ê×¼:2017ÄêÖ®ºó¼ÓÈëµÄ½£ÓÑ' where code='FCPY6000';
+update simpletypes set description='»á·Ñ±ê×¼:2017ÄêÖ®ºó¼ÓÈëµÄ½£ÓÑ' where code='FCHY4000';
+
+insert into simpletypes values(null,'KENDO_MEMBER','½£µÀ»áÔ±','ROLE','½ÇÉ«',1);
+insert into simpletypes values(null,'RESTER_MEMBER','×¢²á»áÔ±','ROLE','½ÇÉ«',1);
+insert into simpletypes values(null,'KENDO_TEACHER','´ø¿ÎÀÏÊ¦','ROLE','½ÇÉ«',1);
+insert into simpletypes values(null,'NEWS_EDITOR','Ğû´«','ROLE','½ÇÉ«',1);
+insert into simpletypes values(null,'SUPER_ADMIN','³¬¼¶¹ÜÀíÔ±','ROLE','½ÇÉ«',1);
+insert into simpletypes values(null,'JA_TEACHER','ÈÕÓïÀÏÊ¦','ROLE','½ÇÉ«',1);
+
+--ÓÃ»§½ÇÉ«¹ØÏµ±í
+create table user_roles(
+id integer primary key not null,
+userid integer not null,
+roleid integer not null,
+description ntext,
+enable int
+);
+
+insert into user_roles(userid,roleid,description,enable) 
+values(1, (select id from simpletypes where code='SUPER_ADMIN'), '»ÆÔÆËÉ ³¬¼¶¹ÜÀíÔ±',1);
+
+insert into user_roles(userid,roleid,description,enable) 
+values(2, (select id from simpletypes where code='SUPER_ADMIN'), 'ºúºñ´æ ³¬¼¶¹ÜÀíÔ±',1);
+
+insert into user_roles(userid,roleid,description,enable) 
+values(3, (select id from simpletypes where code='NEWS_EDITOR'), '×ŞË¼ Ğû´«',1);
+insert into user_roles(userid,roleid,description,enable) 
+values(3, (select id from simpletypes where code='KENDO_MEMBER'), '×ŞË¼ ½£µÀ»áÔ±',1);
+
+--²é¿´ÓÃ»§½ÇÉ«¹ØÏµ
+select u.name,r.name,ur.description from users u 
+left join user_roles ur on ur.userid=u.id 
+left join simpletypes r on ur.roleid=r.id ;
+
+
+select r.name  from users u 
+ left join user_roles ur on ur.userid=u.id  
+ left join simpletypes r on ur.roleid=r.id where u.mobile='13128855200';
+
 *******************************************************
 ×¢²áµÇÂ¼Ïà¹ØµÄ±í
 *******************************************************
 --users ×¢²áÓÃ»§±í£º
 --id,name,mobile,password,wxopenid,commitdatetime,description,enable
 
+drop table users;
 create table users(
 id integer primary key not null,
 name ntext not null,
 mobile text not null,
+password text not null,
 wxopenid text,
+wxunionid text,
+wxname text,
+wximgurl text,
 commitdatetime datetime not null,
 description ntext,
-memberid integer, --Íâ¼ü£¬members»áÔ±±íµÄid
-enable int,
-password text not null
+enable int
 );
 
-insert into users values(null,'Î÷¹Ï','13128855200',null,'20200131',null,null,1,'mkendo.cn');
-insert into users values(null,'ÎÒ²»ÊÇÎ÷¹Ï','15889489370',null,'20200131',null,null,1,'mkendo.cn');
-insert into users values(null,'Ë¼Ë¼','13417508531',null,'20200204',null,null,1,'mkendo.cn');
+insert into users values(null,'Î÷¹Ï','13128855200','mkendo.cn','','','','','2020-01-31 00:00:00','',1);
+insert into users values(null,'ÎÒ²»ÊÇÎ÷¹Ï','15889489370','mkendo.cn','','','','','2020-01-31 00:00:00','',1);
+insert into users values(null,'Ë¼Ë¼','13417508531','mkendo.cn','','','','','2020-02-04 00:00:00','',1);
+update members set userid=-1 ;
 
 
 *******************************************************
@@ -240,12 +287,22 @@ insert into member_validates(memberid,startValidate,endValidate,commitdatetime,d
 values((select id from members where name='ºúÕıê»'),'2014/09/05','2015/09/05','2014-09-05 09:00:00','Ğø·Ñ3000',18,3000);
 
 --²éÑ¯sql
- select m.name,m.mobile,m.idtypename,m.idnumber,mv.startvalidate,mv.endvalidate,ft.code feeTypeCode,ft.name feeTypeName
+ select m.id,m.name,m.mobile,m.idtypename,m.idnumber,mv.startvalidate,mv.endvalidate,ft.code feeTypeCode,ft.name feeTypeName
  from members m 
  left join member_validates mv on mv.memberid=m.id
  left join simpletypes ft on ft.id=mv.feetypeid
  group by m.id
  having mv.startvalidate=max(mv.startvalidate) 
+ ;
+
+select * from (
+ select m.id,m.name,m.description,m.mobile,m.idtypename,m.idnumber,mv.startvalidate,mv.endvalidate,mv.description,ft.code feeTypeCode,ft.name feeTypeName
+ from members m 
+ left join member_validates mv on mv.memberid=m.id
+ left join simpletypes ft on ft.id=mv.feetypeid
+ group by m.id
+ having mv.startvalidate=max(mv.startvalidate) )
+where name like '²âÊÔ%'
  ;
 
 select * from 
@@ -258,6 +315,44 @@ select * from
 )
  where idnumber='44030520120905911X'
  ;
+
+
+----------------ÎªËùÓĞ2020Äê2ÔÂ1ÈÕÖ®ºóµ½ÆÚµÄ»áÔ±Ôö¼ÓÒ»¸öÔÂÓĞĞ§ÆÚ£¨ĞÂ¹ÚÒßÇé£©----------------------------
+--ĞŞ¸´Á½¸ö´íÎóÊı¾İ
+update member_validates set startvalidate='2020/06/01' where startvalidate='2020//06/01';
+update member_validates set endvalidate='2021/06/01' where endvalidate='2021//06/01';
+
+--²éÑ¯ËùÓĞ2020Äê2ÔÂ1ÈÕÖ®ºóµ½ÆÚµÄ
+ select m.id memberid,m.name membername,mv.startvalidate startvalidate,mv.endvalidate endvalidate,
+ft.id feetypeid,ft.code feetypecode,ft.name feetypename
+ from members m 
+ left join member_validates mv on mv.memberid=m.id
+ left join simpletypes ft on ft.id=mv.feetypeid 
+where endvalidate>='2020/02/01' and endvalidate<='9999/01/01'
+ group by m.id
+ having mv.startvalidate=max(mv.startvalidate) 
+ ;
+
+--´æÆğÀ´
+create table temp_mvalidates as 
+ select m.id memberid,m.name membername,mv.startvalidate startvalidate,mv.endvalidate endvalidate,
+ft.id feetypeid,ft.code feetypecode,ft.name feetypename
+ from members m 
+ left join member_validates mv on mv.memberid=m.id
+ left join simpletypes ft on ft.id=mv.feetypeid 
+where endvalidate>='2020/02/01' and endvalidate<='9999/01/01'  
+ group by m.id
+ having mv.startvalidate=max(mv.startvalidate) 
+;
+
+--Ôö¼ÓÒ»¸öĞÂµÄendÓĞĞ§ÆÚ
+ALTER TABLE temp_mvalidates ADD COLUMN newendvalidate text;
+--¼ÆËãºÃĞÂµÄÓĞĞ§ÆÚ
+update temp_mvalidates set newendvalidate=replace(date(replace(temp_mvalidates.endvalidate,'/','-'), '+1 month'),'-','/');
+--²åÈëĞÂ¼ÇÂ¼µ½member_validates
+insert into member_validates(memberid,startvalidate,endvalidate,feetypeid,amount,description,commitdatetime,enable) 
+select memberid, endvalidate, newendvalidate, feetypeid, 0, 'ĞÂ¹ÚÒßÇéÆÚ¼äÃ¿Î»»áÔ±Ãâ·ÑËÍÒ»¸öÔÂ', datetime('now') , 1 from temp_mvalidates ;
+--------------------------------------------------------------------------------------------------------------
 
 --¸üĞÂÊı¾İ
 delete from members where id=157;
@@ -281,3 +376,4 @@ update members set idnumber='440221198807010033' where name='³ÂÖÇÓÂ';
 update members set idnumber='440306199503131828' where name='ÅËÏşĞÀ';
 update members set idnumber='440301199305085427' where name='ÕÅÃÀÏæ';
 update members set idnumber='440301198707115110' where name='ÁÖÎÄ½Ü';
+

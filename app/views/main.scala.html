@@ -1,4 +1,5 @@
-@(titleType: String,loginUserInfo: String,isNeedLogin: Boolean)(content: Html)
+@import views.ViewCommon
+@(titleType: String,loginUserInfo: String,allowAuthorites: String*)(content: Html)
 
 <!DOCTYPE html>
 
@@ -21,7 +22,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta name="description" content="深圳剑道 明剑馆" />
-        <meta name="keywords" content="深圳剑道,剑道,明剑,明剑馆,academy, course, education, education html theme, elearning, learning" />
+        <meta name="keywords" content="深圳剑道,剑道,明剑,明剑馆" />
         <meta name="author" content="明剑馆" />
         <!-- Favicon and Touch Icons -->
         @head.touchicons()
@@ -55,20 +56,22 @@
 			@nav.headernav(titleType,loginUserInfo)
         </header>
 
-        @if(isNeedLogin && loginUserInfo.isEmpty) {
-            <div class="container">
-                <div class="esc-heading heading-line-bottom lr-line left-heading">
-                    <h4>您尚未登录，没有权限访问此页面，如果需要请先登录，或者联系西瓜师姐哦。</h4>
+        <!--如果已授权-->
+        <div class="main-content">
+        @{  var isAuth = ViewCommon.isAuthorized(loginUserInfo,allowAuthorites:_*)
+            if(isAuth){
+                content
+            }else{
+                <div class="container">
+                    <div class="esc-heading heading-line-bottom lr-line left-heading">
+                        <h4>您尚未登录，或者没有权限访问此页面，如果需要请先登录，或者联系西瓜师姐哦。</h4>
+                    </div>
                 </div>
-            </div>
-        }else{
-            <!-- Start main-content -->
-            <div class="main-content">
-            @content
-            <!-- end main-content -->
-            @footer.first()
-            </div>
+            }
         }
+        @footer.first()
+        </div>
+
     </div><!-- end wrapper -->
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
     <!-- Footer Scripts -->

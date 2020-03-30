@@ -1,0 +1,49 @@
+@import play.api.data._
+@import play.api.data.Forms._
+@import play.api.data.validation.Constraints._
+@(loginedUserInfo:String)
+
+@main("会员详细信息", loginedUserInfo, "超级管理员" ){
+<section class="">
+    <div class="container">
+        <div class="section-content">
+            <div class="col-md-12">
+                <h3 class="mt-0 mb-20">明剑馆<span class="text-theme-color-2">增加会员</span></h3>
+                <hr>
+                <form id="form_postmember" name="form_postmember" class="booking-form form-home bg-white p-30" method="post" action=@routes.MemberController.createMember()>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="form_name">姓名</label>
+                            <input id="form_name" name="form_name" class="form-control" type="text" required="true" >
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="form_mobile">手机</label>
+                            <input id="form_mobile" name="form_mobile" class="form-control" type="text" required="true" >
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="form_idtype">证件类型</label>
+                            <input id="form_idtype" name="form_idtype" class="form-control" type="text" required="true" value="身份证" >
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="form_idnumber">证件号</label>
+                            <input id="form_idnumber" name="form_idnumber" class="form-control" type="text" required="true" >
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="form_desc">摘要</label>
+                            <textarea id="form_desc" name="form_desc" class="form-control" rows="3" ></textarea>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group mb-0 mt-20">
+                                <input type="hidden" id="form_enable" name="form_enable" value="1">
+                                <button type="submit" id="form_addmember" name="form_addmember" class="btn btn-colored btn-theme-color-2 text-white" data-loading-text="请稍候...">增加</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+}

@@ -1,23 +1,15 @@
 package controllers
 
-import java.io.File
-
 import javax.inject._
 import models._
-import play.api.data.Form
-import play.api.data.Forms._
-import play.api.data.validation.Constraints._
 import play.api.db.DBApi
-import play.api.i18n._
-import play.api.libs.json.Json
 import play.api.mvc._
 import service.{BookingService, MemberService, NewsService}
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{ExecutionContext}
 
 class MkendoController @Inject()(cc: MessagesControllerComponents)(dbapi: DBApi)(implicit ec: ExecutionContext)
   extends MessagesAbstractController(cc) {
-
 
   /**
     * The index action.
@@ -39,10 +31,11 @@ class MkendoController @Inject()(cc: MessagesControllerComponents)(dbapi: DBApi)
   }
 
   /**
-    * The loginb action.
+    * 从微信登录
     */
   def loginb = Action { implicit request =>
-    Ok(views.html.loginb())
+    val loginedUserInfo = Common.loginConfirm(request.session)
+    Ok(views.html.loginb(loginedUserInfo))
   }
 
   /**
@@ -189,9 +182,19 @@ class MkendoController @Inject()(cc: MessagesControllerComponents)(dbapi: DBApi)
       Ok(views.html.memberdetail(loginedUserInfo, member, validates,""))
     }catch{
       case ex:Exception =>{
-        Ok(views.html.message("访问会员信息页面出错",s"传入的ID=$id", loginedUserInfo))
+        Ok(views.html.message("访问会员信息页面出错 "+ex.getMessage,s"传入的ID=$id", loginedUserInfo))
       }
     }
+  }
+
+  def sendWxMessage() = Action { implicit request =>
+    val loginedUserInfo = Common.loginConfirm(request.session)
+    Ok(views.html.sendwxmessage(loginedUserInfo))
+  }
+
+  def addmember() = Action { implicit request =>
+    val loginedUserInfo = Common.loginConfirm(request.session)
+    Ok(views.html.addmember(loginedUserInfo))
   }
 
   /**

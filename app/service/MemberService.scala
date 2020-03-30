@@ -45,7 +45,38 @@ class MemberService @Inject()(dbapi: DBApi) {
             "where menable=1 order by endvalidate asc"
           ).as(newsParser.*)
         }
+    }
+  }
 
+  def findByKeyword(keyword: String) : List[Member] = {
+    db.withConnection {
+      implicit c: java.sql.Connection =>
+        val newsParser: RowParser[Member] = Macro.namedParser[Member]
+
+        println(s"MemberService.findByKeyword.keyword = $keyword")
+
+        if(!keyword.isEmpty) {
+          val sql = SQL("select * from (select m.*,m.enable menable,mv.startvalidate startvalidate,mv.endvalidate endvalidate,ft.code feeTypeCode,ft.name feeTypeName " +
+            "from members m " +
+            "left join member_validates mv on mv.memberid=m.id " +
+            "left join simpletypes ft on ft.id=mv.feetypeid " +
+            "group by m.id " +
+            "having mv.startvalidate=max(mv.startvalidate)) " +
+            "where (name like {db_keyword} or mobile like {db_keyword} or idnumber like {db_keyword} or description like {db_keyword}) and menable=1 order by endvalidate desc"
+          ).on("db_keyword" -> s"%$keyword%")
+
+          return {
+            try {sql.as(newsParser.*)}
+            catch {case ex: ArrayIndexOutOfBoundsException => {
+                     println("MemberService.findByKeyword:"+ex.getMessage)
+                     return Nil;
+                   }
+            }
+          }
+
+        }else{
+          return findByTimePeriod("","")
+        }
     }
   }
 
@@ -88,6 +119,53 @@ class MemberService @Inject()(dbapi: DBApi) {
             "having mv.startvalidate=max(mv.startvalidate)) " +
             "where id={db_idnumber}"
           ).on("db_idnumber" -> idNumber).as(newsParser.single)
+      }
+    }catch{
+      case ex: Exception => {
+        println(ex.getMessage)
+        return null;
+      }
+    }
+  }
+
+  def findByUserId(userId: Int) : Member = {
+    println("findByUserId......")
+    println("userId="+userId)
+
+    try {
+      db.withConnection {
+        implicit c: java.sql.Connection =>
+          val newsParser: RowParser[Member] = Macro.namedParser[Member]
+          return SQL("select * from (select m.*,m.idnumber idnumber,mv.startvalidate,mv.endvalidate,ft.code feeTypeCode,ft.name feeTypeName " +
+            "from members m " +
+            "join member_validates mv on mv.memberid=m.id " +
+            "join simpletypes ft on ft.id=mv.feetypeid " +
+            "group by m.id " +
+            "having mv.startvalidate=max(mv.startvalidate)) " +
+            "where userid={db_userid}"
+          ).on("db_userid" -> userId).as(newsParser.single)
+      }
+    }catch{
+      case ex: Exception => {
+        println(ex.getMessage)
+        return null;
+      }
+    }
+  }
+
+  def findBy(mobile:String,name:String) : Member ={
+    println("findBy....")
+    println("mobile="+mobile)
+    println("name="+name)
+
+    try {
+      db.withConnection {
+        implicit c: java.sql.Connection =>
+          val newsParser: RowParser[Member] = Macro.namedParser[Member]
+          return SQL("select *,ifnull(userid,-1) userid,'' startValidate,'' endValidate, '' feeTypeCode, '' feeTypeName " +
+            "from members " +
+            "where name={db_name} or mobile={db_mobile}"
+          ).on("db_mobile" -> mobile,"db_name" -> name).as(newsParser.single)
       }
     }catch{
       case ex: Exception => {
@@ -196,17 +274,21 @@ class MemberService @Inject()(dbapi: DBApi) {
     }
     val commitDatetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date)
     try {
+      println("MemberService.createMember " + member)
       db.withConnection {
         implicit c: java.sql.Connection =>
-          SQL("insert into members(name,mobile,idtypename,idnumber,commitdatetime) " +
-            "values({db_name},{db_mobile},{db_idtypename},{db_idnumber},{db_commitdatetime})").on(
+          val id: Option[Long] = SQL("insert into members(name,mobile,idtypename,idnumber,commitdatetime,description,enable) " +
+            "values({db_name},{db_mobile},{db_idtypename},{db_idnumber},{db_commitdatetime},{db_description},1)").on(
             "db_name" -> member.name,
             "db_mobile" -> member.mobile,
             "db_idtypename" -> member.idTypeName,
             "db_idnumber" -> member.idNumber,
-            "db_commitdatetime" -> commitDatetime).executeInsert()
+            "db_commitdatetime" -> commitDatetime,
+            "db_description" -> member.description).executeInsert()
 
-          return "SUCCESS"
+          val result = "SUCCESS_"+id.getOrElse("")
+          println(result)
+          return result
       }
     }catch{
       case ex: Exception => {
@@ -253,6 +335,25 @@ class MemberService @Inject()(dbapi: DBApi) {
       case ex: Exception => {
         println(ex.getMessage)
         return "更新会员信息时发生错误了:"+ex.getMessage;
+      }
+    }
+  }
+
+  def updateMemberUserId(memberId:Int, userId:Int): Int ={
+    try {
+      db.withConnection {
+        implicit c: java.sql.Connection =>
+          val result : Option[Long] = SQL("update members set userid={db_userid} " +
+            "where id={db_memberId}").on(
+            "db_userid" -> userId,
+            "db_memberId" -> memberId).executeInsert()
+
+          return if(result.get>0) result.get.toInt else -1
+      }
+    }catch{
+      case ex: Exception => {
+        println(ex.getMessage)
+        throw(ex)
       }
     }
   }

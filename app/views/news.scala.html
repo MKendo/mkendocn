@@ -1,5 +1,5 @@
 @(loginedUserInfo:String, articles: List[Article], currentArticle: Article)
-@main("NEWS", loginedUserInfo,false){
+@main("NEWS", loginedUserInfo,""){
 <!--nav.innerheadernav("首页","/","新闻")-->
 <!-- Section: Blog -->
 <section>
@@ -8,7 +8,7 @@
             <div class="col-sm-12 col-md-3">
                 <div class="sidebar sidebar-left mt-sm-30">
                     @widgets.search("NEWS")
-                    @widgets.latestarticle("新闻",articles)
+                    @widgets.latestarticle2("新闻",articles)
                     @widgets.photosfromflickr()
                 </div>
             </div>

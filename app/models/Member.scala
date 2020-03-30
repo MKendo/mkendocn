@@ -11,5 +11,6 @@ case class Member(
                  endValidate: String,
                  feeTypeCode: String, //费用标准编码，例如：PY6000
                  feeTypeName: String, //费用标准名称，例如6000/年
-                 enable: Int
+                 enable: Int,
+                 userid: Int
                  )

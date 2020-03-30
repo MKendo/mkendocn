@@ -3,7 +3,7 @@
 @import play.api.data.validation.Constraints._
 @(loginedUserInfo:String,member:Member,validataes:List[MemberValidate],message:String)
 
-@main("会员详细信息", loginedUserInfo,true){
+@main("会员详细信息", loginedUserInfo,"超级管理员"){
 <section class="">
     <div class="container">
         <div class="section-content">
@@ -82,7 +82,7 @@
                 @if(member!=null){
                 <hr/>
                 <h4>缴费明细</h4>
-                <button type="button" class="btn btn-primary text-white" data-toggle="modal" data-target=".bs-example-modal-lg">续费</button>
+                <button type="button" class="btn btn-colored btn-theme-color-2 text-white" data-toggle="modal" data-target=".bs-example-modal-lg">续费</button>
                 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -145,7 +145,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                    <button type="submit" class="btn btn-primary text-white" id="form_submit" name="form_submit">保存</button>
+                                    <button type="submit" class="btn btn-colored btn-theme-color-2 text-white" id="form_submit" name="form_submit">保存</button>
                                 </div>
                             </form>
                         </div>
