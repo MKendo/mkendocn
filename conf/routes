@@ -9,7 +9,7 @@
 
 # wx
 GET     /wxmkkservice                 controllers.wx.CheckSignatureController.checksg
-# wx feedback url test mentch: http://localhost/wxmkkservice/login?code=1111&state=2222
+# wx feedback url test mentch: http://localhost/wxmkkservice/login?code=1111&state=123
 GET     /wxmkkservice/login           controllers.LoginController.wxLogin
 
 GET     /                             controllers.MkendoController.index
@@ -17,8 +17,11 @@ GET     /login                        controllers.MkendoController.login
 + nocsrf
 POST    /loginpost                    controllers.LoginController.login
 GET     /logout                       controllers.LoginController.logout
+# fromat: [WX]__[TITLE]__[CONTENT]
+GET     /message/:mes                      controllers.MkendoController.message(mes:String)
 + nocsrf
 POST    /bindmember                   controllers.LoginController.bindMember
+GET     /bindmember/:userid           controllers.MkendoController.bindMember(userid:String)
 
 GET     /loginb                       controllers.MkendoController.loginb
 # GET     /loginc                       controllers.MkendoController.loginc
@@ -44,6 +47,7 @@ GET       /aboutus                      controllers.MkendoController.aboutus
 
 # Booking
 GET       /user/booking                 controllers.MkendoController.booking
+GET       /user/bookingdetail/:id       controllers.MkendoController.bookingDetail(id:String)
 + nocsrf
 POST     /user/createbooking            controllers.BookingController.createBooking
 GET      /bookinglist/:timePeriodKeyword       controllers.MkendoController.bookinglist(timePeriodKeyword:String)
@@ -67,6 +71,23 @@ GET      /sendvalidatemessage/:userid           controllers.SendWxMessageControl
 + nocsrf
 POST     /posewxmessage                 controllers.SendWxMessageController.sendWxMessage
 
+GET      /calendar/:timeperiod          controllers.MkendoController.calendar(timeperiod:String)
++ nocsrf
+POST     /calendar/postevent            controllers.MkendoCalendarController.postEvent
+GET      /calendarmembers/:calendarKey    controllers.MkendoController.calendarMembers(calendarKey:String)
+
+GET     /mkendoja                    controllers.MkendoController.courselist
+
+#for wx
+GET      /wx/logout          controllers.LoginController.wxLogout
+GET      /wx/gotowxfromwx/:sourceurl      controllers.LoginController.gotoWxFromWx(sourceurl:String)
+GET      /wx/index         controllers.MkendoController.wxindex
+GET      /wx/bookingkendostudy         controllers.MkendoController.bookingKendo(bookingKendo = "CURRENT_WEEK")
+GET      /wx/bookingkendostudy/:bookingKendo     controllers.MkendoController.bookingKendo(bookingKendo:String)
+GET      /wx/bookingkendoteach         controllers.MkendoController.bookingKendoTeach(bookingKendo = "CURRENT_WEEK")
+GET      /wx/bookingkendoteach/:bookingKendo      controllers.MkendoController.bookingKendoTeach(bookingKendo:String)
+GET      /wx/wxcalendarmembers/:calendarKey    controllers.MkendoController.wxCalendarMembers(calendarKey:String)
+GET      /wx/wxbooking                         controllers.MkendoController.wxBooking
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

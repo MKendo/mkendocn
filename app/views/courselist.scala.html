@@ -1,0 +1,35 @@
+@(loginedUserInfo:String)
+@main("深圳剑道 明剑馆 明剑日语", loginedUserInfo,""){
+<!-- nav.innerheadernav("首页","/","明剑日语")
+    Section: Course gird -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 blog-pull-right">
+                        @widgets.coursedesc2("N8五十音图之平假名","五十音图之平假名,五十音图之平假名,五十音图之平假名,五十音图之平假名。","0")
+                        @widgets.coursedesc2("N8五十音图之各种音","五十音图之各种音，五十音图之各种音，五十音图之各种音，五十音图之各种音，五十音图之各种音。","0")
+                        @widgets.coursedesc2("N8五十音图之片假名","五十音图之片假名,五十音图之片假名五十音图之片假名,五十音图之片假名五十音图之片假名,五十音图之片假名。","0")
+                        @widgets.coursedesc2("N7日常对话","N7日常对话N7日常对话,N7日常对话N7日常对话,N7日常对话N7日常对话N7日常对话,N7日常对话.","0")
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <div class="sidebar sidebar-left mt-sm-30">
+                            @widgets.search("课程")
+                            @widgets.articlecatgories("课程",Array("N8五十音图之平假名","N8五十音图之各种音","N8五十音图之片假名","N7日常对话"))
+                            <!--
+                            widgets.latestarticle("课程",Map("剑道基本技稽古法"->"又称九刀十三形，把剑道稽古时常的技术一一展示...","冥想"->"法放空时，让自己的思想自然流动，让思绪漫步宇宙...","如何打蝴蝶结"->"衣服的蝴蝶结要打平，胴绳要打平，面绳要打平..."))
+                            -->
+                        </div>
+                    </div>
+                <!--
+                <div class="row">
+                    <div class="col-sm-12">
+                       @@widgets.pagesplitter()
+                    </div>
+                </div>
+                -->
+                </div>
+            </div>
+        </section>
+    <!-- end main-content -->
+
+}

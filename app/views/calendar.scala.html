@@ -1,0 +1,96 @@
+@import play.api.libs.json.Json
+@(loginedUserInfo:String,timePeriodKeyword:String,calInstances:Map[String,CalendarInstance],weekDates:List[String],times:List[String])
+@main("明剑馆 预约/签到",loginedUserInfo,"超级管理员","剑道会员","带课老师","日语老师"){
+
+<section>
+    <div class="container">
+        <div class="row">
+            <h3 class="mt-0 mb-20">明剑馆<span class="text-theme-color-2">预约/签到</span></h3>
+            <i class="fa fa-search"></i>
+            @if(timePeriodKeyword=="LAST_WEEK"){
+            <span class="text-theme-color-2">上周</span>
+            }else{
+            <a href=@routes.MkendoController.calendar("LAST_WEEK")>上周</a>
+            }
+            @if(timePeriodKeyword=="CURRENT_WEEK"){
+              <span class="text-theme-color-2">本周</span>
+            }else{
+              <a href=@routes.MkendoController.calendar("CURRENT_WEEK")>本周</a>
+            }
+            @if(timePeriodKeyword=="NEXT_WEEK"){
+              <span class="text-theme-color-2">下周</span>
+            }else{
+              <a href=@routes.MkendoController.calendar("NEXT_WEEK")>下周</a>
+            }
+            <i class="fa fa-plus-square"></i>
+            <table class="table table-striped">
+                <tr>
+                    <td align="center"></td>
+                    <td align="center">周一<br/>@weekDates(0)</td>
+                    <td align="center">周二<br/>@weekDates(1)</td>
+                    <td align="center">周三<br/>@weekDates(2)</td>
+                    <td align="center">周四<br/>@weekDates(3)</td>
+                    <td align="center">周五<br/>@weekDates(4)</td>
+                    <td align="center">周六<br/>@weekDates(5)</td>
+                    <td align="center">周日<br/>@weekDates(6)</td>
+                </tr>
+                @for(time <- times) {
+                <tr>
+                    <td align="center">@time</td>
+                    <td align="center">
+                        @if(calInstances.count(x=>x._1.startsWith(weekDates(0)+time))>0 ){
+                           @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(0)+time)).values){
+                           @widgets.calendarevent(cal,loginedUserInfo,{"/calendar/"+timePeriodKeyword})
+                           }
+                        }
+                    </td>
+                    <td align="center">
+                        @if(calInstances.count(x=>x._1.startsWith(weekDates(1)+time))>0 ){
+                        @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(1)+time)).values){
+                        @widgets.calendarevent(cal,loginedUserInfo,{"/calendar/"+timePeriodKeyword})
+                        }
+                        }
+                    </td>
+                    <td align="center">
+                        @if(calInstances.count(x=>x._1.startsWith(weekDates(2)+time))>0 ){
+                        @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(2)+time)).values){
+                        @widgets.calendarevent(cal,loginedUserInfo,{"/calendar/"+timePeriodKeyword})
+                        }
+                        }
+                    </td>
+                    <td align="center">
+                        @if(calInstances.count(x=>x._1.startsWith(weekDates(3)+time))>0 ){
+                        @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(3)+time)).values){
+                        @widgets.calendarevent(cal,loginedUserInfo,{"/calendar/"+timePeriodKeyword})
+                        }
+                        }
+                    </td>
+                    <td align="center">
+                        @if(calInstances.count(x=>x._1.startsWith(weekDates(4)+time))>0 ){
+                        @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(4)+time)).values){
+                        @widgets.calendarevent(cal,loginedUserInfo,{"/calendar/"+timePeriodKeyword})
+                        }
+                        }
+                    </td>
+                    <td align="center">
+                        @if(calInstances.count(x=>x._1.startsWith(weekDates(5)+time))>0 ){
+                        @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(5)+time)).values){
+                        @widgets.calendarevent(cal,loginedUserInfo,{"/calendar/"+timePeriodKeyword})
+                        }
+                        }
+                    </td>
+                    <td align="center">
+                        @if(calInstances.count(x=>x._1.startsWith(weekDates(6)+time))>0 ){
+                        @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(6)+time)).values){
+                        @widgets.calendarevent(cal,loginedUserInfo,{"/calendar/"+timePeriodKeyword})
+                        }
+                        }
+                    </td>
+                </tr>
+                }
+            </table>
+        </div>
+    </div>
+</section>
+}
+

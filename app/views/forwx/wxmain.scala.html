@@ -1,0 +1,90 @@
+@import views.ViewCommon
+@(titleType: String,loginUserInfo: String,allowAuthorites: String*)(content: Html)
+
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+    <head>
+        <title>
+        @{val title = titleType match {
+            case "HOMEPAGE" => "深圳剑道 明剑馆 首页"
+            case "NEWS" => "深圳剑道 明剑馆 新闻与活动"
+            case "ABOUTUS" => "深圳剑道 明剑馆 关于我们"
+            case "POSTNEWS" => "深圳剑道 明剑馆 发布新闻"
+            case "BOOKING" => "深圳剑道 明剑馆 预约管理"
+            case "MEMBERS" => "深圳剑道 明剑馆 会员管理"
+            case _ => titleType
+          }
+          title
+        }
+		</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="深圳剑道 明剑馆" />
+        <meta name="keywords" content="深圳剑道,剑道,明剑,明剑馆" />
+        <meta name="author" content="明剑馆" />
+        <!-- Favicon and Touch Icons -->
+        @head.touchicons()
+        <!-- Stylesheet -->
+        @head.commoncss()
+        <!-- CSS | menuzord megamenu skins -->
+        @head.menuskins()
+        <!-- CSS | Main style file -->
+        @head.maincss()
+        <!-- CSS | Preloader Styles  -->
+        @head.preloadercss()
+        <!-- CSS | Custom Margin Padding Collection -->
+        @head.custombootstrapmarginpaddingcss()
+        <!-- CSS | Responsive media queries -->
+        @head.responsivecss()
+        <!-- CSS | Theme Color -->
+        @head.themskincolorset1css()
+        <!-- external javascripts -->
+        @head.exjs()
+        @head.forie9js()
+    </head>
+    <body>
+    <div id="wrapper" class="clearfix">
+        <!-- Header -->
+        <header id="header" class="header">
+	        @wxheader(loginUserInfo)
+        </header>
+
+        <!--如果已授权-->
+        <div class="main-content">
+        @{var isAuth = ViewCommon.isAuthorized(loginUserInfo,allowAuthorites:_*)
+            if(isAuth){
+                content
+            }else{
+                if(loginUserInfo=="" || loginUserInfo==":"){
+                <section id="event" class="">
+                    <div class="container pb-50">
+                        <div class="section-content">
+                            <div class="row">
+                                <center>
+                                    <button type="button" class="btn btn-success"><a href="/wx/gotowxfromwx/wx%2Findex" style="color:#FFF">点这里使用微信自动登录</a></button>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                }else{
+                    <div class="container">
+                        <div class="esc-heading heading-line-bottom lr-line left-heading">
+                            <h4>暂时没有权限访问此页面哦</h4>
+                        </div>
+                        <p>如果需要请联系西瓜师姐。</p>
+                    </div>
+                }
+            }
+        }
+        @footer.first()
+        </div>
+
+    </div><!-- end wrapper -->
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    <!-- Footer Scripts -->
+    @js.customjs()
+    </body>
+</html>

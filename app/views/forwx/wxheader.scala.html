@@ -1,0 +1,31 @@
+ @(loginedUserInfo:String)
+ <header id="header" class="header">
+    <div class="header-middle p-0 bg-lightest xs-text-center">
+      <div class="container pt-0 pb-0">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-5">
+            <div class="widget no-border m-0">
+              <a class="menuzord-brand pull-left flip xs-pull-center mb-15" href="javascript:void(0)"><img src="@routes.Assets.versioned("images/mkendologo.png")" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ </header>
+
+ <div class="header-nav">
+     <div class="header-nav-wrapper navbar-scrolltofixed bg-theme-colored border-bottom-theme-color-2-1px">
+         <div class="container">
+             <nav id="menuzord" class="menuzord bg-theme-colored pull-left flip menuzord-responsive">
+                 <ul class="menuzord-menu">
+                     @if(loginedUserInfo!=""){
+                     <li><a href="/wx/logout">退出</a>
+                     </li>
+                     }else{
+                     &nbsp;
+                     }
+                 </ul>
+             </nav>
+         </div>
+     </div>
+ </div>

@@ -1,0 +1,26 @@
+@(cal:CalendarInstance,loginedUserInfo:String,fromm:String)
+<form name="form_postevent" method="post" action=@routes.MkendoCalendarController.postEvent()>
+    @if(fromm.startsWith("/wx/")){
+    <a href=@routes.MkendoController.wxCalendarMembers(cal.calendarId+"##"+cal.startDatetime+"##"+cal.endDatetime+"## ##"+fromm) @if(cal.doneActorCount>0){@roletextcolor(cal.roleCode)}>@cal.event（@cal.doneActorCount/@cal.acctorLessThan）</a><br/>
+    }else{
+    <a href=@routes.MkendoController.calendarMembers(cal.calendarId+"##"+cal.startDatetime+"##"+cal.endDatetime+"## ##"+fromm) @if(cal.doneActorCount>0){@roletextcolor(cal.roleCode)}>@cal.event（@cal.doneActorCount/@cal.acctorLessThan）</a><br/>
+    }
+    <input type="hidden" name="loginedUserInfo" value=@loginedUserInfo />
+    <input type="hidden" name="calendarid" value=@cal.calendarId />
+    <input type="hidden" name="roleid" value=@cal.roleId />
+    <input type="hidden" name="startdatetime" value=@cal.startDatetime.replace(' ','_') />
+    <input type="hidden" name="enddatetime" value=@cal.endDatetime.replace(' ','_') />
+    <input type="hidden" name="event" value=@cal.event />
+    <input type="hidden" name="eventType" value=@if(cal.description=="EXIST"){取消}@cal.eventType />
+    <input type="hidden" name="enable" value="@cal.enable" />
+    <input type="hidden" name="from" value=@fromm />
+    <!--下面按钮颜色更好的做法是定义calendar时就指定颜色-->
+      @if(!fromm.startsWith("/wx/") || cal.compareYesterday()>=0 || cal.eventType.contains("签到")){
+        @if(cal.description=="EXIST"){
+          <button type="submit" class="btn btn-success" style="background:#CCC;border-color:#EEE" name="form_submit">取消@cal.eventType</button>
+        }else{
+          <button type="submit" class="btn btn-success" @rolecolor(cal.roleCode) name="form_submit">@cal.eventType</button>
+        }
+      }
+    </div>
+</form>

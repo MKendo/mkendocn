@@ -1,99 +1,121 @@
 @import play.api.data._
 @import play.api.data.Forms._
 @import play.api.data.validation.Constraints._
-
+@import models.SimpleType
+@import service.Common
+@(loginedUserInfo:String,placetimes:List[SimpleType],fromm:String)
 <!-- Appointment Form Starts -->
     <div class="container">
                 <form id="home_appointment_form" name="home_appointment_form" class="booking-form form-home bg-white p-30" method="post" action=@routes.BookingController.createBooking()>
                         <div class="row">
-                        <h3 class="mt-0 mb-20">请填写 <span class="text-theme-color-2">预约信息</span></h3>
-                        <p>请先了解课程内容，选择适合自己的，购买之后填写预约信息即可。</p>
-                        <div class="col-sm-12">
-                            <h4 class="widget-title">一、明剑馆剑道入门初心课程</h4>
-                            <ul>
-                                <li class="clearfix"><b>价格：</b>￥58.00 </li>
-                                <li class="clearfix"><b>课程目的：</b>完成初心课程的训练您对剑道会有一个整体的了解，并且可以判断剑道是否值得自己花费时间长期练习。</li>
-                                <li class="clearfix"><b>课程内容：</b>剑道概况说明、剑道礼仪基础、剑道基本步法、剑道中段构型、基础打击方法、完整的打击流程。。</li>
-                                <li class="clearfix"><b>注意事项：</b>剑道是有一项认真的运动，请带上最真实的自己。入门级初心课程没有剑道服和护具穿哦。</li>
-                                <li class="clearfix"><b>购买连接：</b><a target="_blank" href="http://t.dianping.com/deal/610907216"><span class="text-theme-color-2">立即购买明剑馆剑道入门初心课程（￥58）</span></a></li>
-                            </ul>
-                            <br/>
-                            <h4 class="widget-title">二、明剑馆剑道标准初心课程（有剑道服穿哦）</h4>
-                            <ul class="list-border">
-                                <li class="clearfix"><b>价格：</b>￥99.00 </li>
-                                <li class="clearfix"><b>课程目的：</b>完成初心课程的训练您对剑道会有一个整体的了解，并且可以判断剑道是否值得自己花费时间长期练习。看看穿上剑道服的自己好看吗？</li>
-                                <li class="clearfix"><b>课程内容：</b>剑道概况说明、穿剑道服、剑道礼仪基础、剑道基本步法、剑道中段构型、基础打击方法、完整的打击流程、拍照片、折叠剑道服。。</li>
-                                <li class="clearfix"><b>注意事项：</b>剑道是有一项认真的运动，请带上最真实的自己。入门级初心课程没有剑道服和护具穿哦。</li>
-                                <li class="clearfix"><b>购买连接：</b><a target="_blank" href="http://t.dianping.com/deal/610522899"><span class="text-theme-color-2">立即购买明剑馆剑道标准初心课程（￥99）</span></a></li>
-                            </ul>
-                            <br/>
-                            <h4><i class="fa fa-phone"> 填表后欢迎加馆长微信确认报名（请至少提前一天哦）</i></h4>
-                            <p>电话&微信：15889489370</p>
-                            <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
-                                <div class="funfact text-center">
-                                    <img alt="" src="@routes.Assets.versioned("images/qrcode/wechat120.jpg")">
-                                    <h4>加馆长微信</h4>
-                                </div>
+                        <h3 class="mt-0 mb-20">明剑馆 剑道体验课 预约</h3>
+                        @if(fromm=="wx"){
+                            <div class="col-sm-12">
+                            <h4 class="mt-0 mb-20">明剑预约体验需知<span class="text-theme-color-2">【重要】</span></h4>
+
+                                <p>为确保剑道体验顺利进行，特约定以下内容：</p>
+                                <ul class="list angle-double-right">
+                                    <li><span class="text-theme-color-2">请提前一天预约，</span>以预约表（下面有具体方法）和交费记录为准。</li>
+                                    <li>预约之后我们会为您安排专门的体验指导老师，并为您准备服装道具。<span class="text-theme-color-2">请不要迟到，不要轻易取消（美团/大众购买的团购券需要此时先行验证）。</span></li>
+                                    <li>如遇特殊事件必须取消，可提前3小时说明情况，我们会为您立即退款；<span class="text-theme-color-2">距离上课时间3小时之内取消不予退款。</span></li>
+                                    <li>如有两次以上取消预约的情况，下次恕不接待。</li>
+                                    <li>体验预约需每人填写一次预约表格，表格内容真实准确，不符者视为自动取消。</li>
+                                    <li>已在他馆他师处正式学习剑道的剑友，需要获得老师许可并书面推荐方可参加。</li>
+                                </ul>
+                                <p align="right">明剑馆</p>
+                                <p align="right">2020年5月12日</p>
                             </div>
-                            <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
+                            <div class="col-sm-12">
                                 <div class="funfact text-center">
                                     <img alt="" src="@routes.Assets.versioned("images/qrcode/mkendo120.jpg")">
-                                    <h4>关注公众号</h4>
+                                    <h4>欢迎关注明剑馆公众号</h4>
                                 </div>
                             </div>
-                        </div>
-                        <br/>
-                        <div class="col-sm-12">
-                            <h4><i class="fa fa-book"> 购买成功之后请填写下列预约表格，剑道欢迎你！</i></h4>
-                        </div>
-                        <div class="col-sm-12">
+                        }else{
+                            <p>请先了解课程内容，选择适合自己的，购买之后填写下面的预约信息即可。</p>
+                            <div class="col-sm-12">
+                                <h4 class="widget-title">一、明剑馆剑道入门初心课程</h4>
+                                <ul>
+                                    <li class="clearfix"><b>价格：</b>￥58.00 </li>
+                                    <li class="clearfix"><b>课程目的：</b>完成初心课程的训练您对剑道会有一个整体的了解，并且可以判断剑道是否值得自己花费时间长期练习。</li>
+                                    <li class="clearfix"><b>课程内容：</b>剑道概况说明、剑道礼仪基础、剑道基本步法、剑道中段构型、基础打击方法、完整的打击流程。。</li>
+                                    <li class="clearfix"><b>注意事项：</b>剑道是有一项认真的运动，请带上最真实的自己。入门级初心课程没有剑道服和护具穿哦。</li>
+                                    <li class="clearfix"><b>购买连接：</b><a target="_blank" href="http://t.dianping.com/deal/610907216"><span class="text-theme-color-2">立即购买明剑馆剑道入门初心课程（￥58）</span></a></li>
+                                </ul>
+                                <br/>
+                                <h4 class="widget-title">二、明剑馆剑道标准初心课程（有剑道服穿哦）</h4>
+                                <ul class="list-border">
+                                    <li class="clearfix"><b>价格：</b>￥99.00 </li>
+                                    <li class="clearfix"><b>课程目的：</b>完成初心课程的训练您对剑道会有一个整体的了解，并且可以判断剑道是否值得自己花费时间长期练习。看看穿上剑道服的自己好看吗？</li>
+                                    <li class="clearfix"><b>课程内容：</b>剑道概况说明、穿剑道服、剑道礼仪基础、剑道基本步法、剑道中段构型、基础打击方法、完整的打击流程、拍照片、折叠剑道服。。</li>
+                                    <li class="clearfix"><b>注意事项：</b>剑道是有一项认真的运动，请带上最真实的自己。入门级初心课程没有剑道服和护具穿哦。</li>
+                                    <li class="clearfix"><b>购买连接：</b><a target="_blank" href="http://t.dianping.com/deal/610522899"><span class="text-theme-color-2">立即购买明剑馆剑道标准初心课程（￥99）</span></a></li>
+                                </ul>
+                                <br/>
+
+                            </div>
+                            <br/>
+                            <div class="col-sm-12">
+                                <h4><i class="fa fa-book"> 购买成功之后请填写下列预约表格，剑道欢迎你！</i></h4>
+                            </div>
+                        }
+
+                        <div class="col-sm-6">
                             <div class="form-group mb-10">
-                                <input name="name" class="form-control required" type="text" placeholder="真实姓名" required="true" aria-required="true">
+                                <input name="name" class="form-control required" type="text" placeholder="真实姓名" required="true" aria-required="true"
+                                value = @if(loginedUserInfo.length>11){@loginedUserInfo.split("__")(1)}>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group mb-10">
-                                <input name="mobile" class="form-control required" type="text" placeholder="联系手机" required="true" aria-required="true">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group mb-10">
-                                <input name="wechat" class="form-control required" type="text" placeholder="微信号(不填默认为同手机号)" required="true" aria-required="false">
+                                <input name="mobile" class="form-control required" type="text" placeholder="联系手机" required="true" aria-required="true"
+                                value = @if(loginedUserInfo.length>11){@loginedUserInfo.split("__")(0)}>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group mb-20">
                                 <div class="styled-select">
-                                    <select id="placetime" name="placetime" class="form-control" required="true">
+                                    <select id="placetime" name="placetime" class="form-control" required="true" onchange="onChoosePlaceTime()">
                                         <option value="">请选择练习场次</option>
-                                        <option value="FT01PM">福田道场 周一晚19:30--21:30</option>
-                                        <option value="FT03PM">福田道场 周三晚19:30--21:30</option>
-                                        <option value="FT05PM">福田道场 周五晚19:30--21:30</option>
-                                        <option value="FT06PM">福田道场少儿剑道 周六下午 14:00--16:00</option>
-                                        <option value="FT06PM2">福田道场 周六下午 16:00--18:00</option>
-                                        <option value="NS02PM">南山道场 周二晚20:00--22:00</option>
-                                        <option value="NS04PM">南山道场 周四晚20:00--22:00</option>
+                                        @for(placetime <- placetimes){
+                                         <option value=@placetime.code>@placetime.name</option>
+                                        }
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group mb-10">
-                                <input name="classdate" class="form-control required date-picker" type="text" placeholder="上课日期" required="true" aria-required="true">
-                                <i class="fa fa-calendar form-control-feedback mt-15 mr-10 font-15 text-gray-lightgray"></i>
+                                <select id="classdate" name="classdate" class="form-control" required="true">
+                                    <option value="">请选择上课日期</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group mb-20">
                                 <div class="styled-select">
                                     <select id="coursename" name="coursename" class="form-control" required="true">
-                                        <option value="">已购买的体验课程是？</option>
-                                        <option value="剑道入门初心课程58元">剑道入门初心课程58元</option>
-                                        <option value="剑道标准初心课程99元（有剑道服）">剑道标准初心课程99元（有剑道服）</option>
+                                        <option value="">要体验课程是？</option>
+                                        <option value="【一期一会】入门剑道体验课58元">【一期一会】入门剑道体验课58元</option>
+                                        <option value="【一期一会】标准剑道体验课99元（有剑道服）">【一期一会】标准剑道体验课99元（有剑道服）</option>
+                                        <option value="正式练习之前的初心课程158元（当天报名全额返还）">正式练习之前的初心课程158元（当天报名全额返还）</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group mb-10">
+                                    <input name="height" class="form-control required" type="text" placeholder="身高cm（有剑道服的体验课需要填写）" required="true">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group mb-10">
+                                    <input name="weight" class="form-control required" type="text" placeholder="体重kg（有剑道服的体验课需要填写）" required="true">
+                                </div>
+                            </div>
+
                         <div class="col-sm-12">
                             <div class="form-group mb-20">
                                 <div class="styled-select">
@@ -108,9 +130,65 @@
                             </div>
                         </div>
                         <div class="form-group mb-0 mt-20">
-                            <input name="form_botcheck" class="form-control" type="hidden" value="">
+                            <!--<input name="form_botcheck" class="form-control" type="hidden" value="" />-->
+                            <input name="fromm" type="hidden" value=@fromm />
                             <button type="submit" class="btn btn-colored btn-theme-color-2 text-white btn-lg btn-block" data-loading-text="请稍候...">立即预约</button>
                         </div>
                     </div>
                 </form>
+        <script>
+                            function onChoosePlaceTime() {
+
+                              var placetime = document.forms["home_appointment_form"]["placetime"];
+                              var classdate = document.forms["home_appointment_form"]["classdate"]
+
+                              var len = classdate.options.length;
+                              for(var i=0;i<len;i++){
+                                  classdate.options.remove(0);
+                              }
+
+                              var firstOption = new Option("请选择上课日期","")
+                              classdate.options.add(firstOption)
+
+                              //以下代码长像“喜人”，因为要解决变量互通的问题，敬请忽略颜值555
+                              var placetimevalue = placetime.value
+                              if(placetimevalue.substring(3,4)==1){
+                                  @for( item <- Common.getDatesByPlaceTimeCode( "FF01FF",fromm!="wx" )){
+                                     var newItem = new Option("@item（周一）","@item");
+                                     classdate.options.add(newItem);
+                                  }
+                              }else if(placetimevalue.substring(3,4)==2){
+                                  @for( item <- Common.getDatesByPlaceTimeCode( "FF02FF",fromm=="wx" )){
+                                     var newItem = new Option("@item（周二）","@item");
+                                     classdate.options.add(newItem);
+                                  }
+                              }else if(placetimevalue.substring(3,4)==3){
+                                  @for( item <- Common.getDatesByPlaceTimeCode( "FF03FF",fromm=="wx" )){
+                                     var newItem = new Option("@item（周三）","@item");
+                                     classdate.options.add(newItem);
+                                  }
+                              }else if(placetimevalue.substring(3,4)==4){
+                                  @for( item <- Common.getDatesByPlaceTimeCode( "FF04FF",fromm=="wx" )){
+                                     var newItem = new Option("@item（周四）","@item");
+                                     classdate.options.add(newItem);
+                                  }
+                              }else if(placetimevalue.substring(3,4)==5){
+                                  @for( item <- Common.getDatesByPlaceTimeCode( "FF05FF",fromm=="wx" )){
+                                     var newItem = new Option("@item（周五）","@item");
+                                     classdate.options.add(newItem);
+                                  }
+                              }else if(placetimevalue.substring(3,4)==6){
+                                  @for( item <- Common.getDatesByPlaceTimeCode( "FF06FF",fromm=="wx" )){
+                                     var newItem = new Option("@item（周六）","@item");
+                                     classdate.options.add(newItem);
+                                  }
+                              }else if(placetimevalue.substring(3,4)==7){
+                                  @for( item <- Common.getDatesByPlaceTimeCode( "FF07FF",fromm=="wx" )){
+                                     var newItem = new Option("@item（周日）","@item");
+                                     classdate.options.add(newItem);
+                                  }
+                              }
+
+                            }
+                            </script>
     </div>

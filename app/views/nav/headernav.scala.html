@@ -4,22 +4,21 @@
         <div class="container">
           <nav id="menuzord" class="menuzord bg-theme-colored pull-left flip menuzord-responsive">
             <ul class="menuzord-menu">
-              <li @if(activePage=="HOMEPAGE"){ class="active" }><a href="/">明剑馆</a></li>
-			  <!--
+              <li @if(activePage=="HOMEPAGE"){ class="active" }><a href="/">明剑馆</a>
+                @if(loginUserInfo.nonEmpty) {
                 <ul class="dropdown">
-                  <li><a href="/">首页</a></li>
-                  <li><a href="/teachers">师范阵</a></li>
-                  <li><a href="#">剑士名牌</a></li>
+                  <li><a href="/calendar/CURRENT_WEEK">预约/签到</a></li>
+                  <!--<li><a href="/teachers">师范阵</a></li>
+                  <li><a href="#">剑士名牌</a></li>-->
                 </ul>
-			  -->
-
-              <li><a href="#">明剑日语</a>
-                <ul class="dropdown">
+                }
+              </li>
+              <li><a href="/mkendoja">明剑日语</a>
+                <!--<ul class="dropdown">
                   <li><a href="@routes.Assets.versioned("japanese/20200305_50yin_01/index.html")">两周突破五十音</a></li>
-                  <!--<li><a href="/kendoliving">剑道生活</a></li>
+                  <li><a href="/kendoliving">剑道生活</a></li>
                   <li><a href="/photos">明剑相册</a></li>
-                  -->
-                </ul>
+                </ul>-->
               </li>
 
               <li @if(activePage=="NEWS"){ class="active" }><a href="/news">新闻与活动</a></li>
@@ -37,6 +36,10 @@
 			  -->
 
               <li><a href="https://www.weibo.com/openkendo" target="_blank">微博</a></li>
+
+              @if(loginUserInfo.isEmpty){
+                <li><a href="/login" target="_blank">登录</a></li>
+              }
 
               @if(loginUserInfo.nonEmpty) {
                 @loginednav(loginUserInfo)

@@ -5,7 +5,7 @@ import javax.inject.Inject
 import models.Article
 import play.api.db.DBApi
 import play.api.mvc.{AbstractController, ControllerComponents}
-import service.{ArticleService, MemberService, NewsService}
+import service.{ArticleService, Common, MemberService, NewsService}
 
 class SearchController @Inject()(cc: ControllerComponents, system: ActorSystem)(dbapi: DBApi) extends AbstractController(cc) {
 

@@ -1,6 +1,10 @@
 package controllers.wx
 import models.WxUserInfo
 import play.api.libs.json._
+import service.UserService
+
+import scala.concurrent.Future
+import play.api.libs.ws.{WSClient, WSResponse}
 
 object WxInterface {
 
@@ -35,19 +39,6 @@ object WxInterface {
     return WxUserInfo(token,openid,unionid,"","")
   }
 
-//  def sendTemplateMessage():String = {
-//    val tokenJson = scala.io.Source.fromURL(TOKEN_URL2).mkString
-//    val tokenJsonValue = Json.parse(tokenJson)
-//    val token = (tokenJsonValue \\ "access_token").mkString.replace("\"","")
-//    val sendmesssageUrl = SEND_MESSAGE_URL + token
-//
-//    val data = Json.obj(
-//      "key1" -> "value1",
-//      "key2" -> "value2"
-//    )
-//    val futureResponse: Future[WSResponse] = ws.url(sendmesssageUrl).post(data)
-//
-//    return ""
-//  }
+
 
 }

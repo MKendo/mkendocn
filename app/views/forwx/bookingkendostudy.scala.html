@@ -1,0 +1,128 @@
+@import play.api.libs.json.Json
+@(loginedUserInfo:String,timePeriodKeyword:String,calInstances:Map[String,CalendarInstance],weekDates:List[String],times:List[String])
+@forwx.wxmain("明剑馆 剑道练习 预约",loginedUserInfo,"剑道会员","超级管理员"){
+
+@if(loginedUserInfo.length>11){
+<section>
+    <div class="container pb-50">
+        <div class="section-content">
+            <div class="row">
+                <center>
+                <h3 class="mt-0 mb-20">明剑馆 剑道练习<span class="text-theme-color-2">预约</span></h3>
+                    <i class="fa fa-search"></i>
+                    @if(timePeriodKeyword=="LAST_WEEK"){
+                    <span class="text-theme-color-2">上周</span>
+                    }else{
+                    <a href=@routes.MkendoController.bookingKendo("LAST_WEEK")>上周</a>
+                    }
+                    @if(timePeriodKeyword=="CURRENT_WEEK"){
+                    <span class="text-theme-color-2">本周</span>
+                    }else{
+                    <a href=@routes.MkendoController.bookingKendo("CURRENT_WEEK")>本周</a>
+                    }
+                    @if(timePeriodKeyword=="NEXT_WEEK"){
+                    <span class="text-theme-color-2">下周</span>
+                    }else{
+                    <a href=@routes.MkendoController.bookingKendo("NEXT_WEEK")>下周</a>
+                    }
+
+                <table class="table table-striped">
+                    <tr><td align="center">周一 @weekDates(0)</td></tr>
+                    <tr>
+                        <td>
+                            <center>
+                            @for(time <- times) {
+                                @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(0)+time)).values){
+                                    @time <br/>
+                                    @widgets.calendarevent(cal,loginedUserInfo,{"/wx/bookingkendostudy/"+timePeriodKeyword})
+                                }
+                            }
+                            </center>
+                        </td>
+                    </tr>
+                    <tr><td align="center">周二 @weekDates(1)</td></tr>
+                    <tr>
+                        <td>
+                            <center>
+                                @for(time <- times) {
+                                @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(1)+time)).values){
+                                @time <br/>
+                                @widgets.calendarevent(cal,loginedUserInfo,{"/wx/bookingkendostudy/"+timePeriodKeyword})
+                                }
+                                }
+                            </center>
+                        </td>
+                    </tr>
+                    <tr><td align="center">周三 @weekDates(2)</td></tr>
+                    <tr>
+                        <td>
+                            <center>
+                                @for(time <- times) {
+                                @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(2)+time)).values){
+                                @time <br/>
+                                @widgets.calendarevent(cal,loginedUserInfo,{"/wx/bookingkendostudy/"+timePeriodKeyword})
+                                }
+                                }
+                            </center>
+                        </td>
+                    </tr>
+                    <tr><td align="center">周四 @weekDates(3)</td></tr>
+                    <tr>
+                        <td>
+                            <center>
+                                @for(time <- times) {
+                                @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(3)+time)).values){
+                                @time <br/>
+                                @widgets.calendarevent(cal,loginedUserInfo,{"/wx/bookingkendostudy/"+timePeriodKeyword})
+                                }
+                                }
+                            </center>
+                        </td>
+                    </tr>
+                    <tr><td align="center">周五 @weekDates(4)</td></tr>
+                    <tr>
+                        <td>
+                            <center>
+                                @for(time <- times) {
+                                @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(4)+time)).values){
+                                @time <br/>
+                                @widgets.calendarevent(cal,loginedUserInfo,{"/wx/bookingkendostudy/"+timePeriodKeyword})
+                                }
+                                }
+                            </center>
+                        </td>
+                    </tr>
+                    <tr><td align="center">周六 @weekDates(5)</td></tr>
+                    <tr>
+                        <td>
+                            <center>
+                                @for(time <- times) {
+                                @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(5)+time)).values){
+                                @time <br/>
+                                @widgets.calendarevent(cal,loginedUserInfo,{"/wx/bookingkendostudy/"+timePeriodKeyword})
+                                }
+                                }
+                            </center>
+                        </td>
+                    </tr>
+                    <tr><td align="center">周日 @weekDates(6)</td></tr>
+                    <tr>
+                        <td>
+                            <center>
+                                @for(time <- times) {
+                                @for(cal <- calInstances.filter(x=>x._1.startsWith(weekDates(6)+time)).values){
+                                @time <br/>
+                                @widgets.calendarevent(cal,loginedUserInfo,{"/wx/bookingkendostudy/"+timePeriodKeyword})
+                                }
+                                }
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                </center>
+            </div>
+        </div>
+    </div>
+</section>
+}
+}

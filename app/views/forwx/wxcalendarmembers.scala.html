@@ -1,0 +1,29 @@
+@(title: String, calendarId: Int, startDatetime:String, endDatetime:String, names:List[String], from:String, loginedUserInfo:String)
+@forwx.wxmain("明剑馆 预约/签到",loginedUserInfo,"剑道会员","带课老师","日语老师","超级管理员"){
+<section>
+    <div class="container">
+        @if(!title.trim().isEmpty){
+        <div class="esc-heading heading-line-bottom lr-line left-heading">
+            <h4>@Html(title)</h4>
+        </div>
+        }
+        <div class="row">
+            <div class="col-md-12">
+                <p>看看 @startDatetime 的小伙伴都有谁：</p>
+                <p>@if(names.isEmpty){
+                    无
+                    }else{
+                        @for(namee <- names) {
+                            @namee <br/>
+                        }
+                    }</p>
+                @if(!from.trim().isEmpty){
+                <br/><br/>
+                <button class='btn btn-colored btn-theme-color-2 text-white'><a style="color:#FFF" href=@from>返回</a></button>
+                }
+            </div>
+        </div>
+
+    </div>
+</section>
+}

@@ -1,0 +1,33 @@
+@(title: String, content: String, loginedUserInfo:String)
+@forwx.wxmain("深圳剑道 明剑馆 消息",loginedUserInfo,""){
+
+<section>
+    <div class="container pb-50">
+        <div class="container">
+            <div class="row">
+                <div class="esc-heading heading-line-bottom lr-line left-heading">
+                    <h4>@Html(title)</h4>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>@Html(content)</p>
+                    </div>
+                </div>
+                <br/>
+                <h4><i class="fa fa-phone">欢迎加馆长微信确认报名</i></h4>
+                <p>电话&微信：15889489370</p>
+                <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
+                    <div class="funfact text-center">
+                        <img alt="" src="@routes.Assets.versioned("images/qrcode/wechat120.jpg")">
+                        <h4>欢迎加馆长微信</h4>
+                    </div>
+                </div>
+                <h4><i class="fa fa-cc-mastercard">支付码</i></h4>
+                <img src="@routes.Assets.versioned("images/yinlianpay.jpg")" />
+            </div>
+            <br/>
+        </div>
+    </div>
+</section>
+
+}

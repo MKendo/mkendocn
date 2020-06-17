@@ -7,7 +7,7 @@ import javax.inject.Inject
 import play.api.db.DBApi
 import play.api.mvc.{AbstractController, ControllerComponents, Session}
 import models.Article
-import service.NewsService
+import service.{Common, NewsService}
 
 import scala.util.Random
 

@@ -27,22 +27,32 @@ class MemberService @Inject()(dbapi: DBApi) {
         println(s"endDatetime = $endDatetime")
 
         if(!startDatetime.isEmpty && !endDatetime.isEmpty) {
-          SQL("select * from (select m.*,m.enable menable,mv.startvalidate startvalidate,mv.endvalidate endvalidate,ft.code feeTypeCode,ft.name feeTypeName " +
+          SQL("select * from (" +
+            "select m.id id,m.name name,m.mobile mobile,m.idtypename idTypeName,m.idnumber idNumber,m.description description,m.commitdatetime commitdatetime," +
+            "m.enable enable,ifnull(m.userid,-1) userid," +
+            "ifnull(mv.startvalidate,'') startvalidate,ifnull(mv.startvalidate,'') svalidate, " +
+            "ifnull(mv.endvalidate,'') endvalidate,ifnull(mv.endvalidate,'') evalidate," +
+            "ifnull(ft.code,'') feeTypeCode, ifnull(ft.name,'') feeTypeName " +
             "from members m " +
             "left join member_validates mv on mv.memberid=m.id " +
             "left join simpletypes ft on ft.id=mv.feetypeid " +
             "group by m.id " +
-            "having mv.startvalidate=max(mv.startvalidate)) " +
-            "where endvalidate>={db_startDatetime} and endvalidate<={db_endDatetime} and menable=1 order by endvalidate desc"
+            "having evalidate=max(evalidate)) " +
+            "where endvalidate>={db_startDatetime} and endvalidate<={db_endDatetime} and enable=1 order by commitdatetime desc"
           ).on("db_startDatetime" -> startDatetime,"db_endDatetime" -> endDatetime).as(newsParser.*)
         }else{
-          return SQL("select * from (select m.*,m.enable menable,mv.startvalidate,mv.endvalidate,ft.code feeTypeCode,ft.name feeTypeName " +
+          return SQL("select * from (" +
+            "select m.id id,m.name name,m.mobile mobile,m.idtypename idTypeName,m.idnumber idNumber,m.description description,m.commitdatetime commitdatetime," +
+            "m.enable enable,ifnull(m.userid,-1) userid," +
+            "ifnull(mv.startvalidate,'') startvalidate,ifnull(mv.startvalidate,'') svalidate, " +
+            "ifnull(mv.endvalidate,'') endvalidate,ifnull(mv.endvalidate,'') evalidate," +
+            "ifnull(ft.code,'') feeTypeCode, ifnull(ft.name,'') feeTypeName " +
             "from members m " +
             "left join member_validates mv on mv.memberid=m.id " +
             "left join simpletypes ft on ft.id=mv.feetypeid " +
             "group by m.id " +
-            "having mv.startvalidate=max(mv.startvalidate))" +
-            "where menable=1 order by endvalidate asc"
+            "having evalidate=max(evalidate))" +
+            "where enable=1 order by commitdatetime desc"
           ).as(newsParser.*)
         }
     }
@@ -56,13 +66,18 @@ class MemberService @Inject()(dbapi: DBApi) {
         println(s"MemberService.findByKeyword.keyword = $keyword")
 
         if(!keyword.isEmpty) {
-          val sql = SQL("select * from (select m.*,m.enable menable,mv.startvalidate startvalidate,mv.endvalidate endvalidate,ft.code feeTypeCode,ft.name feeTypeName " +
+          val sql = SQL("select * from (" +
+            "select m.id id,m.name name,m.mobile mobile,m.idtypename idTypeName,m.idnumber idNumber,m.description description," +
+            "m.enable enable,ifnull(m.userid,-1) userid," +
+            "ifnull(mv.startvalidate,'') startvalidate,ifnull(mv.startvalidate,'') svalidate, " +
+            "ifnull(mv.endvalidate,'') endvalidate,ifnull(mv.endvalidate,'') evalidate," +
+            "ifnull(ft.code,'') feeTypeCode, ifnull(ft.name,'') feeTypeName " +
             "from members m " +
             "left join member_validates mv on mv.memberid=m.id " +
             "left join simpletypes ft on ft.id=mv.feetypeid " +
             "group by m.id " +
-            "having mv.startvalidate=max(mv.startvalidate)) " +
-            "where (name like {db_keyword} or mobile like {db_keyword} or idnumber like {db_keyword} or description like {db_keyword}) and menable=1 order by endvalidate desc"
+            "having evalidate=max(evalidate)) " +
+            "where (name like {db_keyword} or mobile like {db_keyword} or idnumber like {db_keyword} or description like {db_keyword}) and enable=1 order by endvalidate desc"
           ).on("db_keyword" -> s"%$keyword%")
 
           return {
@@ -87,12 +102,17 @@ class MemberService @Inject()(dbapi: DBApi) {
       db.withConnection {
         implicit c: java.sql.Connection =>
           val newsParser: RowParser[Member] = Macro.namedParser[Member]
-          return SQL("select * from (select m.*,m.id id,mv.startvalidate,mv.endvalidate,ft.code feeTypeCode,ft.name feeTypeName " +
+          return SQL("select * from (" +
+            "select m.id id,m.name name,m.mobile mobile,m.idtypename idTypeName,m.idnumber idNumber,m.description description," +
+            "m.enable enable,ifnull(m.userid,-1) userid," +
+            "ifnull(mv.startvalidate,'') startvalidate,ifnull(mv.startvalidate,'') svalidate, " +
+            "ifnull(mv.endvalidate,'') endvalidate,ifnull(mv.endvalidate,'') evalidate," +
+            "ifnull(ft.code,'') feeTypeCode, ifnull(ft.name,'') feeTypeName " +
             "from members m " +
-            "join member_validates mv on mv.memberid=m.id " +
-            "join simpletypes ft on ft.id=mv.feetypeid " +
+            "left join member_validates mv on mv.memberid=m.id " +
+            "left join simpletypes ft on ft.id=mv.feetypeid " +
             "group by m.id " +
-            "having mv.startvalidate=max(mv.startvalidate)) " +
+            "having evalidate=max(evalidate)) " +
             "where id={db_id}"
           ).on("db_id" -> id).as(newsParser.single)
       }
@@ -111,12 +131,17 @@ class MemberService @Inject()(dbapi: DBApi) {
       db.withConnection {
         implicit c: java.sql.Connection =>
           val newsParser: RowParser[Member] = Macro.namedParser[Member]
-          return SQL("select * from (select m.*,m.idnumber idnumber,mv.startvalidate,mv.endvalidate,ft.code feeTypeCode,ft.name feeTypeName " +
+          return SQL("select * from (" +
+            "select m.id id,m.name name,m.mobile mobile,m.idtypename idTypeName,m.idnumber idNumber,m.description description," +
+            "m.enable enable,ifnull(m.userid,-1) userid," +
+            "ifnull(mv.startvalidate,'') startvalidate,ifnull(mv.startvalidate,'') svalidate, " +
+            "ifnull(mv.endvalidate,'') endvalidate,ifnull(mv.endvalidate,'') evalidate," +
+            "ifnull(ft.code,'') feeTypeCode, ifnull(ft.name,'') feeTypeName " +
             "from members m " +
-            "join member_validates mv on mv.memberid=m.id " +
-            "join simpletypes ft on ft.id=mv.feetypeid " +
+            "left join member_validates mv on mv.memberid=m.id " +
+            "left join simpletypes ft on ft.id=mv.feetypeid " +
             "group by m.id " +
-            "having mv.startvalidate=max(mv.startvalidate)) " +
+            "having evalidate=max(evalidate)) " +
             "where id={db_idnumber}"
           ).on("db_idnumber" -> idNumber).as(newsParser.single)
       }
@@ -136,12 +161,17 @@ class MemberService @Inject()(dbapi: DBApi) {
       db.withConnection {
         implicit c: java.sql.Connection =>
           val newsParser: RowParser[Member] = Macro.namedParser[Member]
-          return SQL("select * from (select m.*,m.idnumber idnumber,mv.startvalidate,mv.endvalidate,ft.code feeTypeCode,ft.name feeTypeName " +
+          return SQL("select * from (" +
+            "select m.id id,m.name name,m.mobile mobile,m.idtypename idTypeName,m.idnumber idNumber,m.description description," +
+            "m.enable enable,ifnull(m.userid,-1) userid," +
+            "ifnull(mv.startvalidate,'') startvalidate,ifnull(mv.startvalidate,'') svalidate, " +
+            "ifnull(mv.endvalidate,'') endvalidate,ifnull(mv.endvalidate,'') evalidate," +
+            "ifnull(ft.code,'') feeTypeCode, ifnull(ft.name,'') feeTypeName " +
             "from members m " +
-            "join member_validates mv on mv.memberid=m.id " +
-            "join simpletypes ft on ft.id=mv.feetypeid " +
+            "left join member_validates mv on mv.memberid=m.id " +
+            "left join simpletypes ft on ft.id=mv.feetypeid " +
             "group by m.id " +
-            "having mv.startvalidate=max(mv.startvalidate)) " +
+            "having evalidate=max(evalidate)) " +
             "where userid={db_userid}"
           ).on("db_userid" -> userId).as(newsParser.single)
       }
@@ -185,7 +215,7 @@ class MemberService @Inject()(dbapi: DBApi) {
           "from member_validates mv " +
           "join members m on mv.memberid=m.id " +
           "join simpletypes ft on mv.feetypeid = ft.id " +
-          "where m.id={db_id} order by mv.endvalidate desc"
+          "where m.id={db_id} order by mv.commitdatetime desc,mv.endvalidate desc,mv.description desc"
         ).on("db_id" -> id).as(newsParser.*)
     }
   }
@@ -212,8 +242,8 @@ class MemberService @Inject()(dbapi: DBApi) {
       return "缴费描述信息不能为空"
     }
 
-    if(amount<=0){
-      return "缴费金额必须大于0"
+    if(amount<0){
+      return "缴费金额必须大于等于0"
     }
 
     s_memberid = memberId
@@ -343,12 +373,32 @@ class MemberService @Inject()(dbapi: DBApi) {
     try {
       db.withConnection {
         implicit c: java.sql.Connection =>
-          val result : Option[Long] = SQL("update members set userid={db_userid} " +
+          val result : Int = SQL("update members set userid={db_userid} " +
             "where id={db_memberId}").on(
             "db_userid" -> userId,
-            "db_memberId" -> memberId).executeInsert()
+            "db_memberId" -> memberId).executeUpdate()
 
-          return if(result.get>0) result.get.toInt else -1
+          return if(result>0) result else -1
+      }
+    }catch{
+      case ex: Exception => {
+        println(ex.getMessage)
+        throw(ex)
+      }
+    }
+  }
+
+  def updateMemberUserIdMobile(memberId:Int, userId:Int, mobile:String): Int ={
+    try {
+      db.withConnection {
+        implicit c: java.sql.Connection =>
+          val result : Int = SQL("update members set userid={db_userid},mobile={db_mobile} " +
+            "where id={db_memberId}").on(
+            "db_userid" -> userId,
+            "db_mobile" -> mobile,
+            "db_memberId" -> memberId).executeUpdate()
+
+          return if(result>0) result else -1
       }
     }catch{
       case ex: Exception => {

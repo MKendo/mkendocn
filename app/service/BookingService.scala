@@ -4,7 +4,7 @@ import anorm.{Macro, RowParser, SQL, SqlParser}
 import javax.inject.Inject
 import play.api.Logger
 import play.api.db.DBApi
-import models.Booking
+import models.{Booking}
 
 class BookingService @Inject()(dbapi: DBApi) {
 
@@ -16,7 +16,7 @@ class BookingService @Inject()(dbapi: DBApi) {
 
   /**
     * 创建预约（提交预约体验表格）
-    * @return 成功返回提交者姓名，失败返回 “ERROR+失败原因”
+    * @return 成功返回提SUCCESS，失败返回 “ERROR+失败原因”
     */
   def createBooking(booking: Booking): String = {
 
@@ -50,8 +50,8 @@ class BookingService @Inject()(dbapi: DBApi) {
 
     db.withConnection {
       implicit c:java.sql.Connection =>
-        val result: Option[Long] = SQL("insert into bookings(name, mobile, wxopenid, placetimeid, classdate, whereknowusid, coursename, commitdatetime,enable) " +
-          "values({db_name},{db_mobile},{db_wxopenid},{db_placetimeid},{db_classdate},{db_whereknowusid},{db_coursename},{db_commitdatetime},1)").on(
+        val result: Option[Long] = SQL("insert into bookings(name, mobile, wxopenid, placetimeid, classdate, whereknowusid, coursename,height,weight, commitdatetime,enable) " +
+          "values({db_name},{db_mobile},{db_wxopenid},{db_placetimeid},{db_classdate},{db_whereknowusid},{db_coursename},{db_height},{db_weight},{db_commitdatetime},1)").on(
           "db_name" -> booking.name,
                   "db_mobile" -> booking.mobile,
                   "db_wxopenid" -> booking.wxopenid,
@@ -59,9 +59,11 @@ class BookingService @Inject()(dbapi: DBApi) {
                   "db_classdate" -> booking.classdate,
                   "db_whereknowusid" -> s_whereknowusid,
                   "db_coursename" -> booking.coursename,
+                  "db_height" -> booking.height,
+                  "db_weight" -> booking.weight,
                   "db_commitdatetime" -> booking.commitdatetime).executeInsert()
 
-        return "SUCCESS"
+        return "SUCCESS_"+result.get.toInt
     }
     return "未知问题，请联系管理员或重试一次。"
   }
@@ -81,20 +83,43 @@ class BookingService @Inject()(dbapi: DBApi) {
           println(s"endDatetime = $endDatetime")
 
           if(!startDatetime.isEmpty && !endDatetime.isEmpty) {
-            return SQL("select *,b.name name,ptn.code placetimeCode, ptn.name placetimeName,wn.code whereknowusCode,wn.name whereknowusName " +
+            return SQL("select b.*,ifnull(b.height,'') height, ifnull(b.weight,'') weight,ifnull(b.description,'') description, ptn.code placetimeCode, ptn.name placetimeName,wn.code whereknowusCode,wn.name whereknowusName " +
               "from bookings b " +
               "join simpletypes ptn on b.placetimeid=ptn.id " +
               "join simpletypes wn on b.whereknowusid=wn.id " +
-              "where classdate>={db_startDatetime} and classdate<={db_endDatetime} ORDER BY classdate desc"
+              "where classdate>={db_startDatetime} and classdate<={db_endDatetime} ORDER BY classdate desc,id desc"
             ).on("db_startDatetime" -> startDatetime,"db_endDatetime" -> endDatetime).as(newsParser.*)
           }else{
-            return SQL("select *,b.name name,ptn.code placetimeCode, ptn.name placetimeName,wn.code whereknowusCode,wn.name whereknowusName " +
+            return SQL("select b.*,ifnull(b.height,'') height, ifnull(b.weight,'') weight,ifnull(b.description,'') description,ptn.code placetimeCode, ptn.name placetimeName,wn.code whereknowusCode,wn.name whereknowusName " +
               "from bookings b " +
               "join simpletypes ptn on b.placetimeid=ptn.id " +
-              "join simpletypes wn on b.whereknowusid=wn.id " ).as(newsParser.*)
+              "join simpletypes wn on b.whereknowusid=wn.id " +
+              "ORDER BY classdate desc,id desc" ).as(newsParser.*)
           }
 
      }
+  }
+
+  def findById(id:Int):Booking = {
+    println(s"findById id = $id")
+    try {
+      db.withConnection {
+        implicit c: java.sql.Connection =>
+          val newsParser: RowParser[Booking] = Macro.namedParser[Booking]
+          return SQL("select b.*,ifnull(b.height,'') height, ifnull(b.weight,'') weight,ifnull(b.description,'') description," +
+            "pt.code placetimeCode,pt.name placetimeName, " +
+            "wn.code whereknowusCode,wn.name whereknowusName " +
+            "from bookings b " +
+            "left join simpletypes pt on b.placetimeid = pt.id " +
+            "left join simpletypes wn on b.whereknowusid = wn.id " +
+            "where b.id={db_id}"
+          ).on("db_id" -> id).as(newsParser.single)
+      }
+    }catch{
+      case ex: Exception => {
+        throw ex
+      }
+    }
   }
 
 }

@@ -11,24 +11,32 @@
                 <form name="login-form" class="clearfix" method="post" action=@routes.SendWxMessageController.sendWxMessage()>
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label for="form_userid">选择用户(暂时填写openid)</label>
-                            <input id="form_userid" name="form_userid" class="form-control" type="text" required="true">
+                            <label for="form_openid">选择用户(暂时填写openid)</label>
+                            <input id="form_openid" name="form_openid" class="form-control" type="text" required="true">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label for="form_messagetype">消息类型</label>
-                            <input id="form_messagetype" name="form_messagetype" class="form-control" type="text" readonly required="true" value="有效期到期提醒">
+                            <label for="form_templateid">消息模板ID</label>
+                            <input id="form_templateid" name="form_templateid" class="form-control" type="text" required="true">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-12">
-                            <label for="form_message">内容模板</label>
-                            <textarea id="form_message" name="form_message" class="form-control" rows="5" required="true">
-{{first.DATA}}
-您的{{name.DATA}}有效期至{{expDate.DATA}}
-{{remark.DATA}}
-                            </textarea>
+                            <label for="form_template">内容模板</label>
+                            <textarea id="form_template" name="form_template" class="form-control" rows="5" required="true"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <label for="form_message">发送内容【请用实际内容替换{{xxx.DATA}}的xxx部分】</label>
+                            <textarea id="form_message" name="form_message" class="form-control" rows="5" required="true"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <label for="form_url">查看详细的URL</label>
+                            <input id="form_url" name="form_url" class="form-control" rows="5" />
                         </div>
                     </div>
                     <div class="form-group pull-right mt-10">

@@ -1,5 +1,6 @@
-@(loginedUserInfo:String)
+@import models.SimpleType
+@(loginedUserInfo:String,placeTimes:List[SimpleType])
 @main("BOOKING",loginedUserInfo,""){
 <!--nav.innerheadernav("首页","/","预约体验")-->
-@widgets.bookingWidget()
+@widgets.bookingWidget(loginedUserInfo,placeTimes,"")
 }

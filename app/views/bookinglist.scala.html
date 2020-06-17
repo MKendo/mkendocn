@@ -28,14 +28,20 @@
                 <td>手机号</td>
                 <td>练习场次</td>
                 <td>课程</td>
+                <td>身高</td>
+                <td>体重</td>
+                <td> </td>
             </tr>
             @for(booking <- bookings) {
             <tr>
                 <td>@booking.classdate</td>
-                <td>@booking.name</td>
+                <td>@booking.name @if(booking.description!=""){（@booking.description）}</td>
                 <td>@booking.mobile</td>
                 <td>@booking.placetimeName</td>
                 <td>@booking.coursename</td>
+                <td>@booking.height</td>
+                <td>@booking.weight</td>
+                <td><a href="/user/bookingdetail/@booking.id">查看明细</a></td>
             </tr>
             }
         </table>

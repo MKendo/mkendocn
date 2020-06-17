@@ -1,0 +1,36 @@
+@(title: String, content: String, loginedUserInfo:String)
+@main("BOOKING",loginedUserInfo,""){
+
+<div class="container">
+        <div class="row">
+            <div class="esc-heading heading-line-bottom lr-line left-heading">
+                <h4>@Html(title)</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>@Html(content)</p>
+                </div>
+            </div>
+            <br/>
+            <h4><i class="fa fa-phone">欢迎加馆长微信确认报名（请至少提前一天哦）</i></h4>
+            <p>电话&微信：15889489370</p>
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
+                <div class="funfact text-center">
+                    <img alt="" src="@routes.Assets.versioned("images/qrcode/wechat120.jpg")">
+                    <h4>加馆长微信</h4>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
+                <div class="funfact text-center">
+                    <img alt="" src="@routes.Assets.versioned("images/qrcode/mkendo120.jpg")">
+                    <h4>关注公众号</h4>
+                </div>
+            </div>
+        </div>
+    <br/>
+        </div>
+
+</div>
+
+
+}

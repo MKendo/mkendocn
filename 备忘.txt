@@ -1,0 +1,11 @@
+从微信登录连接（程序内部使用）
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb22ad90722b75c13&redirect_uri=https%3A%2F%2Fwww.mkendo.cn%2Fwxmkkservice%2Flogin&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect
+
+从公众号登录连接（程序内部使用）：
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb22ad90722b75c13&redirect_uri=https%3A%2F%2Fwww.mkendo.cn%2Fwxmkkservice%2Flogin&response_type=code&scope=snsapi_userinfo&state=gongzhonghao#wechat_redirect
+
+微信公众号上的首页连接（一定要带:哦，可自动调用上面的连接到微信请求授权和登录）：
+https://www.mkendo.cn/wx/index/:
+
+预约剑道练习：
+https://www.mkendo.cn/wx/bookingkendostudy/:

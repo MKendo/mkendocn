@@ -19,28 +19,8 @@ class UserService @Inject()(dbapi: DBApi) {
         val name: Option[String] = SQL("select name from users where mobile={db_mobile} and password={db_password}").on(
           "db_mobile" -> mobile,"db_password" -> password).as(
           SqlParser.str("users.name").singleOpt)
-        val username = String.valueOf(name.get)
-        if(username.nonEmpty) return "SUCCESS_"+username
-    }
-    return "用户名或密码不对请重新登录"
-  }
 
-  def findRolesByMobile(mobile:String): String ={
-    db.withConnection {
-      implicit c:java.sql.Connection =>
-        val rolenames: List[String] = SQL("select r.name rname from users u " +
-          "left join user_roles ur on ur.userid=u.id " +
-          "left join simpletypes r on ur.roleid=r.id " +
-          "where u.mobile={db_mobile}").on(
-          "db_mobile" -> mobile).as(
-          SqlParser.str("rname").*)
-
-        var result = ""
-        for(name <- rolenames){
-          result = s"$result$name "
-        }
-
-        return result
+        if(name.isEmpty) "用户名或密码不对请重新登录" else "SUCCESS_"+name.get
     }
   }
 
@@ -81,10 +61,28 @@ class UserService @Inject()(dbapi: DBApi) {
       db.withConnection {
         implicit c: java.sql.Connection =>
           val newsParser: RowParser[User] = Macro.namedParser[User]
-          return SQL("select u.id,u.name,u.mobile,u.password,u.wxopenid wxOpenid ,u.wxunionid wxUnionid ,u.wxname wxName,u.wximgurl wxImgurl, u.description, m.name memberName " +
+          return SQL("select u.id,u.name,u.mobile,u.password,u.wxopenid wxOpenid ,u.wxunionid wxUnionid ,u.wxname wxName,u.wximgurl wxImgurl, u.description, ifnull(m.name,'') memberName " +
             "from users u left join members m on m.userid=u.id " +
             "where u.wxunionid={db_wxunionid}"
           ).on("db_wxunionid" -> unionid).as(newsParser.single)
+      }
+    }catch{
+      case ex: Exception => {
+        println(ex.getMessage)
+        return null
+      }
+    }
+  }
+
+  def findByMobile(mobile:String): User ={
+    try {
+      db.withConnection {
+        implicit c: java.sql.Connection =>
+          val newsParser: RowParser[User] = Macro.namedParser[User]
+          return SQL("select u.id,u.name,u.mobile,u.password,u.wxopenid wxOpenid ,u.wxunionid wxUnionid ,u.wxname wxName,u.wximgurl wxImgurl, u.description, u.name memberName " +
+            "from users u " +
+            "where u.mobile={db_mobile}"
+          ).on("db_mobile" -> mobile).as(newsParser.single)
       }
     }catch{
       case ex: Exception => {
@@ -99,8 +97,8 @@ class UserService @Inject()(dbapi: DBApi) {
       db.withConnection {
         implicit c: java.sql.Connection =>
           val newsParser: RowParser[User] = Macro.namedParser[User]
-          return SQL("select u.id,u.name,u.mobile,u.password,u.wxopenid wxOpenid ,u.wxunionid wxUnionid ,u.wxname wxName,u.wximgurl wxImgurl, u.description, m.name memberName " +
-            "from users u left join members m on m.userid=u.id " +
+          return SQL("select u.id,u.name,u.mobile,u.password,u.wxopenid wxOpenid ,u.wxunionid wxUnionid ,u.wxname wxName,u.wximgurl wxImgurl, u.description, u.name memberName " +
+            "from users u " +
             "where u.id={db_userid}"
           ).on("db_userid" -> userId).as(newsParser.single)
       }
@@ -112,17 +110,43 @@ class UserService @Inject()(dbapi: DBApi) {
     }
   }
 
+  def findByRoleCode(roleCode:String*): List[User] ={
+    println("findByRoleCode roleCode = "+roleCode)
+    db.withConnection {
+      implicit c: java.sql.Connection =>
+        val newsParser: RowParser[User] = Macro.namedParser[User]
+        val sql = SQL("select u.*,'' memberName from users u " +
+          "left join user_roles ur on ur.userid=u.id " +
+          "left join simpletypes r on ur.roleid=r.id " +
+          "where r.code in ({db_rolecode})")
+          .on("db_rolecode" -> roleCode)
+
+        val simpleTypes: List[User] = {
+          try {
+            sql.as(newsParser.*)
+          }catch{
+            case ex: ArrayIndexOutOfBoundsException => {
+              println(ex.getMessage+" "+ex.getCause)
+              return Nil;
+            }
+          }
+        }
+
+        simpleTypes
+    }
+  }
+
   def updateUserBaseInfo(userId:Int, mobile:String, name:String):Int ={
     try {
       db.withConnection {
         implicit c: java.sql.Connection =>
-          val result: Option[Long] = SQL("update users set name={db_name},mobile={db_mobile} " +
+          val result: Int = SQL("update users set name={db_name},mobile={db_mobile} " +
             "where id={db_userid}").on(
             "db_name" -> name,
             "db_mobile" -> mobile,
             "db_userid" -> userId
-          ).executeInsert()
-        return if(result.get>0) result.get.toInt else -1
+          ).executeUpdate()
+        return if(result>0) result else -1
       }
     }catch{
       case ex: Exception => {

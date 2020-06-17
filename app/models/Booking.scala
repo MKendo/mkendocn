@@ -1,6 +1,6 @@
 package models
 
-case class Booking(
+case class Booking( id:Int,
                     name: String,
                     mobile: String,
                     wxopenid: String,
@@ -10,5 +10,15 @@ case class Booking(
                     whereknowusCode: String,
                     whereknowusName: String,
                     coursename: String,
-                    commitdatetime: String
-                  )
+                    commitdatetime: String,
+                    height: String,
+                    weight: String,
+                    description: String
+                  ){
+
+  def getStartDatetime(): String ={
+    println("placetimeName = " + placetimeName)
+    return s"$classdate ${placetimeName.substring(placetimeName.indexOf('1'))}"
+  }
+
+}

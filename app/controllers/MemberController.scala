@@ -3,10 +3,10 @@ package controllers
 
 import akka.actor.ActorSystem
 import javax.inject.Inject
-import models.{Member}
+import models.Member
 import play.api.db.DBApi
 import play.api.mvc.{AbstractController, ControllerComponents}
-import service.{MemberService}
+import service.{Common, MemberService}
 
 class MemberController @Inject()(cc: ControllerComponents, system: ActorSystem)(dbapi: DBApi) extends AbstractController(cc) {
 

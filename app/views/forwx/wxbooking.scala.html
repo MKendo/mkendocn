@@ -1,0 +1,8 @@
+@import play.api.libs.json.Json
+@(loginedUserInfo:String,placeTimes:List[SimpleType])
+@forwx.wxmain("明剑馆 剑道体验课预约",loginedUserInfo,"注册会员","超级管理员"){
+
+@if(loginedUserInfo.length>11){
+  @widgets.bookingWidget(loginedUserInfo,placeTimes,"wx")
+}
+}

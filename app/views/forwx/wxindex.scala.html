@@ -1,0 +1,33 @@
+@(loginedUserInfo: String)
+@forwx.wxmain("HOMEPAGE",loginedUserInfo,"注册会员","剑道会员","带课老师","日语会员","日语老师","超级管理员"){
+
+
+<section>
+    <div class="container pb-50">
+        <div class="section-content">
+            <div class="row">
+                <center>
+                    <h3 class="mt-0 mb-20"> 深圳剑道<span class="text-theme-color-2">明剑馆</span></h3>
+                    <p>欢迎来到明剑馆，您可以选择以下活动：</p>
+                    <hr/>
+                    @if( loginedUserInfo.contains("剑道会员") || loginedUserInfo.contains("超级管理员") ){
+                    <div>
+                      <button type="button" class="btn btn-success" ><a href="/wx/bookingkendostudy/CURRENT_WEEK" style="border-color:#EEE;color:#FFF">剑道练习预约</a></button>
+                    </div><br/>
+                    }
+                    @if( loginedUserInfo.contains("带课老师") || loginedUserInfo.contains("日语老师") || loginedUserInfo.contains("超级管理员") ){
+                    <div>
+                      <button type="button" class="btn btn-success" @if(loginedUserInfo.contains("带课老师")){@widgets.rolecolor("JA_TEACHER")}else{@widgets.rolecolor("KENDO_TEACHER")}><a href="/wx/bookingkendoteach/CURRENT_WEEK" style="color:#FFF">剑道带课签到</a></button>
+                    </div><br/>
+                    }
+                    @if( loginedUserInfo.contains("注册会员") ){
+                        <div>
+                            <button type="button" class="btn btn-success" @widgets.rolecolor("RESTER_MEMBER")><a href="/wx/wxbooking" style="color:#FFF">预约剑道体验课</a></button>
+                        </div><br/>
+                    }
+                </center>
+            </div>
+        </div>
+    </div>
+</section>
+}

@@ -1,0 +1,46 @@
+@import play.api.data._
+@import play.api.data.Forms._
+@import play.api.data.validation.Constraints._
+@import models.Booking
+@(loginedUserInfo:String,booking:Booking)
+
+@main("预约体验详细信息", loginedUserInfo,"超级管理员","带课老师"){
+<section class="">
+    <div class="container">
+        <div class="section-content">
+            <div class="col-md-12">
+                <h3 class="mt-0 mb-20">明剑馆<span class="text-theme-color-2">预约体验详细信息</span></h3>
+                <hr>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <b>姓名：</b>@booking.name
+                        </div>
+                        <div class="col-sm-12">
+                            <b>手机：</b>@booking.mobile
+                        </div>
+                        <div class="col-sm-12">
+                            <b>练习场次：</b>@booking.placetimeName
+                        </div>
+                        <div class="col-sm-12">
+                            <b>上课日期：</b>@booking.classdate
+                        </div>
+                        <div class="col-sm-12">
+                            <b>购买的课程：</b>@booking.coursename
+                        </div>
+                        <div class="col-sm-12">
+                            <b>身高：</b>@booking.height
+                        </div>
+                        <div class="col-sm-12">
+                            <b>体重：</b>@booking.weight
+                        </div>
+                        <div class="col-sm-12">
+                            <b>备注：</b>@booking.description
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+}
