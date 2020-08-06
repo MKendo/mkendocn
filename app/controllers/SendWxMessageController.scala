@@ -201,7 +201,7 @@ class SendWxMessageController @Inject()(cc: ControllerComponents)
     val msgurl = "https://www.mkendo.cn/user/bookingdetail/"+bookingId
     val first = s"明剑馆$place 有新同学预约体验了。"
     val keyword1 = s"$username（$mobile）"
-    val remark = "请及时关注哦。"
+    val remark = "请及时确认哦。"
 
     val userService = new UserService(dbapi)
     val users = userService.findByRoleCode("SUPER_ADMIN")
@@ -211,6 +211,28 @@ class SendWxMessageController @Inject()(cc: ControllerComponents)
       val openid = user.wxOpenid
       sendWxTemplateMessage(openid, templateid, template, msgurl, first, keyword1, courseName, remark)
     }
+  }
+
+  /**
+    * 发送 “预约已提交请等等预约确认（审核）” 消息给体验者
+    * @param userId 联系人的user
+    * @param bookingName: 预约体验的人名
+    * @param courseName
+    * @param datetime
+    * @param place
+    */
+  def sendBookingCommitedToRegister(userId:Int,bookingName:String,courseName:String,datetime:String,place:String): Unit ={
+    val userService = new UserService(dbapi)
+    val user = userService.findByUserId(userId)
+
+    val openid = user.wxOpenid
+    val templateid = "7vfPlRrtX1iAvdIilfIPJU-kFAiT19LUCdTJeBPMvx8"
+    val template = "{{first.DATA}}\n会员名称：{{keyword1.DATA}}\n预约时间：{{keyword2.DATA}}\n{{remark.DATA}}"
+    val msgurl = "https://www.mkendo.cn/assets/images/qrcode/wechatmobile.jpg" //馆长微信二维码
+    val first = s"${courseName} 课程申请已提交，我们正加紧准备。"
+    val keyword1 = s"${bookingName}"
+    val remark = "欢迎点击“查看详情”联系馆长确认预约。"
+    sendWxTemplateMessage(openid, templateid, template, msgurl, first, keyword1, courseName, remark)
   }
 
   /**
@@ -283,6 +305,26 @@ class SendWxMessageController @Inject()(cc: ControllerComponents)
   }
 
   /**
+    * 发送预约确认失败的消息给体验者
+    * @param reason
+    */
+  def sendBookingFailMessage(userId:Int,reason:String,courseName:String): Unit ={
+    val userService = new UserService(dbapi)
+    val user = userService.findByUserId(userId)
+
+    val openid = user.wxOpenid
+    val templateid = "Rw0smMT1qNANcw4Qbrt7ZZHGrWum12t0m8sKes3szs0"
+    val template = "{{first.DATA}}\n预约课程：{{keyword1.DATA}}\n失败原因：{{keyword2.DATA}}\n{{remark.DATA}}"
+
+    val first = s"亲爱的 ${user.name} 您的剑道体验课预约遇到点问题"
+    val keyword1 = courseName
+    val keyword2 = reason
+    val remark = "请点击“查看详情”及时修改预约即可。"
+    val msgurl = "https://www.mkendo.cn/wx/wxbooking" //预约体验表格
+    sendWxTemplateMessage(openid,templateid,template,msgurl,first,keyword1,keyword2,remark)
+  }
+
+  /**
     * 预发送准时到来提醒，放到数据库中的提醒队列（scheduled_tasks）
     */
   def preSendTimeArriveOnTimeMessage(userId:Int,booking:Booking): Unit ={
@@ -309,5 +351,7 @@ class SendWxMessageController @Inject()(cc: ControllerComponents)
       "{{first.DATA}}\n预约时间：{{keyword1.DATA}}\n预约内容：{{keyword2.DATA}}\n创建人：{{keyword3.DATA}}\n{{remark.DATA}}",
       msgurl,keywords,"",sendDatetime,0,1))
   }
+
+
 
 }

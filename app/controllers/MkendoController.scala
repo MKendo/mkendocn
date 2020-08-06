@@ -212,7 +212,12 @@ class MkendoController @Inject()(cc: MessagesControllerComponents)(dbapi: DBApi)
       val memberService = new MemberService(dbapi)
       val member: Member = memberService.findById(iid)
       val validates = memberService.findValidatesById(iid)
-      Ok(views.html.memberdetail(loginedUserInfo, member, validates,""))
+      val roleService = new RoleService(dbapi)
+      val roles = roleService.findRoles()
+      val userRoleCodes = if(member.userid<0) Nil else {
+        roleService.findByUser(member.userid).map(role => role.code)
+      }
+      Ok(views.html.memberdetail(loginedUserInfo, member, validates,roles,userRoleCodes,""))
     }catch{
       case ex:Exception =>{
         Ok(views.html.message("访问会员信息页面出错 "+ex.getMessage,s"传入的ID=$id", loginedUserInfo))

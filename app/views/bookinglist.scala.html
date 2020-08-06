@@ -25,6 +25,7 @@
             <tr>
                 <td>预约时间</td>
                 <td>预约人</td>
+                <td>备注</td>
                 <td>手机号</td>
                 <td>练习场次</td>
                 <td>课程</td>
@@ -35,10 +36,11 @@
             @for(booking <- bookings) {
             <tr>
                 <td>@booking.classdate</td>
-                <td>@booking.name @if(booking.description!=""){（@booking.description）}</td>
+                <td>@booking.name</td>
+                <td>@booking.getLastDescription()</td>
                 <td>@booking.mobile</td>
                 <td>@booking.placetimeName</td>
-                <td>@booking.coursename</td>
+                <td>@booking.getSimpleCourseName</td>
                 <td>@booking.height</td>
                 <td>@booking.weight</td>
                 <td><a href="/user/bookingdetail/@booking.id">查看明细</a></td>

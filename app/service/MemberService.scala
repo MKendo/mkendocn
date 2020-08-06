@@ -5,7 +5,7 @@ import java.util.Date
 
 import anorm.{Macro, RowParser, SQL, SqlParser}
 import javax.inject.Inject
-import models.{Member, MemberValidate}
+import models.{Member, MemberValidate, SimpleType}
 import play.api.db.DBApi
 
 class MemberService @Inject()(dbapi: DBApi) {
@@ -102,7 +102,7 @@ class MemberService @Inject()(dbapi: DBApi) {
       db.withConnection {
         implicit c: java.sql.Connection =>
           val newsParser: RowParser[Member] = Macro.namedParser[Member]
-          return SQL("select * from (" +
+          val member =  SQL("select * from (" +
             "select m.id id,m.name name,m.mobile mobile,m.idtypename idTypeName,m.idnumber idNumber,m.description description," +
             "m.enable enable,ifnull(m.userid,-1) userid," +
             "ifnull(mv.startvalidate,'') startvalidate,ifnull(mv.startvalidate,'') svalidate, " +
@@ -115,6 +115,8 @@ class MemberService @Inject()(dbapi: DBApi) {
             "having evalidate=max(evalidate)) " +
             "where id={db_id}"
           ).on("db_id" -> id).as(newsParser.single)
+
+          member
       }
     }catch{
       case ex: Exception => {

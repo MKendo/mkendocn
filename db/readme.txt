@@ -1,3 +1,39 @@
+--查询某天的缴费是谁
+select m.name,mv.amount,mv.commitdatetime from members m 
+join member_validates mv on mv.memberid=m.id 
+where mv.commitdatetime like '2020-06-23%';
+
+--有部分member没有userid修复后，验证使用
+select m.name,u.name,u.id 
+from members m 
+left join users u on m.userid=u.id 
+where m.name in ('李卓林','陈云起','方智绪');
+
+--月练习人数
+select count(*) from(
+select u.name name,count(*) count from calendar_instances ci 
+join users u on ci.userid=u.id 
+join calendars c on ci.calendarid=c.id 
+where c.eventtype='预约练习' and startdatetime>='2020-06-01 00:00:00' and startdatetime<='2020-06-30 23:59:59'   and ci.enable=1 
+group by u.name) ;
+
+--月练习排名
+select * from(
+select u.name name,count(*) count from calendar_instances ci 
+join users u on ci.userid=u.id 
+join calendars c on ci.calendarid=c.id 
+where c.eventtype='预约练习' and startdatetime>='2020-07-01 00:00:00' and startdatetime<='2020-07-31 23:59:59'  and ci.enable=1 
+group by u.name) order by count desc;
+
+
+--月练习鸽子王
+select * from(
+select u.name name,count(*) count from calendar_instances ci 
+join users u on ci.userid=u.id 
+join calendars c on ci.calendarid=c.id 
+where c.eventtype='预约练习' and startdatetime>='2020-07-01 00:00:00' and startdatetime<='2020-07-31 23:59:59'  and ci.enable=0 
+group by u.name) order by count desc limit 1;
+
 --命令行加载数据库：
 sqlite3 mkendo201811.db
 
@@ -188,12 +224,26 @@ values(21, 25, '厉翔 剑道会员',1);
 insert into user_roles(userid,roleid,description,enable) 
 values(22, 26, '小君 剑道会员',1);
 
+insert into user_roles(userid,roleid,description,enable) 
+values(22, 26, '钟棂骜 剑道会员',1);
+
 
 --查看用户角色关系
-select u.name,r.name,ur.description from users u 
-left join user_roles ur on ur.userid=u.id 
-left join simpletypes r on ur.roleid=r.id 
-where u.name='彭新' ;
+select ur.id urid,u.id uid,u.name,r.name,ur.description from users u 
+join user_roles ur on ur.userid=u.id 
+join simpletypes r on ur.roleid=r.id where u.name='卢泳宏';
+
+--增加用户角色为剑道会员
+insert into user_roles(userid,roleid,description,enable) 
+values((select id from users where name='李冰瑜'), 
+(select id from simpletypes where code='KENDO_MEMBER'), '李冰瑜 剑道会员',1);
+
+
+delete from user_roles where id=194;
+
+select r.name  from users u 
+ left join user_roles ur on ur.userid=u.id  
+ left join simpletypes r on ur.roleid=r.id where u.mobile='13128855200';
 
 
 select r.name  from users u 
@@ -336,6 +386,26 @@ values('黄云松','13128855200','身份证','320305197902150927',1,'','','2020-02-11 
  
 insert into members(name,mobile,idtypename,idnumber,userid,wxopenid,description,commitdatetime,enable)
 values('胡厚存','15889489370','身份证','330824197709244911',2,'','','2020-02-11 15:00:00',1);
+
+--会员注册信息表（报名时填写的表格）
+create table member_registerinfos(
+id integer primary key not null,
+memberid integer not null,
+email text,
+wechatno text,
+occupation ntext, --职业
+company ntext, --工作单位
+address ntext,
+birthday text,
+height text,
+fromdojo ntext,
+commitdatetime datetime not null,
+enable int
+);
+
+--会员考试报名信息表
+
+--会员级段位表
 
 
 --会员有效期表:
@@ -503,6 +573,11 @@ values((select id from simpletypes where name='剑道会员'),'WEEKLY;BYDAY=SU','09:
 insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
 values((select id from simpletypes where name='剑道会员'),'WEEKLY;BYDAY=SU','16:30:00','18:30:00','新人练习场','预约练习','福保道场',12,'',1);
 
+--每周四晚改为中村老师综合练习场
+update calendars set recurrencerule='WEEKLY;BYDAY=TU' where id=2;
+insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
+values((select id from simpletypes where name='剑道会员'),'WEEKLY;BYDAY=TH','19:30:00','21:30:00','中村老师综合练习场','预约练习','福保道场',15,'',1);
+
 --周一三五晚老师带课签到
 insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
 values((select id from simpletypes where name='带课老师'),'WEEKLY;BYDAY=MO,WE,FR','19:30:00','21:30:00','上甲新人练习场','带课签到','福保道场',2,'',1);
@@ -539,6 +614,9 @@ values((select id from simpletypes where name='日语老师'),'WEEKLY;BYDAY=TU,FR','
 --五一节补班
 insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
 values((select id from simpletypes where name='剑道会员'),'WEEKLY;BYDAY=SA','09:30:00','12:30:00','五一补班上甲练习场','预约练习','福保道场',12,'',1);
+--端午节练习
+insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
+values((select id from simpletypes where name='剑道会员'),'ONTIME;2020-06-27','09:30:00','12:30:00','端午调课前辈练习场','预约练习','福保道场',12,'',1);
 
 --每月最后一个周未的8-2级考试
 insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
@@ -549,6 +627,18 @@ insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,ev
 values((select id from simpletypes where name='剑道会员'),'ONTIME;2020-05-03','14:30:00','16:30:00','8-2级剑道级位审查','报名考试','福保道场',12,'',1);
 insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
 values((select id from simpletypes where name='剑道会员'),'ONTIME;2020-06-07','14:30:00','16:30:00','8-2级剑道级位审查','报名考试','福保道场',12,'',1);
+insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
+values((select id from simpletypes where name='剑道会员'),'ONTIME;2020-07-05','14:30:00','16:30:00','8-2级剑道级位审查','报名考试','福保道场',12,'',1);
+insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
+values((select id from simpletypes where name='剑道会员'),'ONTIME;2020-08-23','14:30:00','16:30:00','8-2级剑道级位审查','报名考试','福保道场',15,'',1);
+insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
+values((select id from simpletypes where name='剑道会员'),'ONTIME;2020-08-23','09:00:00','12:00:00','1级剑道级位审查','报名考试','福保道场',66,'',1);
+
+--福教大版练习
+insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
+values((select id from simpletypes where name='剑道会员'),'WEEKLY;BYDAY=SA','09:30:00','12:30:00','福教大练习(上甲)','预约练习','福保道场',20,'',1);
+insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
+values((select id from simpletypes where name='带课老师'),'WEEKLY;BYDAY=SA','09:30:00','12:30:00','福教大练习(上甲)','带课签到','福保道场',2,'',1);
 
 --日语课一对一，老师签到
 insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
@@ -567,6 +657,9 @@ values((select id from simpletypes where name='日语老师'),'ONTIME;2020-05-31','2
 --莹莹代替吉吉上一节课
 insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
 values((select id from simpletypes where name='日语老师'),'ONTIME;2020-05-29','22:00:00','23:00:00','明剑日语训练课','讲课签到','代替吉吉老师',1,'',1);
+insert into calendars(roleid,recurrencerule,starttime,endtime,event,eventtype,eventplace,actorlessthan,description,enable) 
+values((select id from simpletypes where name='日语老师'),'ONTIME;2020-06-25','22:00:00','23:00:00','明剑日语训练课','讲课签到','代替吉吉老师',1,'',1);
+
 
 --calendar_instances表
 create table calendar_instances(
@@ -588,7 +681,8 @@ select ci.startdatetime,ci.calendarid,u.name,c.event ,c.recurrencerule,ci.enable
 from calendar_instances ci 
 left join users u on ci.userid=u.id 
 left join calendars c on ci.calendarid=c.id 
-where ci.enable=1 and ci.startdatetime='2020-04-24 19:30:00';
+where ci.enable=1 and ci.startdatetime like '2020-06-03%';
+--where ci.enable=1 and ci.startdatetime='2020-06-05 19:30:00';
 
 --查询老师课程签到明细
 select u.name,ci.startdatetime,c.event,c.eventtype,c.enable from calendar_instances ci 
@@ -596,9 +690,9 @@ left join calendars c on ci.calendarid=c.id
 left join simpletypes r on c.roleid=r.id 
 left join users u on ci.userid=u.id 
 where (r.code='KENDO_TEACHER' or r.code='JA_TEACHER') and ci.enable=1 
-and startdatetime>='2020-05-24 00:00:00' 
-and startdatetime<='2020-05-24 23:59:59' 
-and u.name='刘晓苗' 
+and startdatetime>='2020-04-01 00:00:00' 
+and startdatetime<='2020-06-30 23:59:59' 
+and u.name='邱莹莹' 
 order by ci.startdatetime asc;
 
 --查询某一天是谁带课
@@ -607,8 +701,8 @@ left join calendars c on ci.calendarid=c.id
 left join simpletypes r on c.roleid=r.id 
 left join users u on ci.userid=u.id 
 where (r.code='KENDO_TEACHER' or r.code='JA_TEACHER') and ci.enable=1 
-and startdatetime>='2020-05-24 00:00:00' 
-and startdatetime<='2020-05-24 23:59:59' 
+and startdatetime>='2020-06-27 00:00:00' 
+and startdatetime<='2020-06-27 23:59:59' 
 order by ci.startdatetime asc;
 
 --查询各位老师某段时间的课程签到总数量
@@ -618,8 +712,8 @@ left join calendars c on ci.calendarid=c.id
 left join simpletypes r on c.roleid=r.id 
 left join users u on ci.userid=u.id 
 where (r.code='KENDO_TEACHER' or r.code='JA_TEACHER') and ci.enable=1 
-and startdatetime>='2020-05-01 00:00:00' 
-and startdatetime<='2020-05-31 23:59:59' 
+and startdatetime>='2020-07-01 00:00:00' 
+and startdatetime<='2020-07-31 23:59:59' 
 ) group by name;
 
 

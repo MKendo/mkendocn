@@ -122,4 +122,41 @@ class BookingService @Inject()(dbapi: DBApi) {
     }
   }
 
+  def disable(id:Int):Int = {
+    try {
+      db.withConnection {
+        implicit c: java.sql.Connection =>
+          val result : Int = SQL("update bookings set enable=0 " +
+            "where id={db_bookingsId}").on(
+            "db_bookingsId" -> id).executeUpdate()
+
+          return if(result>0) result else -1
+      }
+    }catch{
+      case ex: Exception => {
+        println(ex.getMessage)
+        throw(ex)
+      }
+    }
+  }
+
+  def updateDescription(id:Int,description:String):Int = {
+    try {
+      db.withConnection {
+        implicit c: java.sql.Connection =>
+          val result : Int = SQL("update bookings set description={db_description} " +
+            "where id={db_bookingsId}").on(
+            "db_description" -> description,
+            "db_bookingsId" -> id).executeUpdate()
+
+          return if(result>0) result else -1
+      }
+    }catch{
+      case ex: Exception => {
+        println(ex.getMessage)
+        throw(ex)
+      }
+    }
+  }
+
 }

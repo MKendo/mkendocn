@@ -21,4 +21,13 @@ case class Booking( id:Int,
     return s"$classdate ${placetimeName.substring(placetimeName.indexOf('1'))}"
   }
 
+  def getLastDescription(): String = {
+    val deses = description.split("__")
+    return deses(deses.size-1)
+  }
+
+  def getSimpleCourseName():String = {
+    val pattern = "[a-zA-Z0-9]*\\元".r
+    pattern.findFirstIn(coursename).getOrElse(coursename)
+  }
 }

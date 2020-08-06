@@ -9,3 +9,9 @@ https://www.mkendo.cn/wx/index/:
 
 预约剑道练习：
 https://www.mkendo.cn/wx/bookingkendostudy/:
+
+
+---提交到github
+1 git add *
+2 git commit -m "对此次更新的说明"
+3 git push origin master
